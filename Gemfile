@@ -51,7 +51,7 @@ end
 group :test do
   # Clean database for tests
   gem 'database_cleaner-active_record'
-  # One liner tests
+  # One liner tests http://matchers.shoulda.io/
   gem 'shoulda-matchers'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
