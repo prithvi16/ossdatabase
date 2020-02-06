@@ -53,6 +53,8 @@ group :test do
   gem 'database_cleaner-active_record'
   # One liner tests http://matchers.shoulda.io/
   gem 'shoulda-matchers'
+  # Time travel in tests
+  gem 'timecop'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
