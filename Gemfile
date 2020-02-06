@@ -49,6 +49,8 @@ end
 group :test do
   # Clean database for tests
   gem 'database_cleaner-active_record'
+  # One liner tests
+  gem 'shoulda-matchers'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
