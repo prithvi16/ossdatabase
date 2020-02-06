@@ -61,6 +61,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
+    brakeman (4.2.1)
     builder (3.2.4)
     byebug (11.1.1)
     capybara (3.30.0)
@@ -237,6 +238,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
+  brakeman
   byebug
   capybara (>= 2.15)
   database_cleaner-active_record
