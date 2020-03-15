@@ -48,6 +48,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # static security analysis
   gem "brakeman"
+  # better errors 
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do
