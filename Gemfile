@@ -37,6 +37,8 @@ group :development, :test do
   gem 'pry-rails'
   # Factories
   gem 'factory_bot_rails'
+  # Environment variables
+  gem 'dotenv-rails'
 end
 
 group :development do
