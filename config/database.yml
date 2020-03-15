@@ -9,7 +9,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
   encoding: unicode
-  host: localhost
+  host: <%= ENV.fetch("DATABASE_POSTGRES_HOST") %>
   port: <%= ENV.fetch("DATABASE_POSTGRES_PORT") { 5432 } %>
   username: <%= ENV.fetch("DATABASE_POSTGRES_USERNAME") %>
   password: <%= ENV.fetch("DATABASE_POSTGRES_PASSWORD") %>
