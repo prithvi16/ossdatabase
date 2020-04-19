@@ -45,6 +45,10 @@ group :development, :test do
   gem 'dotenv-rails'
   # Mail
   gem 'mailcatcher'
+  # Commit hooks
+  gem 'lefthook'
+  # beautify html code
+  gem 'htmlbeautifier'
 end
 
 group :development do
