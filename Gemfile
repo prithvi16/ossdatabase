@@ -43,6 +43,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   # Environment variables
   gem 'dotenv-rails'
+  # Mail
+  gem 'mailcatcher'
 end
 
 group :development do
