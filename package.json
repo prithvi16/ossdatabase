@@ -1,5 +1,5 @@
-  {
-    "scripts": {
+{
+  "scripts": {
     "precommit": "lint-staged"
   },
   "lint-staged": {
