@@ -39,6 +39,10 @@ group :development, :test do
   gem 'rspec-rails'
   # debugging
   gem 'pry-rails'
+  # linitng
+  gem 'rubocop', '~> 0.89.1', require: false
+  gem "rubocop-rails"
+
   # Factories
   gem 'factory_bot_rails'
   # Environment variables

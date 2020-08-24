@@ -12,7 +12,12 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "husky": "^4.2.5",
     "tailwindcss": "^1.7.0",
     "webpack-dev-server": "^3.10.1"
+  },
+  "engines": {
+    "node": "^10.18.1",
+    "yarn": "^1.21.1"
   }
 }
