@@ -1,4 +1,21 @@
-{
+  {
+    "scripts": {
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "app/**/*.{html,md,js,jsx,json,yml}": [
+      "prettier --write",
+      "git add"
+    ],
+    "{app,test}/**/*.rb": [
+      "bundle exec rubocop -a",
+      "git add"
+    ],
+    "Gemfile": [
+      "bundle exec rubocop -a",
+      "git add"
+    ]
+  },
   "name": "rails_starter",
   "private": true,
   "dependencies": {
