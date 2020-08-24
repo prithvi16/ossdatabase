@@ -1,6 +1,8 @@
 {
-  "scripts": {
-    "precommit": "lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "app/**/*.{html,md,js,jsx,json,yml}": [
