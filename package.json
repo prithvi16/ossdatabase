@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "precommit": "lint-staged"
+    "precommit": "yarn lint-staged"
   },
   "lint-staged": {
     "app/**/*.{html,md,js,jsx,json,yml}": [
