@@ -84,6 +84,9 @@ GEM
       msgpack (~> 1.0)
     brakeman (4.8.0)
     builder (3.2.4)
+    bullet (6.1.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     byebug (11.1.1)
     capybara (3.33.0)
       addressable
@@ -347,6 +350,7 @@ GEM
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
+    uniform_notifier (1.13.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (4.0.1)
@@ -378,6 +382,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap (>= 1.4.2)
   brakeman
+  bullet
   byebug
   capybara (>= 2.15)
   database_cleaner-active_record

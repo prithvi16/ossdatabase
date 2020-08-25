@@ -68,6 +68,8 @@ group :development do
   # better errors
   gem "better_errors"
   gem "binding_of_caller"
+  # Shooting N+1 queries
+  gem 'bullet'
 end
 
 group :test do
