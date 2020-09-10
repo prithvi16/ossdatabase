@@ -57,6 +57,8 @@ group :development, :test do
   gem 'mailcatcher'
   # beautify html code
   gem 'htmlbeautifier'
+  # Faking stuff
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 end
 
 group :development do

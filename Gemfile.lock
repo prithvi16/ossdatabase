@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: b194dd23bb4cf9f151e6f680e1ea243737d747e1
+  branch: master
+  specs:
+    faker (2.13.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -395,6 +403,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   factory_bot_rails
+  faker!
   htmlbeautifier
   jbuilder (~> 2.10)
   listen (>= 3.0.5, < 3.3)
