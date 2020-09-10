@@ -22,7 +22,7 @@
       "git add"
     ]
   },
-  "name": "rails_starter",
+  "name": "rails_ossdatabase",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
