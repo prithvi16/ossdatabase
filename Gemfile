@@ -29,6 +29,12 @@ gem 'activeadmin'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# search
+gem 'ransack'
+
+# pagination
+gem 'kaminari'
+
 # Background jobs
 gem 'sidekiq'
 

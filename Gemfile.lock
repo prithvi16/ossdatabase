@@ -406,12 +406,14 @@ DEPENDENCIES
   faker!
   htmlbeautifier
   jbuilder (~> 2.10)
+  kaminari
   listen (>= 3.0.5, < 3.3)
   mailcatcher
   pg
   pry-rails
   puma (~> 4.3)
   rails (~> 6.0.2, >= 6.0.2.1)
+  ransack
   rspec-rails
   rubocop (~> 0.90.0)
   rubocop-rails

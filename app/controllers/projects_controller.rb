@@ -9,5 +9,7 @@ class ProjectsController < ApplicationController
   end
 
   def search
+    @q = Project.ransack(params[:q])
+    @projects = @q.result(distinct: true).page params[:page]
   end
 end
