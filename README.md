@@ -1,4 +1,4 @@
-#  Starter ⚡️
+#  ossdatabase ⚡️
 
-starter is a Rails starter app, it is in the works.
+ossdatabase is a Rails ossdatabase app, it is in the works.
 
