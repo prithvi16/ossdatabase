@@ -1,2 +1,55 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+<div class="max-w-6xl mx-auto mt-8">
+  <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+    <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
+      <h3 class="text-lg leading-6 font-medium text-gray-900">
+        <%= @project.name %>
+      </h3>
+      <p class="mt-1 max-w-2xl text-sm leading-5 text-gray-500">
+        company
+      </p>
+    </div>
+    <div class="px-4 py-5 sm:px-6">
+      <dl class="grid grid-cols-1 col-gap-4 row-gap-8 sm:grid-cols-2">
+        <div class="sm:col-span-1">
+          <dt class="text-sm leading-5 font-medium text-gray-500">
+            Company Website
+          </dt>
+          <dd class="mt-1 text-sm font-medium leading-5 text-indigo-600">
+            <%= link_to @project.website, @project.website, target: "_blank" %>
+          </dd>
+        </div>
+        <div class="sm:col-span-1">
+          <dt class="text-sm leading-5 font-medium text-gray-500">
+            <%= @project.first_release.strftime("%B, %Y") + " - " + @project.last_release.strftime("%B, %Y") %>
+          </dt>
+          <dd class="mt-1 text-sm leading-5 text-gray-900">
+            tags
+          </dd>
+        </div>
+        <div class="sm:col-span-1">
+          <dt class="text-sm leading-5 font-medium text-gray-500">
+            Premium
+          </dt>
+          <dd class="mt-1 text-sm leading-5 text-gray-900">
+            <%= @project.premium %>
+          </dd>
+        </div>
+        <div class="sm:col-span-2">
+          <dt class="text-sm leading-5 font-medium text-gray-500">
+            About
+          </dt>
+          <dd class="mt-1 text-sm leading-5 text-gray-900">
+            <%= @project.description %>
+          </dd>
+        </div>
+        <div class="sm:col-span-2">
+          <%=link_to @project.website, target: "_blank" do%>
+            <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+              Website
+            </button>
+          <% end %>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
