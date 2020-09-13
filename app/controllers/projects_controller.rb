@@ -24,6 +24,6 @@ class ProjectsController < ApplicationController
   private
 
     def project_params
-      params.require(:project).permit(:name, :description, :first_release, :last_release, :premium, :website)
+      params.require(:project).permit(:name, :description, :first_release, :last_release, :premium, :website, tag_ids: [])
     end
 end

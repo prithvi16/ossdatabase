@@ -33,6 +33,15 @@ puts "Creating users, feel like god"
 end
 puts "=============done=================="
 
+100.times do
+  Tag.create!(name: Faker::Color.color_name)
+end
+
+Project.all.each do |project|
+  3.times do
+    project.tags << Tag.limit(1).order("RANDOM()")
+  end
+end
 User.create!(
   first_name: "sam",
   last_name: "example",

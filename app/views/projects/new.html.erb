@@ -78,6 +78,12 @@
             </div>
           </div>
           <div class="sm:col-span-4">
+            <%= f.label :tags, class: "block text-sm font-medium leading-5 text-gray-700" %>
+            <div class="mt-1 rounded-md shadow-sm">
+              <%= f.select :tag_ids, Tag.all.collect {|tag| [ tag.name, tag.id ] }, {}, {multiple: true, id: "slim-select"}%>
+            </div>
+          </div>
+          <div class="sm:col-span-4">
             <%= f.label :premium, class: "block text-sm font-medium leading-5 text-gray-700" %>
             <div class="mt-1">
               <%= f.label :premium, "Yes", class: "block text-sm font-medium leading-5 text-gray-700" %>
