@@ -23,7 +23,11 @@
             <%= @project.first_release.strftime("%B, %Y") + " - " + @project.last_release.strftime("%B, %Y") %>
           </dt>
           <dd class="mt-1 text-sm leading-5 text-gray-900">
-            tags
+            <% @project.tags.each do |tag| %>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium leading-5 bg-indigo-100 text-gray-800">
+                <%= tag.name %>
+              </span>
+            <% end %>
           </dd>
         </div>
         <div class="sm:col-span-1">
