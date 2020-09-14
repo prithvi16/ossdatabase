@@ -1,4 +1,4 @@
-<div class="max-w-6xl mx-auto mt-8">
+<div class="max-w-6xl mx-auto mt-8" data-controller="selectize">
   <%= form_with model: @project, method: :post, local: true do |f| %>
     <div>
       <div>
@@ -80,7 +80,7 @@
           <div class="sm:col-span-4">
             <%= f.label :tags, class: "block text-sm font-medium leading-5 text-gray-700" %>
             <div class="mt-1 rounded-md shadow-sm">
-              <%= f.select :tag_ids, Tag.all.collect {|tag| [ tag.name, tag.id ] }, {}, {multiple: true, id: "slim-select"}%>
+              <%= f.select :tag_ids, Tag.all.collect {|tag| [ tag.name, tag.id ] }, {}, {multiple: true,  "data-target": "selectize.selectInput"}%>
             </div>
           </div>
           <div class="sm:col-span-4">

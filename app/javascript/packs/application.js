@@ -16,10 +16,4 @@ import "../stylesheets/application.scss";
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-import SlimSelect from "slim-select";
-
-$(document).on("turbolinks:load", function () {
-  new SlimSelect({
-    select: document.querySelector("#slim-select"),
-  });
-});
+import "controllers";
