@@ -7494,6 +7494,13 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
+tailwindcss-stimulus-components@^2.0.9:
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/tailwindcss-stimulus-components/-/tailwindcss-stimulus-components-2.0.9.tgz#d97fd6fd8043985f7a1529ae61c1b8c26ecd9b4c"
+  integrity sha512-3pSEE5CmjxmINoA7KUOGR44kUEOfBlRBXAeVA6yvTYwNgcMG8CSOrLb7glN9hCYu0rXLjlhpvzokr6aiU4zBqw==
+  dependencies:
+    np "^6.5.0"
+
 tailwindcss@^1.7.0:
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.7.3.tgz#4aa53a482c8060e12a4a477caad562a4af0bfb16"
