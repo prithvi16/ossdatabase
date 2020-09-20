@@ -21,34 +21,41 @@ puts "Creating users, feel like god"
 100.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
-  username = first_name.downcase + last_name.downcase + SecureRandom.hex(3)
+  username = SecureRandom.hex(10)
   email = username + "@example.com"
   User.create!(
     first_name: first_name,
     last_name: last_name,
     email: email,
     username:username,
-    password: "222222"
+    password: "222222",
+    confirmed_at: DateTime.now
   )
 end
 puts "=============done=================="
 
-100.times do
-  Tag.create!(name: Faker::Color.color_name)
+puts "================================"
+puts "Creating tags"
+70.times do
+  Tag.create!(name: Faker::Color.unique.color_name)
 end
-
+puts "================================"
+puts "Creating projects"
 Project.all.each do |project|
   3.times do
     project.tags << Tag.limit(1).order("RANDOM()")
   end
 end
+puts "================================"
+puts "Creating test users"
 User.create!(
   first_name: "sam",
   last_name: "example",
   email: "sam@example.com",
   username: "sam",
   admin: true,
-  password: "222222"
+  password: "222222",
+  confirmed_at: DateTime.now
 )
 User.create!(
   first_name: "tan",
@@ -56,5 +63,6 @@ User.create!(
   email: "tan@example.com",
   username: "tan",
   admin: false,
-  password: "222222"
+  password: "222222",
+  confirmed_at: DateTime.now
 )
