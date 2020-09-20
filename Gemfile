@@ -85,6 +85,8 @@ group :development do
   # better errors
   gem "better_errors"
   gem "binding_of_caller"
+  # letter oepner
+  gem "letter_opener"
   # Shooting N+1 queries
   gem 'bullet'
 end
