@@ -43,7 +43,7 @@ puts "================================"
 puts "Creating projects"
 Project.all.each do |project|
   3.times do
-    project.tags << Tag.limit(1).order("RANDOM()")
+    project.tags << Tag.where('id NOT IN (?)', project.tags.ids ).limit(1).order("RANDOM()")
   end
 end
 puts "================================"
