@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates_uniqueness_of :username
-  validates_presence_of: username
+  validates_presence_of :username
   validates :username, format: { with: /\A(?=.*[a-z])[a-z\d]+\Z/i, message: "only allows letters and numbers" }
 
 
