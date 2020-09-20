@@ -47,5 +47,14 @@ User.create!(
   last_name: "example",
   email: "sam@example.com",
   username: "sam",
+  admin: true,
+  password: "222222"
+)
+User.create!(
+  first_name: "tan",
+  last_name: "example",
+  email: "tan@example.com",
+  username: "tan",
+  admin: false,
   password: "222222"
 )
