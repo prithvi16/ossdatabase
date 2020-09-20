@@ -42,8 +42,8 @@
           <dt class="text-sm leading-5 font-medium text-gray-500">
             About
           </dt>
-          <dd class="mt-1 text-sm leading-5 text-gray-900">
-            <%= @project.description %>
+          <dd class="mt-1 text-sm leading-5 text-gray-900 prose">
+            <%= @markdown.render(@project.description).html_safe %>
           </dd>
         </div>
         <div class="sm:col-span-2">

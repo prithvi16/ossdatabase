@@ -32,6 +32,9 @@ gem 'activeadmin'
 # search
 gem 'ransack'
 
+# markdown
+gem "redcarpet", "~> 3.5" # A fast, safe and extensible Markdown to (X)HTML parser
+
 # pagination
 gem 'kaminari'
 

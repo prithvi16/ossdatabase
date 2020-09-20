@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
     @project = Project.find(params[:id])
   end
 
