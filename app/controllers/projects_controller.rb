@@ -30,13 +30,16 @@ class ProjectsController < ApplicationController
 
   def search
     @q = Project.ransack(params[:q])
-    @projects = @q.result(distinct: true).page params[:page]
+    @projects = @q.result(distinct: true).where(visible: true).page params[:page]
   end
 
   private
 
     def set_project
       @project = Project.friendly.find(params[:id])
+      if @project.invisible?
+        render file: "#{Rails.root}/public/404.html",  layout: false, status: :not_found
+      end
     end
 
     def project_params
