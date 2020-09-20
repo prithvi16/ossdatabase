@@ -32,6 +32,9 @@ gem 'activeadmin'
 # search
 gem 'ransack'
 
+# friendly urls
+gem 'friendly_id', '~> 5.4.0'
+
 # markdown
 gem "redcarpet", "~> 3.5" # A fast, safe and extensible Markdown to (X)HTML parser
 

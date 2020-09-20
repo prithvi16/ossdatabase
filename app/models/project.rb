@@ -2,6 +2,9 @@ class Project < ApplicationRecord
   has_many :taggings
   has_many :tags, through: :taggings
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   def self.tagged_with(name)
     Tag.find_by!(name: name).projects
   end

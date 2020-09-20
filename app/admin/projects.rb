@@ -1,5 +1,5 @@
 ActiveAdmin.register Project do
 
-  permit_params :name, :website, :description, :first_release, :last_release, :premium
+  permit_params :name, :website, :description, :first_release, :last_release, :premium, :slug
 
 end
