@@ -1,20 +1,17 @@
 class ProjectsController < ApplicationController
+  before_action :set_project, only: [:show, :update, :edit]
   def new
     @project = Project.new
   end
 
   def show
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
-    @project = Project.friendly.find(params[:id])
   end
 
   def edit
-    @project = Project.friendly.find(params[:id])
   end
 
   def update
-    @project = Project.friendly.find(params[:id])
-
     if @project.update(project_params)
       redirect_to @project
     else
@@ -37,6 +34,10 @@ class ProjectsController < ApplicationController
   end
 
   private
+
+    def set_project
+      @project = Project.friendly.find(params[:id])
+    end
 
     def project_params
       params.require(:project).permit(:name, :description, :first_release, :last_release, :premium, :website, tag_ids: [])
