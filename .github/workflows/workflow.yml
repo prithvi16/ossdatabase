@@ -9,7 +9,6 @@ on: [push,pull_request]
 jobs:
   rspec-test:
     name: RSpec
-    needs: rubocop-test
     runs-on: ubuntu-18.04
     services:
       postgres:
