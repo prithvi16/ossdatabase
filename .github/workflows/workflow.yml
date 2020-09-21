@@ -1,7 +1,7 @@
 env:
   RUBY_VERSION: 2.7.1
-  POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: postgres
+  DATABASE_POSTGRES_USERNAME: postgres
+  DATABASE_POSTGRES_PASSWORD: postgres
   POSTGRES_DB: postgres
 
 name: Rails tests
@@ -16,8 +16,8 @@ jobs:
         ports:
         - 5432:5432
         env:
-          POSTGRES_USER: ${{ env.POSTGRES_USER }}
-          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+          POSTGRES_USER: ${{ env.DATABASE_POSTGRES_USERNAME }}
+          POSTGRES_PASSWORD: ${{ env.DATABASE_POSTGRES_PASSWORD }}
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-ruby@v1
