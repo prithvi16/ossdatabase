@@ -1,10 +1,10 @@
 FactoryBot.define do
   factory :project do
-    name { "MyString" }
-    website { "MyString" }
-    description { "MyString" }
-    first_release { "2020-09-10" }
-    last_release { "MyString" }
-    premium { false }
+    name { Faker::App.name }
+    website { Faker::Internet.url }
+    description { Faker::Markdown.sandwich(sentences: 5)}
+    first_release { (1000..5000).to_a.sample.days.ago }
+    last_release {  (500..1000).to_a.sample.days.ago }
+    premium { [true, false].sample }
   end
 end
