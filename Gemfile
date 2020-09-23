@@ -89,6 +89,8 @@ group :development do
   gem "letter_opener"
   # Shooting N+1 queries
   gem 'bullet'
+  # recorder
+  gem 'heavens_door'
 end
 
 group :test do
@@ -100,9 +102,8 @@ group :test do
   gem 'timecop'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'cuprite'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
