@@ -4,14 +4,17 @@ class ProjectsController < ApplicationController
   before_action :only_admin, only: [:edit, :update]
 
   def new
+    @page_title = "Submit a new project"
     @project = Project.new
   end
 
   def show
+    @page_title = @project.name
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
   end
 
   def edit
+    @page_title = "Edit project " + @project.name
   end
 
   def update
@@ -32,6 +35,7 @@ class ProjectsController < ApplicationController
   end
 
   def search
+    @page_title = "search projects"
     @q = Project.ransack(params[:q])
     @projects = @q.result(distinct: true).where(visible: true).page params[:page]
   end
