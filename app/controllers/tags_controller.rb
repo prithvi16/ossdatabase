@@ -4,5 +4,7 @@ class TagsController < ApplicationController
   end
 
   def show
+    @tag = Tag.find_by(name: params[:tag_name])
+    @tag_projects = @tag.projects.page params[:page]
   end
 end
