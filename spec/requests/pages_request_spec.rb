@@ -27,6 +27,13 @@ RSpec.describe "Pages", type: :request do
     end
   end
 
+  describe "Get password confirmation page" do
+    it "returns http success" do
+      get new_user_confirmation_path
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe "get login page" do
     it "returns http success" do
       get new_user_session_path
