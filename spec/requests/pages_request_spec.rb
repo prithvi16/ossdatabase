@@ -4,6 +4,7 @@ RSpec.describe "Pages", type: :request do
 
   before(:each) do 
     @sample_project = FactoryBot.create(:project)
+    @sample_tag = FactoryBot.create(:tag)
   end 
 
   describe "GET home page" do
@@ -44,6 +45,13 @@ RSpec.describe "Pages", type: :request do
   describe "get login page" do
     it "returns http success" do
       get new_user_session_path
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "get tag show page" do
+    it "returns http success" do
+      get tag_show_path(@sample_tag.name)
       expect(response).to have_http_status(:success)
     end
   end
