@@ -34,6 +34,13 @@ RSpec.describe "Pages", type: :request do
     end
   end
 
+  describe "Get browse projects page" do
+    it "returns http success" do
+      get projects_browse_path
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe "get login page" do
     it "returns http success" do
       get new_user_session_path
