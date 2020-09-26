@@ -1,3 +1,4 @@
+<% content_for(:html_title) { 'Submit a project' } %>
 <div class="max-w-6xl mx-auto mt-8" data-controller="selectize">
   <%= form_with model: @project, method: :post, local: true do |f| %>
     <div>

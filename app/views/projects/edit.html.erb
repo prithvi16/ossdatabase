@@ -1,3 +1,4 @@
+<% content_for(:html_title) { 'Edit project ' + @project.name  } %>
 <div class="max-w-6xl mx-auto mt-8" data-controller="selectize">
   <%= form_with model: @project, method: :put, local: true do |f| %>
     <div>
