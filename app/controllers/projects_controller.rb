@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
 
   def search
     @q = Project.ransack(params[:q])
-    @projects = @q.result(distinct: true).where(visible: true).page params[:page]
+    @projects = @q.result(distinct: true).where(visible: true).includes([:taggings, :tags]).page params[:page]
   end
 
   private
