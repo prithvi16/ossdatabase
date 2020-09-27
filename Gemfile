@@ -75,6 +75,14 @@ group :development, :test do
   gem 'htmlbeautifier'
   # Faking stuff
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+
+  gem 'rack-mini-profiler'
+  # For memory profiling
+  gem 'memory_profiler'
+
+  # For call-stack profiling flamegraphs
+  gem 'flamegraph'
+  gem 'stackprof'
 end
 
 group :development do
