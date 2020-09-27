@@ -1,5 +1,5 @@
 <% content_for(:html_title) { 'Search projects' } %>
-<div class="max-w-6xl mx-auto mt-8">
+<div class="max-w-6xl mx-auto mt-8" data-controller="selectize">
   <div class="pb-5 border-b border-gray-200">
     <div class="-ml-2 -mt-2 flex flex-wrap items-baseline">
       <h3 class="ml-2 mt-2 text-lg leading-6 font-medium text-gray-900">
@@ -17,6 +17,12 @@
                 <%= f.label :project_name, class: "block text-sm font-medium leading-5 text-gray-700" %>
                 <div class="mt-1 rounded-md shadow-sm">
                   <%= f.search_field :name_or_description_cont, class: "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
+                </div>
+              </div>
+              <div class="sm:col-span-3">
+                <%= f.label :project_tags, class: "block text-sm font-medium leading-5 text-gray-700" %>
+                <div class="mt-1 rounded-md shadow-sm">
+                  <%= f.select :tags_id_in, Tag.all.collect {|tag| [ tag.name, tag.id ] }, {}, {multiple: true,  "data-target": "selectize.selectInput"} %>
                 </div>
               </div>
             </div>
