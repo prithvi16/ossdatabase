@@ -2,6 +2,8 @@ class Project < ApplicationRecord
   has_many :taggings
   has_many :tags, through: :taggings
   validates_presence_of :name, :description, :website
+  validates :website, format: { with: URI::regexp(%w(http https)),
+    message: "invalid link format" }
 
   extend FriendlyId
   friendly_id :name, use: :slugged
