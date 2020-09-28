@@ -32,8 +32,13 @@ class ProjectsController < ApplicationController
   end
 
   def search
+    tags_id = params[:q][:tags_id].map { |i| i.to_i if !i.empty? }.compact if params[:q].present?
     @q = Project.ransack(params[:q])
-    @projects = @q.result(distinct: true).where(visible: true).includes([:taggings, :tags]).page params[:page]
+    if tags_id
+      @projects = @q.result(distinct: true).includes([:taggings, :tags]).joins(:tags).where(tags: { id: tags_id }).group(:id).having('count(tags) = ? ', tags_id.size).where(visible: true).page params[:page]
+    else
+      @projects = @q.result(distinct: true).where(visible: true).includes([:taggings, :tags]).page params[:page]
+    end
   end
 
   private

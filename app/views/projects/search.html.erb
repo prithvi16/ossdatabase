@@ -22,7 +22,7 @@
               <div class="sm:col-span-3">
                 <%= f.label :project_tags, class: "block text-sm font-medium leading-5 text-gray-700" %>
                 <div class="mt-1 rounded-md shadow-sm">
-                  <%= f.select :tags_id_in, Tag.all.collect {|tag| [ tag.name, tag.id ] }, {}, {multiple: true,  "data-target": "selectize.selectInput"} %>
+                  <%= f.select :tags_id, Tag.all.collect {|tag| [ tag.name, tag.id ] }, {}, {multiple: true,  "data-target": "selectize.selectInput"} %>
                 </div>
               </div>
             </div>
