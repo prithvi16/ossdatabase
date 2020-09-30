@@ -6,9 +6,10 @@ puts "================================"
 puts "================================"
 puts "Creating Projects, fulflling promises, vocal for local"
 1000.times do
-  Project.create!(name: Faker::App.name, 
-    description: Faker::Markdown.sandwich(sentences: 5), 
-    website: Faker::Internet.url, 
+  Project.create!(name: Faker::App.name,
+    description: Faker::Markdown.sandwich(sentences: 5),
+    website: Faker::Internet.url,
+    tag_line: Faker::Company.catch_phrase,
     first_release: (1000..5000).to_a.sample.days.ago,
     last_release: (500..1000).to_a.sample.days.ago,
     premium: [true, false].sample
