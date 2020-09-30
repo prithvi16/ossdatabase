@@ -32,20 +32,20 @@
       <% end %>
       <div class="mt-6 grid grid-cols-1 row-gap-6 col-gap-4 sm:grid-cols-6">
         <div class="sm:col-span-4">
-          <%= f.label :name, class: "block text-sm font-medium leading-5 text-gray-700" %>
+          <%= f.label :name,"Name*", class: "block text-sm font-medium leading-5 text-gray-700" %>
           <div class="mt-1 flex rounded-md shadow-sm">
             <%= f.text_field :name, class: "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
           </div>
         </div>
         <div class="sm:col-span-4">
-          <%= f.label :tag_line, class: "block text-sm font-medium leading-5 text-gray-700" %>
+          <%= f.label :tag_line, "Tagline*", class: "block text-sm font-medium leading-5 text-gray-700" %>
           <div class="mt-1 flex rounded-md shadow-sm">
             <%= f.text_field :tag_line, class: "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
           </div>
           <p class="mt-2 text-sm text-gray-500">A short one line description of the project 🔥.</p>
         </div>
         <div class="sm:col-span-4">
-          <%= f.label :description,"About project", class: "block text-sm font-medium leading-5 text-gray-700" %>
+          <%= f.label :description,"About project*", class: "block text-sm font-medium leading-5 text-gray-700" %>
           <div class="mt-1 rounded-md shadow-sm">
             <%= f.text_area :description, class:"h-48 form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
           </div>
@@ -61,7 +61,7 @@
       </div>
       <div class="mt-6 grid grid-cols-1 row-gap-6 col-gap-4 sm:grid-cols-6">
         <div class="sm:col-span-3">
-          <%= f.label :website,"Project website" , class: "block text-sm font-medium leading-5 text-gray-700" %>
+          <%= f.label :website,"Project website*" , class: "block text-sm font-medium leading-5 text-gray-700" %>
           <div class="mt-1 rounded-md shadow-sm">
             <%= f.url_field :website, class: "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"%>
             <p class="mt-2 text-sm text-gray-500">URL should start with either http:// or https://</p>
