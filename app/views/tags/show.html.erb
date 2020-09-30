@@ -7,5 +7,5 @@
       </h3>
     </div>
   </div>
-  <%= render partial: "projects/projects_list", locals: {projects_list: @tag_projects} %>
+  <%= render(ProjectListComponent.new(project_list: @tag_projects)) %>
 </div>

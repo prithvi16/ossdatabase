@@ -1,6 +1,6 @@
 <div class="bg-white shadow overflow-hidden sm:rounded-md mt-3">
   <ul>
-    <% projects_list.each do |project| %>
+    <% @project_list.each do |project| %>
       <li>
         <%=link_to project_path(project),  class: "block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out" do %>
           <div class="px-4 py-4 sm:px-6">
@@ -45,7 +45,7 @@
 <nav class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
   <div class="hidden sm:block">
     <p class="text-sm leading-5 text-indigo-600">
-      <%= paginate projects_list %>
+      <%= paginate @project_list %>
     </p>
   </div>
 </nav>
