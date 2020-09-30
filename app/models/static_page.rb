@@ -1,0 +1,2 @@
+class StaticPage < ApplicationRecord
+end

@@ -1,12 +1,12 @@
 puts "================================"
 puts "Creating admin@example.com"
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
-puts "================================"
+AdminUser.create!(email: 'admin@example.com', password: '222222', password_confirmation: '222222') if Rails.env.development?
+puts "============done================"
 
 puts "================================"
 puts "Creating Projects, fulflling promises, vocal for local"
 1000.times do
-  Project.create!(name: Faker::App.name,
+  project = Project.create!(name: Faker::App.name,
     description: Faker::Markdown.sandwich(sentences: 5),
     website: Faker::Internet.url,
     tag_line: Faker::Company.catch_phrase,
@@ -14,8 +14,9 @@ puts "Creating Projects, fulflling promises, vocal for local"
     last_release: (500..1000).to_a.sample.days.ago,
     premium: [true, false].sample
   )
+  puts "Created project" + project.name
 end
-puts "=============done=================="
+puts "============done================"
 
 puts "================================"
 puts "Creating users, feel like god"
@@ -32,8 +33,9 @@ puts "Creating users, feel like god"
     password: "222222",
     confirmed_at: DateTime.now
   )
+  puts "Created user" + username
 end
-puts "=============done=================="
+puts "============done================"
 
 puts "================================"
 puts "Creating tags"
@@ -41,7 +43,7 @@ puts "Creating tags"
   Tag.create!(name: Faker::Color.unique.color_name)
 end
 puts "================================"
-puts "Creating projects"
+puts "Attaching projects to tags"
 Project.all.each do |project|
   3.times do
     tag  = Tag.where('id NOT IN (?) or not null', project.tags.ids ).limit(1).order("RANDOM()")
@@ -49,6 +51,7 @@ Project.all.each do |project|
       tag  = Tag.limit(1).order("RANDOM()")
     end
     project.tags << tag
+    puts "Attached project #{project.name} to #{tag.name}"
   end
 end
 puts "================================"
@@ -62,6 +65,7 @@ User.create!(
   password: "222222",
   confirmed_at: DateTime.now
 )
+puts "Created sam@example.com, he is admin with password 222222"
 User.create!(
   first_name: "tan",
   last_name: "example",
@@ -71,3 +75,10 @@ User.create!(
   password: "222222",
   confirmed_at: DateTime.now
 )
+puts "Created tan@example.com, he is non-admin with password 222222"
+puts "==============done=============="
+puts "Creating static pages"
+StaticPage.create!(key: "about", content: File.read(File.open("#{Rails.root}/db/example_markdown/about.md")))
+StaticPage.create!(key: "site-updates", content: File.read(File.open("#{Rails.root}/db/example_markdown/site-updates.md")))
+StaticPage.create!(key: "contact", content: File.read(File.open("#{Rails.root}/db/example_markdown/contact.md")))
+puts "===========DONE==============="
