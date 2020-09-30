@@ -78,7 +78,7 @@ User.create!(
 puts "Created tan@example.com, he is non-admin with password 222222"
 puts "==============done=============="
 puts "Creating static pages"
-StaticPage.create!(key: "about", content: File.read(File.open("#{Rails.root}/db/example_markdown/about.md")))
-StaticPage.create!(key: "site-updates", content: File.read(File.open("#{Rails.root}/db/example_markdown/site-updates.md")))
-StaticPage.create!(key: "contact", content: File.read(File.open("#{Rails.root}/db/example_markdown/contact.md")))
+StaticPage.create!(key: "about", title: "About", content: File.read(File.open("#{Rails.root}/db/example_markdown/about.md")))
+StaticPage.create!(key: "site-updates", title: "Site Updates", content: File.read(File.open("#{Rails.root}/db/example_markdown/site-updates.md")))
+StaticPage.create!(key: "contact", title: "Contact", content: File.read(File.open("#{Rails.root}/db/example_markdown/contact.md")))
 puts "===========DONE==============="

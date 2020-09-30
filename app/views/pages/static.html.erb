@@ -1,4 +1,6 @@
 <% content_for(:html_title) { @static_page.title } %>
 <div class="max-w-6xl mx-auto mt-8 prose">
-  <%= @markdown.render(@static_page.content).html_safe %>
+  <div class="bg-white border-b shadow overflow-hidden sm:rounded-lg p-6">
+    <%= @markdown.render(@static_page.content).html_safe %>
+  </div>
 </div>
