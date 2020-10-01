@@ -40,7 +40,7 @@
 <nav class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
   <div class="hidden sm:block">
     <p class="text-sm leading-5 text-indigo-600">
-      <%= paginate @project_list %>
+      <%= paginate @project_list if @project_list.respond_to?(:total_pages)%>
     </p>
   </div>
 </nav>
