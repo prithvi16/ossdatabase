@@ -6,10 +6,10 @@ module Filterable
       results = self.where(nil)
       if !filtering_params.nil?
         filtering_params.each do |key, value|
-          results = results.public_send("filter_by_#{key}", value) if is_present(value)
+          results = results.merge(Project.public_send("filter_by_#{key}", value)) if is_present(value)
         end
       end
-      results
+      results.includes(:tags)
     end
 
     def is_present(value)
