@@ -6,7 +6,11 @@ class Project < ApplicationRecord
     message: "invalid link format" }
 
   extend FriendlyId
+  include Filterable
   friendly_id :name, use: :slugged
+
+  scope :filter_by_name, -> (name) { where("name like ?", "%#{name}%") }
+  scope :filter_by_tag_ids, -> (tag_ids) { joins(:taggings).group(:id).having("array_agg(taggings.tag_id ORDER BY taggings.tag_id) @> ARRAY[?]::bigint[]", tag_ids.reject { |element| element.empty? }.sort)}
 
   def self.tagged_with(name)
     Tag.find_by!(name: name).projects

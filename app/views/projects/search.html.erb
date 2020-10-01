@@ -9,20 +9,20 @@
   </div>
   <div class="bg-white overflow-hidden shadow rounded-lg mt-4">
     <div class="px-4 py-5 sm:p-6">
-      <%= search_form_for @q, url: projects_search_path do |f| %>
+      <%= form_for @q, url: projects_search_path, method: "GET" do |f| %>
         <div>
           <div>
             <div class="mt-6 grid grid-cols-1 row-gap-6 col-gap-4 sm:grid-cols-6">
               <div class="sm:col-span-3">
                 <%= f.label :project_name, class: "block text-sm font-medium leading-5 text-gray-700" %>
                 <div class="mt-1 rounded-md shadow-sm">
-                  <%= f.search_field :name_or_description_cont, class: "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
+                  <%= f.search_field :name, class: "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
                 </div>
               </div>
               <div class="sm:col-span-3">
-                <%= f.label :project_tags, class: "block text-sm font-medium leading-5 text-gray-700" %>
+                <%= f.label :tags, class: "block text-sm font-medium leading-5 text-gray-700" %>
                 <div class="mt-1 rounded-md shadow-sm">
-                  <%= f.select :tags_id, Tag.all.collect {|tag| [ tag.name, tag.id ] }, {}, {multiple: true,  "data-target": "selectize.selectInput"} %>
+                  <%= f.select :tag_ids, Tag.all.collect {|tag| [ tag.name, tag.id ] }, {}, {multiple: true,  "data-target": "selectize.selectInput"} %>
                 </div>
               </div>
             </div>

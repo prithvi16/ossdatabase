@@ -31,16 +31,15 @@ class ProjectsController < ApplicationController
   end
 
   def search
-    tags_id = params[:q][:tags_id].map { |i| i.to_i if !i.empty? }.compact if params[:q].present?
-    @q = Project.ransack(params[:q])
-    if tags_id
-      @projects = @q.result(distinct: true).includes([:taggings, :tags]).joins(:tags).where(tags: { id: tags_id }).group(:id).having('count(tags) = ? ', tags_id.size).where(visible: true).page params[:page]
-    else
-      @projects = @q.result(distinct: true).where(visible: true).includes([:taggings, :tags]).page params[:page]
-    end
+    @q = Project.new(search_project_params)
+    @projects = Project.filter(search_project_params).page params[:page]
   end
 
   private
+
+    def search_project_params
+      params[:project].nil? ? nil : params.require(:project).permit(:name, tag_ids: [])
+    end
 
     def only_admin
       if !current_user.admin?

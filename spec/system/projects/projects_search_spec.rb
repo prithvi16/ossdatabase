@@ -10,7 +10,7 @@ describe "Projects search" do
 
   it "Searches project and visits the project" do
     visit projects_search_path
-    fill_in 'q_name_or_description_cont', with: @sample_project.name
+    fill_in 'project_name', with: @sample_project.name
     click_button 'Search'
     expect(page).to have_content(@sample_project.name)
     expect(page).to have_link(nil, href: project_path(@sample_project))
