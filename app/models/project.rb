@@ -9,7 +9,7 @@ class Project < ApplicationRecord
   include Filterable
   friendly_id :name, use: :slugged
 
-  scope :filter_by_name, -> (name) { where("projects.name like ?", "%#{name}%") }
+  scope :filter_by_name, -> (name) { where("lower(projects.name) like ?", "%#{name.downcase}%") }
   scope :filter_by_tag_ids, -> (tag_ids) { joins(:taggings).group(:id).having("array_agg(taggings.tag_id ORDER BY taggings.tag_id) @> ARRAY[?]::bigint[]", tag_ids.reject { |element| element.empty? }.sort) }
 
   def self.tagged_with(name)
