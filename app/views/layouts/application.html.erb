@@ -31,15 +31,15 @@
             </div>
             <div class="flex-shrink-0 flex items-center justify-center pt-4">
               <%= link_to root_path do %>
-                <div class="hidden lg:block h-8 w-auto font-mono font-bold">OSSDB </div>
+                <div class="hidden lg:block in h-8 text-indigo-600 text-lg w-auto font-extrabold">OSS DATABASE </div>
               </div>
             <% end %>
             <div class="hidden md:ml-6 md:flex">
               <%= link_to projects_search_path, class: "inline-flex items-center px-1 pt-1 #{active_tab_class(projects_search_path)} text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out" do %>
-                search projects
+                Search projects
               <% end %>
               <%= link_to projects_browse_path, class: "inline-flex items-center px-1 pt-1 #{active_tab_class(projects_browse_path)} text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out" do %>
-                browse projects
+                Browse projects
               <% end %>
             </div>
           </div>
