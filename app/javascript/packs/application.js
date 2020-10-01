@@ -7,6 +7,7 @@ require("@rails/ujs").start();
 require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
+require("jquery");
 
 import "../stylesheets/application.scss";
 
@@ -16,4 +17,9 @@ import "../stylesheets/application.scss";
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+$(document).on("turbolinks:load", function () {
+  $("#mobile_menu_button").click(function () {
+    $("#mobile_menu").toggleClass(["block", "hidden"]);
+  });
+});
 import "controllers";
