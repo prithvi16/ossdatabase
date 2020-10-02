@@ -118,5 +118,16 @@
     <%= render "pages/flash", notice: notice, alert: alert %>
     <%= yield %>
     <%= render partial: "pages/footer.html.erb"%>
+    <% if Rails.env.production? %>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66624712-8"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+        gtag('config', 'UA-66624712-8');
+      </script>
+    <% end %>
   </body>
 </html>
