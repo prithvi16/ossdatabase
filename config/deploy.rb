@@ -44,3 +44,15 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bund
 
 # Only keep the last 5 releases to save disk space
 set :keep_releases, 5
+
+set :pty, true
+
+set :ssh_options, {
+
+  forward_agent: true,
+
+  auth_methods: %w[publickey],
+
+  keys: %w[~/.ssh/aws.pem]
+
+}
