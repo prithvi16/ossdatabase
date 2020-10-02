@@ -53,6 +53,6 @@ set :ssh_options, {
   
   auth_methods: %w[publickey],
 
-  keys: %w[~/.ssh/aws.pem ~/.ssh/id_rsa.pub]
+  keys: %w[~/.ssh/LightsailDefaultKey-us-east-1.pem ~/.ssh/id_rsa.pub]
 
 }
