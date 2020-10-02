@@ -38,7 +38,7 @@ set :repo_url, "git@github.com:prithvi16/ossdatabase.git"
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 # Deploy to the user's home directory
-set :deploy_to, "/home/deploy/#{fetch :application}"
+set :deploy_to, "/home/ubuntu/#{fetch :application}"
 
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
 
@@ -50,7 +50,7 @@ set :pty, true
 set :ssh_options, {
 
   forward_agent: true,
-
+  
   auth_methods: %w[publickey],
 
   keys: %w[~/.ssh/aws.pem ~/.ssh/id_rsa.pub]
