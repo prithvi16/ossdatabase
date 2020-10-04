@@ -1,5 +1,7 @@
 module.exports = {
-  purge: [],
+  purge: [
+    './app/**/*.html.erb'
+  ],
   theme: {
     extend: {},
   },
