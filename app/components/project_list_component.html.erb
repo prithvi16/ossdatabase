@@ -16,7 +16,7 @@
                 <div class="ml-2 flex-shrink-0 flex">
                   <% project.tags.each do |tag| %>
                     <%= link_to(tag_show_path(tag.name)) do %>
-                      <span class="px-3 mx-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-<%= TAILWIND_COLOURS.sample %>-300 text-white-800">
+                      <span class="px-3 mx-1 inline-flex text-xs leading-5 font-semibold rounded-full <%= TAILWIND_COLOURS_BG_300.sample %> text-white-800">
                         <%= tag.name %>
                       </span>
                     <% end %>
