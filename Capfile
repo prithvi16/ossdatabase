@@ -44,3 +44,4 @@ require 'capistrano/rails/console'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.7.1'
+require 'capistrano/honeybadger'

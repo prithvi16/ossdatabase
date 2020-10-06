@@ -29,6 +29,10 @@ gem 'activeadmin'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Error tracking
+gem "honeybadger", "~> 4.0"
+
+
 # search
 gem 'ransack'
 
