@@ -32,6 +32,9 @@ gem 'activeadmin'
 # Error tracking
 gem "honeybadger", "~> 4.0"
 
+# meta tags
+gem 'meta-tags'
+
 
 # search
 gem 'ransack'
