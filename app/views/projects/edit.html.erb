@@ -1,4 +1,4 @@
-<% content_for(:html_title) { 'Edit project ' + @project.name  } %>
+<% title 'Edit project ' + @project.name %>
 <div class="max-w-6xl mx-auto mt-8 px-4 sm:px-6 lg:px-8" data-controller="selectize">
   <%= render partial: "projects/project_form", locals: {method: :put, project: @project, submit_text: "update project"}%>
 </div>
