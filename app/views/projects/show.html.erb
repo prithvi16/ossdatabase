@@ -1,5 +1,11 @@
 <% title @project.name %>
 <% description "#{@project.name} : #{@project.tag_line}, ossdatabase"  %>
+<% set_meta_tags og: { title:@project.name, 
+                       description: "#{@project.name} : #{@project.tag_line}, ossdatabase", 
+                       image: BANNER_IMAGE_URL,
+                       type: "website",
+                       url: project_url(@project)},
+                 canonical: project_url(@project)%>
 <div class="max-w-6xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
   <%= render(ProjectComponent.new(project: @project))%>
 </div>
