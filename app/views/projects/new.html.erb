@@ -1,5 +1,11 @@
 <% title 'Submit a project' %>
 <% description 'Submit an open-source project for ossdatabase' %>
+<% set_meta_tags og: { title: "Submit a project", 
+                       description: 'Submit an open-source project for ossdatabase', 
+                       image: BANNER_IMAGE_URL,
+                       type: "website",
+                       url: new_project_url},
+                 canonical: new_project_url %>
 <div class="max-w-6xl mx-auto mt-8 px-4 sm:px-6 lg:px-8" data-controller="selectize">
   <%= render partial: "projects/project_form", locals: {method: :post, project: @project, submit_text: "Submit project"}%>
 </div>
