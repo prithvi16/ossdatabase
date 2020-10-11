@@ -1,5 +1,11 @@
-<% title  @static_page.title %>
-<% description @static_page.title %>
+<% title @static_page.title %>
+<% description @static_page.description %>
+<% set_meta_tags og: { title: @static_page.title, 
+                       description: @static_page.description, 
+                       image: BANNER_IMAGE_URL,
+                       type: "website",
+                       url: static_page_url(@static_page.key)},
+                 canonical: static_page_url(@static_page.key) %>
 <div class="max-w-6xl mx-auto mt-8 prose px-4 sm:px-6 lg:px-8">
   <div class="bg-white border-b shadow overflow-hidden sm:rounded-lg p-6">
     <%= @markdown.render(@static_page.content).html_safe %>
