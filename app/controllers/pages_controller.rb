@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @recently_added_projects = Project.includes([:tags, :taggings]).order("created_at").limit(10)
+    @recently_added_projects = Project.includes([:tags, :taggings]).order(created_at: :desc).limit(10)
   end
 
   def static
