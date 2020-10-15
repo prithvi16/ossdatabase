@@ -23,7 +23,7 @@
         </dt>
         <dd class="mt-1 text-sm leading-5 text-gray-900">
           <% @project.tags.each do |tag| %>
-            <%= link_to(tag_show_path(tag.name)) do %>
+            <%= link_to(tag_show_path(tag.slug)) do %>
               <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium leading-5 <%= TAILWIND_COLOURS_BG_400.sample %> text-white-800">
                 <%= tag.name %>
               </span>
