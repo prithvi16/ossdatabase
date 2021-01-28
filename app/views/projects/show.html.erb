@@ -8,4 +8,8 @@
                  canonical: project_url(@project)%>
 <div class="max-w-6xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
   <%= render(ProjectComponent.new(project: @project))%>
+  <div class="text-lg leading-6 font-medium text-gray-900 my-4 mx-2">
+    Related projects
+  </div>
+  <%= render(ProjectListComponent.new(project_list: @related_projects)) %>
 </div>

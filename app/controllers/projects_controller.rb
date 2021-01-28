@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @related_projects = Project.filter_by_tag_ids(@project.tag_ids.map { |e| e.to_s })
   end
 
   def edit
