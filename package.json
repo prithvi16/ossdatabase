@@ -46,7 +46,7 @@
     "webpack-dev-server": "^3.10.1"
   },
   "engines": {
-    "node": "^10.18.1",
+    "node": "^12.21.0",
     "yarn": "^1.21.1"
   }
 }
