@@ -418,7 +418,7 @@ GEM
       thread_safe (~> 0.1)
     unicode-display_width (2.0.0)
     uniform_notifier (1.13.0)
-    view_component (2.19.1)
+    view_component (2.30.0)
       activesupport (>= 5.0.0, < 7.0)
     warden (1.2.8)
       rack (>= 2.0.6)
