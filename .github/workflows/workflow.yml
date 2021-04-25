@@ -1,43 +1,60 @@
-env:
-  RUBY_VERSION: 2.7.1
-  DATABASE_POSTGRES_USERNAME: postgres
-  DATABASE_POSTGRES_PASSWORD: postgres
-  POSTGRES_DB: postgres
 
-name: Rails tests
-on: [push,pull_request]
+name: Verify
+on: [push]
+
 jobs:
-  rspec-test:
-    name: RSpec
-    runs-on: ubuntu-18.04
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:latest
-        ports:
-        - 5432:5432
+        image: postgres:11
         env:
-          POSTGRES_USER: ${{ env.DATABASE_POSTGRES_USERNAME }}
-          POSTGRES_PASSWORD: ${{ env.DATABASE_POSTGRES_PASSWORD }}
+          POSTGRES_USER: postgres
+          POSTGRES_DB: profilehunt_test
+          POSTGRES_PASSWORD: "postgres"
+        ports: ["5432:5432"]
+
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-ruby@v1
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: ${{ env.RUBY_VERSION }}
-      - name: Install postgres client
-        run: sudo apt-get install libpq-dev
-      - name: Install dependencies
+          bundler-cache: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.21.0
+      - name: Find yarn cache location
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: JS package cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install packages
         run: |
-          gem install bundler
-          bundler install
-      - name: Create database
+          yarn install --pure-lockfile
+
+      - name: Setup test database
+        env:
+          RAILS_ENV: test
+          DATABASE_POSTGRES_HOST: localhost
+          DATABASE_POSTGRES_USERNAME: "postgres"
+          DATABASE_POSTGRES_PASSWORD: "postgres"
         run: |
-          bundler exec rails db:create RAILS_ENV=test
-          bundler exec rails db:migrate RAILS_ENV=test
+          bin/rails db:create
+          bin/rails db:migrate
       - name: Run tests
-        run: bundler exec rspec
-      - name: Upload coverage results    
-        uses: actions/upload-artifact@master
-        if: always()
-        with:
-          name: coverage-report
-          path: coverage
+        env:
+          RAILS_ENV: test
+          DATABASE_POSTGRES_HOST: localhost
+          DATABASE_POSTGRES_USERNAME: "postgres"
+          DATABASE_POSTGRES_PASSWORD: "postgres"
+        run: bundle exec rspec
