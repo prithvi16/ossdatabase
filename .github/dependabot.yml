@@ -1,0 +1,28 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "23:30"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: view_component
+    versions:
+    - 2.28.0
+    - 2.31.0
+  - dependency-name: meta-tags
+    versions:
+    - 2.14.0
+  - dependency-name: devise
+    versions:
+    - 4.7.3
+  - dependency-name: friendly_id
+    versions:
+    - 5.4.2
+  - dependency-name: rubocop
+    versions:
+    - 1.12.0
+  - dependency-name: listen
+    versions:
+    - 3.4.1
