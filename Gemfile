@@ -69,7 +69,7 @@ group :development, :test do
   # debugging
   gem 'pry-rails'
   # linitng
-  gem 'rubocop', '~> 1.14.0', require: false
+  gem 'rubocop', '~> 1.18.1', require: false
   gem "rubocop-rails"
 
   # Factories
