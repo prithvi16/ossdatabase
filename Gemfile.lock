@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: bcd12d9159817b8c59736513513c4ab7eadd5fe2
+  revision: cbe601751c01568c73b25a9e159d27a4679db591
   branch: master
   specs:
     faker (2.18.0)
@@ -130,7 +130,7 @@ GEM
     childprocess (3.0.0)
     cliver (0.3.2)
     coderay (1.1.3)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.1.9)
     connection_pool (2.2.5)
     crass (1.0.6)
     cuprite (0.13)
