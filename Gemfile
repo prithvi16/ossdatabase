@@ -30,7 +30,7 @@ gem 'activeadmin'
 # gem 'image_processing', '~> 1.2'
 
 # Error tracking
-gem "honeybadger", "~> 4.8"
+gem "honeybadger", "~> 4.9"
 
 # meta tags
 gem 'meta-tags'
