@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.3'
+gem 'rails', '~> 6.1.4'
 # Use Puma as the app server
 gem 'puma', '~> 5.2'
 # Best database int the world
@@ -69,7 +69,7 @@ group :development, :test do
   # debugging
   gem 'pry-rails'
   # linitng
-  gem 'rubocop', '~> 1.14.0', require: false
+  gem 'rubocop', '~> 1.18.1', require: false
   gem "rubocop-rails"
 
   # Factories
