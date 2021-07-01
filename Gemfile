@@ -30,7 +30,7 @@ gem 'activeadmin'
 # gem 'image_processing', '~> 1.2'
 
 # Error tracking
-gem "honeybadger", "~> 4.8"
+gem "honeybadger", "~> 4.9"
 
 # meta tags
 gem 'meta-tags'
@@ -69,7 +69,7 @@ group :development, :test do
   # debugging
   gem 'pry-rails'
   # linitng
-  gem 'rubocop', '~> 1.14.0', require: false
+  gem 'rubocop', '~> 1.18.1', require: false
   gem "rubocop-rails"
 
   # Factories
