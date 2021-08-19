@@ -12,27 +12,27 @@
   </head>
   <body>
     <nav class="bg-white shadow" data-controller="dropdown">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex">
-            <div class="-ml-2 mr-2 flex items-center md:hidden">
+            <div class="flex items-center mr-2 -ml-2 md:hidden">
               <!-- Mobile menu button -->
-              <button id="mobile_menu_button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" aria-label="Main menu" aria-expanded="false">
+              <button id="mobile_menu_button" class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500" aria-label="Main menu" aria-expanded="false">
                 <!-- Icon when menu is closed. -->
                 <!-- Menu open: "hidden", Menu closed: "block" -->
-                <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="block w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
                 <!-- Icon when menu is open. -->
                 <!-- Menu open: "block", Menu closed: "hidden" -->
-                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="hidden w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
-            <div class="flex-shrink-0 flex items-center justify-center pt-4">
+            <div class="flex items-center justify-center flex-shrink-0 pt-4">
               <%= link_to root_path do %>
-                <div class="block in h-8 text-indigo-600 text-sm md:text-lg w-auto font-extrabold">OSS DATABASE </div>
+                <div class="block w-auto h-8 text-sm font-extrabold text-indigo-600 in md:text-lg">OSS DATABASE </div>
               </div>
             <% end %>
             <div class="hidden md:ml-6 md:flex">
@@ -47,8 +47,8 @@
           <div class="flex items-center">
             <div class="flex-shrink-0">
               <%= link_to new_project_path do%>
-                <button type="button" class="relative inline-flex items-center px-2 py-1 md:px-4 md:py-2 border border-transparent text-xs md:text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
-                  <svg class="-ml-1 mr-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <button type="button" class="relative inline-flex items-center px-2 py-1 text-xs font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md shadow-sm md:px-4 md:py-2 md:text-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700">
+                  <svg class="w-5 h-5 mr-2 -ml-1" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
                   </svg>
                   <span>Submit a project</span>
@@ -57,15 +57,15 @@
             </div>
             <div class="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center">
               <!-- Profile dropdown -->
-              <div class="ml-3 relative">
+              <div class="relative ml-3">
                 <% if user_signed_in? %>
                   <div data-action="click->dropdown#toggle click@window->dropdown#hide">
-                    <button class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150" id="user-menu" aria-label="User menu" aria-haspopup="true">
+                    <button class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700" id="user-menu" aria-label="User menu" aria-haspopup="true">
                       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     </button>
                   <% else %>
                     <%= link_to new_user_session_path do%>
-                      <button type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+                      <button type="button" class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700">
                         <span>Sign up / Sign In</span>
                       </button>
                     <% end %>
@@ -81,8 +81,8 @@
                 From: "transform opacity-100 scale-100"
                 To: "transform opacity-0 scale-95"
             --><% if user_signed_in? %>
-                  <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg hidden" data-target="dropdown.menu">
-                    <div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                  <div class="absolute right-0 hidden w-48 mt-2 origin-top-right rounded-md shadow-lg" data-target="dropdown.menu">
+                    <div class="py-1 bg-white rounded-md shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
                       <%= link_to "Account settings" , edit_user_registration_path,class: "block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"%>
                       <%= link_to "Sign out" , destroy_user_session_path,class: "block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out", method: "delete"%>
                     </div>
@@ -119,15 +119,7 @@
     <%= yield %>
     <%= render partial: "pages/footer.html.erb"%>
     <% if Rails.env.production? %>
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66624712-8"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        
-        gtag('config', 'UA-66624712-8');
-      </script>
+      <script defer data-domain="ossdatabase.com" src="https://plausible.io/js/plausible.js"></script>
     <% end %>
   </body>
 </html>
