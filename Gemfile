@@ -35,6 +35,8 @@ gem "honeybadger", "~> 4.9"
 # meta tags
 gem 'meta-tags'
 
+# Github API access
+gem 'octokit'
 
 # search
 gem 'ransack'
