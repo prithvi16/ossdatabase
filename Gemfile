@@ -32,6 +32,9 @@ gem 'activeadmin'
 # Error tracking
 gem "honeybadger", "~> 4.9"
 
+# Annotations
+gem 'annotate'
+
 # meta tags
 gem 'meta-tags'
 
