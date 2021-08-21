@@ -331,7 +331,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
-    rubocop (1.19.0)
+    rubocop (1.19.1)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -484,7 +484,7 @@ DEPENDENCIES
   ransack
   redcarpet (~> 3.5)
   rspec-rails
-  rubocop (~> 1.19.0)
+  rubocop (~> 1.19.1)
   rubocop-rails
   sass-rails (>= 6)
   shoulda-matchers
