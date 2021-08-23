@@ -56,6 +56,3 @@ set :ssh_options, {
   keys: %w[~/.ssh/LightsailDefaultKey-us-east-1.pem ~/.ssh/id_rsa.pub]
 
 }
-
-SSHKit.config.command_map[:sidekiq] = "bundle exec sidekiq"
-SSHKit.config.command_map[:sidekiqctl] = "bundle exec sidekiqctl"
