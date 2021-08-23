@@ -35,6 +35,10 @@ gem "honeybadger", "~> 4.9"
 # Annotations
 gem 'annotate'
 
+# Background jobs
+gem 'sidekiq'
+
+
 # meta tags
 gem 'meta-tags'
 
