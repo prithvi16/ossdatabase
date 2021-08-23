@@ -38,6 +38,8 @@ gem 'annotate'
 # Background jobs
 gem 'sidekiq'
 
+# deployment
+gem 'capistrano-sidekiq', group: :development
 
 # meta tags
 gem 'meta-tags'

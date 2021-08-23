@@ -45,7 +45,7 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bund
 # Only keep the last 5 releases to save disk space
 set :keep_releases, 5
 
-set :pty, true
+set :pty, false
 
 set :ssh_options, {
 
@@ -56,3 +56,6 @@ set :ssh_options, {
   keys: %w[~/.ssh/LightsailDefaultKey-us-east-1.pem ~/.ssh/id_rsa.pub]
 
 }
+
+SSHKit.config.command_map[:sidekiq] = "bundle exec sidekiq"
+SSHKit.config.command_map[:sidekiqctl] = "bundle exec sidekiqctl"
