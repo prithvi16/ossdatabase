@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: 48d160875bd6a3678cb7dc2315618a9879e06788
+  revision: 4767edc5a11215ff2c023b582d1cb14ffe4e276b
   branch: master
   specs:
-    faker (2.18.0)
+    faker (2.19.0)
       i18n (>= 1.6, < 2)
 
 GEM
