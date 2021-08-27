@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   authenticate :user, lambda { |u| u.admin? } do
     get '/site_admin/home', to: "site_admin#home"
+    post '/site_admin/github_projects', to: "site_admin#github_projects", as: "site_admin_github_projects"
     mount Sidekiq::Web => '/sidekiq'
   end
   get 'tags/:tag_name', to: "tags#show", as: "tag_show"

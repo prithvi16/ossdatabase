@@ -1,2 +1,20 @@
-<h1>SiteAdmin#home</h1>
-<p>Find me in app/views/site_admin/home.html.erb</p>
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+  <!-- We've used 3xl here, but feel free to try other max-widths based on your needs -->
+  <div class="max-w-3xl mx-auto">
+    <div class="my-5 text-xl">
+      Add github projects
+    </div>
+    <%= form_with url: site_admin_github_projects_path, method: :post  do |f| %>
+      <div>
+        <%= f.label :github_projects, class: "block text-sm font-medium leading-5 text-gray-700"%>
+        <div class="relative mt-1 rounded-md shadow-sm">
+          <%= f.text_field :github_projects, class:"form-input block w-full sm:text-sm sm:leading-5" %>
+        </div>
+      </div>
+      <div class="mt-1">
+        <%= f.button :submit, class: "inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs leading-4 font-medium rounded text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150"%>
+      </div>
+    <% end %>
+  </div>
+</div>
