@@ -8,8 +8,7 @@ class SiteAdminController < ApplicationController
   def github_projects
     github_projects = params[:github_projects]
     GithubToProjectWorker.perform_async(github_projects)
-    flash[:success] = "Added to queue sucessfully"
-    redirect_to site_admin_home_path
+    redirect_to site_admin_home_path, flash: {notice: "Added to queue sucessfully"}
   end
 
   private
