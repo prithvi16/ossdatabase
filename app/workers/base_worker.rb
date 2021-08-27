@@ -1,4 +1,3 @@
-
 class BaseWorker
   include Sidekiq::Worker
 

@@ -10,15 +10,11 @@
       "git add"
     ],
     "{app,test}/**/*.rb": [
-      "bundle exec rubocop -a",
+      "standardrb --fix",
       "git add"
     ],
     "{app,test}/**/*html.erb": [
       "bundle exec htmlbeautifier",
-      "git add"
-    ],
-    "Gemfile": [
-      "bundle exec rubocop -a",
       "git add"
     ]
   },

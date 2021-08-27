@@ -433,6 +433,8 @@ GEM
     sshkit-interactive (0.3.0)
       sshkit (~> 1.12)
     stackprof (0.2.17)
+    standard (0.0.36)
+      rubocop (>= 0.63)
     temple (0.8.2)
     thin (1.7.2)
       daemons (~> 1.0, >= 1.0.9)
@@ -529,6 +531,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   stackprof
+  standard
   timecop
   turbolinks (~> 5)
   tzinfo-data

@@ -1,5 +1,5 @@
 TAILWIND_COLOURS = %w[gray red orange yellow green teal blue indigo purple pink]
-TAILWIND_COLOURS_BG_400 =  ["bg-gray-400",
+TAILWIND_COLOURS_BG_400 = ["bg-gray-400",
   "bg-red-400",
   "bg-orange-400",
   "bg-yellow-400",
@@ -19,7 +19,7 @@ TAILWIND_COLOURS_BG_600 = ["bg-gray-600",
   "bg-indigo-600",
   "bg-purple-600",
   "bg-pink-600"]
-TAILWIND_COLOURS_BG_300 =  ["bg-gray-300",
+TAILWIND_COLOURS_BG_300 = ["bg-gray-300",
   "bg-red-300",
   "bg-orange-300",
   "bg-yellow-300",

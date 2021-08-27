@@ -3,8 +3,8 @@ module Filterable
 
   module ClassMethods
     def filter(filtering_params)
-      results = self.where(nil)
-      if !filtering_params.nil?
+      results = where(nil)
+      if filtering_params.present?
         filtering_params.each do |key, value|
           results = results.merge(Project.public_send("filter_by_#{key}", value)) if is_present(value)
         end
@@ -13,13 +13,13 @@ module Filterable
     end
 
     def is_present(value)
-      if value.class == String
+      if value.instance_of?(String)
         if value.empty?
           false
         else
           true
         end
-      elsif value.class == Array
+      elsif value.instance_of?(Array)
         if value.reject { |element| element.empty? }.empty?
           false
         else

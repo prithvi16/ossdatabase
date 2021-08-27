@@ -1,18 +1,18 @@
-require 'sidekiq/web'
+require "sidekiq/web"
 
 Rails.application.routes.draw do
-  get 'projects/browse', to: "tags#index", as: "projects_browse"
-  get 'projects/search', to: "projects#search", as: "projects_search"
+  get "projects/browse", to: "tags#index", as: "projects_browse"
+  get "projects/search", to: "projects#search", as: "projects_search"
   root to: "pages#home"
   authenticate :user, lambda { |u| u.admin? } do
-    get '/site_admin/home', to: "site_admin#home"
-    post '/site_admin/github_projects', to: "site_admin#github_projects", as: "site_admin_github_projects"
-    mount Sidekiq::Web => '/sidekiq'
+    get "/site_admin/home", to: "site_admin#home"
+    post "/site_admin/github_projects", to: "site_admin#github_projects", as: "site_admin_github_projects"
+    mount Sidekiq::Web => "/sidekiq"
   end
-  get 'tags/:tag_name', to: "tags#show", as: "tag_show"
+  get "tags/:tag_name", to: "tags#show", as: "tag_show"
   resources :projects, only: [:new, :show, :create, :edit, :update]
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
-  get 'pages/:key', to: "pages#static", as: "static_page"
+  get "pages/:key", to: "pages#static", as: "static_page"
 end

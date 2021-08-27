@@ -1,10 +1,9 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Projects", type: :request do
-
-  before(:each) do 
+  before(:each) do
     @sample_project = FactoryBot.create(:project)
-  end 
+  end
 
   describe "GET /new" do
     it "returns http success" do

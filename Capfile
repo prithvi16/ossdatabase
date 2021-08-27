@@ -36,14 +36,14 @@ install_plugin Capistrano::SCM::Git
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
-require 'capistrano/rails'
-require 'capistrano/passenger'
-require 'capistrano/rbenv'
-require 'capistrano/rails/console'
-require 'capistrano/sidekiq'
-install_plugin Capistrano::Sidekiq  # Default sidekiq tasks
+require "capistrano/rails"
+require "capistrano/passenger"
+require "capistrano/rbenv"
+require "capistrano/rails/console"
+require "capistrano/sidekiq"
+install_plugin Capistrano::Sidekiq # Default sidekiq tasks
 install_plugin Capistrano::Sidekiq::Systemd
 
 set :rbenv_type, :user
-set :rbenv_ruby, '2.7.1'
-require 'capistrano/honeybadger'
+set :rbenv_ruby, "2.7.1"
+require "capistrano/honeybadger"

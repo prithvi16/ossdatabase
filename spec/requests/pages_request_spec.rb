@@ -1,11 +1,10 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Pages", type: :request do
-
-  before(:each) do 
+  before(:each) do
     @sample_project = FactoryBot.create(:project)
     @sample_tag = FactoryBot.create(:tag)
-  end 
+  end
 
   describe "GET home page" do
     it "returns http success" do

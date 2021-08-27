@@ -14,9 +14,9 @@ class SiteAdminController < ApplicationController
 
   private
 
-    def is_user_admin
-      if !current_user.admin?
-        redirect_to root_path
-      end
+  def is_user_admin
+    if !current_user.admin?
+      redirect_to root_path
     end
+  end
 end

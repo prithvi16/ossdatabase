@@ -1,19 +1,18 @@
 puts "================================"
 puts "Creating admin@example.com"
-AdminUser.create!(email: 'admin@example.com', password: '222222', password_confirmation: '222222') if Rails.env.development?
+AdminUser.create!(email: "admin@example.com", password: "222222", password_confirmation: "222222") if Rails.env.development?
 puts "============done================"
 
 puts "================================"
 puts "Creating Projects, fulflling promises, vocal for local"
 1000.times do
   project = Project.create!(name: Faker::App.name,
-    description: Faker::Markdown.sandwich(sentences: 5),
-    website: Faker::Internet.url,
-    tag_line: Faker::Company.catch_phrase,
-    first_release: (1000..5000).to_a.sample.days.ago,
-    last_release: (500..1000).to_a.sample.days.ago,
-    premium: [true, false].sample
-  )
+                            description: Faker::Markdown.sandwich(sentences: 5),
+                            website: Faker::Internet.url,
+                            tag_line: Faker::Company.catch_phrase,
+                            first_release: (1000..5000).to_a.sample.days.ago,
+                            last_release: (500..1000).to_a.sample.days.ago,
+                            premium: [true, false].sample)
   puts "Created project" + project.name
 end
 puts "============done================"
@@ -29,7 +28,7 @@ puts "Creating users, feel like god"
     first_name: first_name,
     last_name: last_name,
     email: email,
-    username:username,
+    username: username,
     password: "222222",
     confirmed_at: DateTime.now
   )
@@ -46,9 +45,9 @@ puts "================================"
 puts "Attaching projects to tags"
 Project.all.each do |project|
   3.times do
-    tag  = Tag.where('id NOT IN (?) or not null', project.tags.ids ).limit(1).order("RANDOM()")
+    tag = Tag.where("id NOT IN (?) or not null", project.tags.ids).limit(1).order("RANDOM()")
     if tag.empty?
-      tag  = Tag.limit(1).order("RANDOM()")
+      tag = Tag.limit(1).order("RANDOM()")
     end
     project.tags << tag
     puts "Attached project #{project.name} to #{tag.name}"

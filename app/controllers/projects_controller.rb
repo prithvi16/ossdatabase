@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
     if @project.update(project_params)
       redirect_to @project
     else
-      render 'edit'
+      render "edit"
     end
   end
 
@@ -38,24 +38,24 @@ class ProjectsController < ApplicationController
 
   private
 
-    def search_project_params
-      params[:project].nil? ? nil : params.require(:project).permit(:name, tag_ids: [])
-    end
+  def search_project_params
+    params[:project].nil? ? nil : params.require(:project).permit(:name, tag_ids: [])
+  end
 
-    def only_admin
-      if !current_user.admin?
-        render plain: "Not allowed", status: :forbidden
-      end
+  def only_admin
+    if !current_user.admin?
+      render plain: "Not allowed", status: :forbidden
     end
+  end
 
-    def set_project
-      @project = Project.friendly.find(params[:id])
-      if @project.invisible? || @project.nil?
-        render file: "#{Rails.root}/public/404.html",  layout: false, status: :not_found
-      end
+  def set_project
+    @project = Project.friendly.find(params[:id])
+    if @project.invisible? || @project.nil?
+      render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found
     end
+  end
 
-    def project_params
-      params.require(:project).permit(:name, :tag_line, :description, :first_release, :last_release, :premium, :website, tag_ids: [])
-    end
+  def project_params
+    params.require(:project).permit(:name, :tag_line, :description, :first_release, :last_release, :premium, :website, tag_ids: [])
+  end
 end
