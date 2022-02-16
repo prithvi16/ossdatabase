@@ -1,0 +1,34 @@
+<% title 'Resend confirmation instructions'%>
+<% description "Resend confirmation instructions for your email on ossdatabase" %>
+<% set_meta_tags og: { title: 'Resend confirmation instructions', 
+                       description: "Resend confirmation instructions for your email on ossdatabase", 
+                       image: BANNER_IMAGE_URL,
+                       type: "website",
+                       url: new_user_confirmation_path},
+                 canonical: new_user_confirmation_path%>
+<div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+      <h1 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
+        Resend confirmation instructions    </h1>
+    </div>
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= f.label :email, class: "block text-sm font-medium leading-5 text-gray-700" %>
+          <div class="mt-1 rounded-md shadow-sm">
+            <%= f.email_field :email, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"  %>
+          </div>
+          <div class="mt-6">
+            <span class="block w-full rounded-md shadow-sm">
+              <%= f.submit "Resend confirmation instructions", class: "w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" %>
+            </span>
+          </div>
+        <% end %>
+        <div class="mt-4 text-indigo-600">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
