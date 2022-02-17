@@ -1,0 +1,8 @@
+<% if notice || alert %>
+  <div data-controller="alert"
+     data-alert-target="origin"
+     data-message="<%= if notice then notice else alert end%>"
+     data-message-type="<%= if notice then "notice" else "alert" end%>"
+>
+  </div>
+<% end %>

@@ -1,0 +1,49 @@
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "app/**/*.{html,md,js,jsx,json,yml}": [
+      "prettier --write",
+      "git add"
+    ],
+    "{app,test}/**/*.rb": [
+      "standardrb --fix",
+      "git add"
+    ],
+    "{app,test}/**/*html.erb": [
+      "bundle exec htmlbeautifier",
+      "git add"
+    ]
+  },
+  "name": "rails_ossdatabase",
+  "private": true,
+  "dependencies": {
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "5.4",
+    "@tailwindcss/typography": "^0.2.0",
+    "@tailwindcss/ui": "^0.5.0",
+    "jquery": "^3.5.0",
+    "notyf": "^3.10.0",
+    "slim-select": "^1.26.0",
+    "stimulus": "^2.0.0",
+    "tailwindcss-stimulus-components": "^2.0.9",
+    "turbolinks": "^5.2.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "2.0.5",
+    "tailwindcss": "^1.7.0",
+    "webpack-dev-server": "^3.10.1"
+  },
+  "engines": {
+    "node": "^12.21.0",
+    "yarn": "^1.21.1"
+  }
+}

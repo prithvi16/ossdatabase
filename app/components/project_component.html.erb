@@ -1,0 +1,60 @@
+<div class="bg-white border-b shadow overflow-hidden sm:rounded-lg">
+  <div class="px-4 py-5 border-b border-gray-300 sm:px-6">
+    <h1 class="text-lg leading-6 font-medium text-gray-900">
+      <%= @project.name %>
+    </h1>
+    <p class="mt-1 max-w-2xl text-sm leading-5 text-gray-500">
+      <%= @project.tag_line %>
+    </p>
+  </div>
+  <div class="px-4 py-5 sm:px-6">
+    <dl class="grid grid-cols-1 col-gap-4 row-gap-8 sm:grid-cols-2">
+      <div class="sm:col-span-1">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
+          Project Website
+        </dt>
+        <dd class="mt-1 text-sm font-medium leading-5 text-indigo-600">
+          <%= link_to @project.website, @project.website, target: "_blank" %>
+        </dd>
+      </div>
+      <div class="sm:col-span-1">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
+          Tags
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900">
+          <% @project.tags.each do |tag| %>
+            <%= link_to(tag_show_path(tag.slug)) do %>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium leading-5 <%= TAILWIND_COLOURS_BG_400.sample %> text-white-800">
+                <%= tag.name %>
+              </span>
+            <% end %>
+          <% end %>
+        </dd>
+      </div>
+      <div class="sm:col-span-1">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
+          Offers premium version?
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900">
+          <%= premium_description %>
+        </dd>
+      </div>
+      <div class="sm:col-span-1">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
+          First and last release
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900">
+          <%= release_description %>
+        </dd>
+      </div>
+      <div class="sm:col-span-2">
+        <dt class="text-sm leading-5 font-medium text-gray-500">
+          About
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900 prose">
+          <%= @markdown.render(@project.description).html_safe %>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
