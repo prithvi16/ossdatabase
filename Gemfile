@@ -30,7 +30,7 @@ gem "activeadmin"
 # gem 'image_processing', '~> 1.2'
 
 # Error tracking
-gem "honeybadger", "~> 4.9"
+gem "honeybadger", "~> 4.11"
 
 # Annotations
 gem "annotate"
@@ -79,7 +79,7 @@ group :development, :test do
   # debugging
   gem "pry-rails"
   # linitng
-  gem "rubocop", "~> 1.20.0", require: false
+  gem "rubocop", "~> 1.25.1", require: false
   gem "rubocop-rails"
 
   # Factories
