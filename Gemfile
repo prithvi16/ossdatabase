@@ -30,7 +30,7 @@ gem "activeadmin"
 # gem 'image_processing', '~> 1.2'
 
 # Error tracking
-gem "honeybadger", "~> 4.9"
+gem "honeybadger", "~> 4.11"
 
 # Annotations
 gem "annotate"
