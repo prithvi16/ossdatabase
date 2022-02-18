@@ -6,24 +6,24 @@
                        type: "website",
                        url: projects_search_url},
                  canonical: projects_search_url %>
-<div class="max-w-6xl mx-auto mt-8 px-4 sm:px-6 lg:px-8" data-controller="selectize">
+<div class="max-w-6xl px-4 mx-auto mt-8 sm:px-6 lg:px-8" data-controller="selectize">
   <div class="pb-5 border-b border-gray-200">
-    <div class="-ml-2 -mt-2 flex flex-wrap items-baseline">
-      <h1 class="ml-2 mt-2 text-lg leading-6 font-medium text-gray-900">
+    <div class="flex flex-wrap items-baseline -mt-2 -ml-2">
+      <h1 class="mt-2 ml-2 text-lg font-medium leading-6 text-gray-900">
         Search OSS projects
       </h1>
     </div>
   </div>
-  <div class="bg-white overflow-hidden shadow rounded-lg mt-4">
+  <div class="mt-4 overflow-hidden bg-white rounded-lg shadow">
     <div class="px-4 py-5 sm:p-6">
       <%= form_for @q, url: projects_search_path, method: "GET" do |f| %>
         <div>
           <div>
-            <div class="mt-6 grid grid-cols-1 row-gap-6 col-gap-4 sm:grid-cols-6">
+            <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
               <div class="sm:col-span-3">
                 <%= f.label :project_name, class: "block text-sm font-medium leading-5 text-gray-700" %>
                 <div class="mt-1 rounded-md shadow-sm">
-                  <%= f.search_field :name, class: "form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
+                  <%= f.search_field :name, class: "border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm" %>
                 </div>
               </div>
               <div class="sm:col-span-3">
@@ -35,10 +35,10 @@
             </div>
           </div>
         </div>
-        <div class="mt-8 pt-5">
+        <div class="pt-5 mt-8">
           <div class="flex justify-end">
-            <span class="ml-3 inline-flex rounded-md shadow-sm">
-              <%= f.submit "Search", class: "inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150" %>
+            <span class="inline-flex ml-3 rounded-md shadow-sm">
+              <%= f.submit "Search", class: "inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700 transition ease-in-out duration-150" %>
             </span>
           </div>
         </div>
