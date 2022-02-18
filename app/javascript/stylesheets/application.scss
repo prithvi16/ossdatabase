@@ -5,3 +5,12 @@
 @import "tailwindcss/utilities";
 
 @import "slim-select/dist/slimselect.min.css";
+
+@font-face {
+  font-family: 'Inter';
+  src: url("./inter.ttf");
+}
+
+body {
+  font-family: 'Inter', 'sans-serif';
+}
