@@ -13,7 +13,7 @@
                 <div class="text-sm leading-5 font-medium text-indigo-600 truncate">
                   <%= project.name %>
                 </div>
-                <div class="ml-2 flex-shrink-0 flex">
+                <div class="ml-2 shrink-0 flex">
                   <% project.tags.each do |tag| %>
                     <%= link_to(tag_show_path(tag.slug)) do %>
                       <span class="px-3 mx-1 inline-flex text-xs leading-5 font-semibold rounded-full <%= TAILWIND_COLOURS_BG_300.sample %> text-white-800">

@@ -29,7 +29,7 @@
                 </svg>
               </button>
             </div>
-            <div class="flex items-center justify-center flex-shrink-0 pt-4">
+            <div class="flex items-center justify-center shrink-0 pt-4">
               <%= link_to root_path do %>
                 <div class="block w-auto h-8 text-sm font-extrabold text-indigo-600 in md:text-lg">OSS DATABASE </div>
               </div>
@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="flex items-center">
-            <div class="flex-shrink-0">
+            <div class="shrink-0">
               <%= link_to new_project_path do%>
                 <button type="button" class="relative inline-flex items-center px-2 py-1 text-xs font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md shadow-sm md:px-4 md:py-2 md:text-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700">
                   <svg class="w-5 h-5 mr-2 -ml-1" viewBox="0 0 20 20" fill="currentColor">
@@ -54,7 +54,7 @@
                 </button>
               <% end %>
             </div>
-            <div class="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center">
+            <div class="hidden md:ml-4 md:shrink-0 md:flex md:items-center">
               <!-- Profile dropdown -->
               <div class="relative ml-3">
                 <% if user_signed_in? %>
