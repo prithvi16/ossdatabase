@@ -1,3 +1,7 @@
+# Required beacuse Rails is not running yet
+require 'dotenv'
+Dotenv.load
+
 # Load DSL and set up stages
 require "capistrano/setup"
 
