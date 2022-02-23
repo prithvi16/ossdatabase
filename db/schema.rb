@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_23_094737) do
+ActiveRecord::Schema.define(version: 2022_02_23_105411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2022_02_23_094737) do
     t.string "source_id"
     t.datetime "last_updated_from_source"
     t.string "repo_url"
+    t.boolean "proprietary", default: false
     t.index ["slug"], name: "index_projects_on_slug", unique: true
   end
 
