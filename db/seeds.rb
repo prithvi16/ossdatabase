@@ -17,24 +17,24 @@ puts "Creating Projects, fulflling promises, vocal for local"
 end
 puts "============done================"
 
-puts "================================"
-puts "Creating users, feel like god"
-100.times do
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
-  username = SecureRandom.hex(10)
-  email = username + "@example.com"
-  User.create!(
-    first_name: first_name,
-    last_name: last_name,
-    email: email,
-    username: username,
-    password: "222222",
-    confirmed_at: DateTime.now
-  )
-  puts "Created user" + username
-end
-puts "============done================"
+# puts "================================"
+# puts "Creating users, feel like god"
+# 100.times do
+#   first_name = Faker::Name.first_name
+#   last_name = Faker::Name.last_name
+#   username = SecureRandom.hex(10)
+#   email = username + "@example.com"
+#   User.create!(
+#     first_name: first_name,
+#     last_name: last_name,
+#     email: email,
+#     username: username,
+#     password: "222222",
+#     confirmed_at: DateTime.now
+#   )
+#   puts "Created user" + username
+# end
+# puts "============done================"
 
 puts "================================"
 puts "Creating tags"
@@ -44,11 +44,8 @@ end
 puts "================================"
 puts "Attaching projects to tags"
 Project.all.each do |project|
-  6.times do
-    tag = Tag.where("id NOT IN (?) or not null", project.tags.ids).limit(1).order("RANDOM()")
-    if tag.empty?
-      tag = Tag.limit(1).order("RANDOM()")
-    end
+  TOP_TAG_TYPES.each do |tag_type|
+    tag = Tag.where(tag_type: tag_type).order("RANDOM()").limit(1)
     project.tags << tag
     puts "Attached project #{project.name} to #{tag.name}"
   end
