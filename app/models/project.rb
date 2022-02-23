@@ -50,6 +50,22 @@ class Project < ApplicationRecord
     tags.map(&:name).join(", ")
   end
 
+  def tech_tags
+    tags.where(tag_type: "tech")
+  end
+
+  def license_tags
+    tags.where(tag_type: "license")
+  end
+
+  def category_tags
+    tags.where(tag_type: "category")
+  end
+
+  def usecase_tags
+    tags.where(tag_type: "usecase")
+  end
+
   def tag_list=(names)
     self.tags = names.split(",").map do |n|
       Tag.where(name: n.strip).first_or_create!
