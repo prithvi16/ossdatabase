@@ -24,6 +24,8 @@
 class Project < ApplicationRecord
   has_many :taggings
   has_many :tags, through: :taggings
+  has_one_attached :avatar
+  
   validates_presence_of :name, :description, :website, :tag_line
   validates :website, format: {with: URI::DEFAULT_PARSER.make_regexp(%w[http https]),
                                message: "invalid link format"}
