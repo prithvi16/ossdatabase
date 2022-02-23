@@ -11,6 +11,15 @@ class SiteAdminController < ApplicationController
     redirect_to site_admin_home_path, flash: {notice: "Added to queue sucessfully"}
   end
 
+  def tags
+    @tag = Tag.new(name: params[:name], tag_type: params[:tag_type])
+    if @tag.save
+      redirect_to site_admin_home_path, flash: {notice: "Tag created  sucessfully"}
+    else
+      redirect_to site_admin_home_path, flash: {alert: "Issues: #{@tag.errors.full_messages}"}
+    end
+  end
+
   private
 
   def is_user_admin
