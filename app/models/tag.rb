@@ -6,7 +6,7 @@
 #  name         :string           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  type         :string
+#  tag_type     :string
 #  top_category :boolean          default(FALSE), not null
 #  slug         :string
 #
