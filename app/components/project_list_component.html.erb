@@ -1,34 +1,34 @@
-<div class="bg-white shadow overflow-hidden sm:rounded-md mt-3">
+<div class="max-w-3xl mx-auto mt-3">
   <%if @project_list.empty? %>
-    <div class="text-sm leading-5 m-8 text-center font-medium text-indigo-600 truncate">
+    <div class="m-8 text-sm font-medium leading-5 text-center text-indigo-600 truncate">
       No projects found
     </div>
   <% else %>
-    <ul>
+    <ul class="grid grid-cols-2 gap-4">
       <% @project_list.each do |project| %>
-        <li>
+        <li class="max-w-xl col-span-1 bg-white shadow-lg sm:rounded-lg">
           <%=link_to project_path(project),  class: "block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out" do %>
             <div class="px-4 py-4 sm:px-6">
               <div class="flex items-center justify-between">
-                <div class="text-sm leading-5 font-medium text-indigo-600 truncate">
+                <div class="text-sm font-medium leading-5 text-indigo-600 truncate">
                   <%= project.name %>
-                </div>
-                <div class="ml-2 shrink-0 flex">
-                  <% project.tags.each do |tag| %>
-                    <%= link_to(tag_show_path(tag.slug)) do %>
-                      <span class="px-3 mx-1 inline-flex text-xs leading-5 font-semibold rounded-full <%= TAILWIND_COLOURS_BG_300.sample %> text-white-800">
-                        <%= tag.name %>
-                      </span>
-                    <% end %>
-                  <% end %>
                 </div>
               </div>
               <div class="mt-2 sm:flex sm:justify-between">
                 <div class="sm:flex">
-                  <div class="mr-6 flex items-center text-sm leading-5 text-gray-500">
+                  <div class="flex items-center mr-6 text-sm leading-5 text-gray-500">
                     <%= project.tag_line %>
                   </div>
                 </div>
+              </div>
+              <div class="mt-1 text-sm leading-5 text-gray-900">
+                <% project.tags.each do |tag| %>
+                  <%= link_to(tag_show_path(tag.slug)) do %>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium leading-5 <%= TAILWIND_COLOURS_BG_400.sample %> text-white-800">
+                      <%= tag.name %>
+                    </span>
+                  <% end %>
+                <% end %>
               </div>
             </div>
           <% end %>
@@ -37,7 +37,7 @@
     </ul>
   <% end %>
 </div>
-<nav class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+<nav class="flex items-center justify-between px-4 py-3 bg-white border-t border-gray-200 sm:px-6">
   <div class="hidden sm:block">
     <p class="text-sm leading-5 text-indigo-600">
       <%= paginate @project_list if @project_list.respond_to?(:total_pages)%>
