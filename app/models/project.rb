@@ -32,8 +32,10 @@ class Project < ApplicationRecord
 
   extend FriendlyId
   include Filterable
+  include PgSearch::Model
   friendly_id :name, use: :slugged
 
+  pg_search_scope :pg_search_by_name, against: :name, using: {tsearch: {dictionary: "english", prefix: true}}
   scope :filter_by_name, ->(name) { where("lower(projects.name) like ?", "%#{name.downcase}%") }
   scope :filter_by_tag_ids, ->(tag_ids) { joins(:taggings).group(:id).having("array_agg(taggings.tag_id ORDER BY taggings.tag_id) @> ARRAY[?]::bigint[]", tag_ids.reject { |element| element.empty? }.sort) }
 
@@ -67,6 +69,10 @@ class Project < ApplicationRecord
 
   def usecase_tags
     tags.where(tag_type: "usecase")
+  end
+
+  def self.ransackable_scopes(auth_object = nil)
+    [:pg_search_by_name]
   end
 
   def tag_list=(names)

@@ -32,8 +32,8 @@ class ProjectsController < ApplicationController
   end
 
   def search
-    @q = Project.new(search_project_params)
-    @projects = Project.filter(search_project_params).page params[:page]
+    @q = Project.ransack(params[:q])
+    @projects = @q.result.includes(:taggings, :tags).page params[:page]
 
     respond_to do |format|
       format.js { render ProjectListComponent.new(project_list: @projects), layout: false, content_type: "text/html" }

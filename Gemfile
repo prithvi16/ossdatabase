@@ -49,6 +49,7 @@ gem "octokit"
 
 # search
 gem "ransack"
+gem 'pg_search'
 
 # friendly urls
 gem "friendly_id", "~> 5.4.2"
