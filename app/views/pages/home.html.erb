@@ -6,7 +6,7 @@
                        url: root_url},
                  canonical: root_url %>
 <% description 'Search for open source projects, submit open source projects' %>
-<main class="h-screen bg-[#ffd700]">
+<main class="bg-[#ffd700]">
   <div class="flex flex-col items-center justify-center w-full pt-16 pb-20 mx-auto text-center max-w-7xl lg:py-48 lg:text-left md:flex-row">
     <div class="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
       <h1 class="text-4xl font-extrabold leading-10 tracking-tight text-gray-900 sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl">
@@ -30,20 +30,18 @@
     </div>
   </div>
 </main>
-<!--
-  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
-  Read the documentation to get started: https://tailwindui.com/documentation
--->
-<div class="px-4 py-5 mx-auto bg-white border-b border-gray-200 sm:px-6 max-w-7xl">
-  <h3 class="text-lg font-medium leading-6 text-gray-900">
-    Recently added projects
-  </h3>
-  <%= render(ProjectListComponent.new(project_list: @recently_added_projects)) %>
+
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="bg-blue-500">
+  <div class="max-w-4xl px-4 py-16 mx-auto sm:px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:pt-24 lg:px-8">
+    <h2 class="text-3xl font-extrabold tracking-tight text-white">Search for Open Source Projects</h2>
+    <div class="mt-12 lg:mt-16">
+     <%= render(ProjectListComponent.new(project_list: @recently_added_projects)) %>
+    </div>
+  </div>
 </div>
-<!--
-  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
-  Read the documentation to get started: https://tailwindui.com/documentation
--->
+
+
 <div class="bg-white">
   <div class="max-w-screen-xl px-4 py-12 mx-auto text-center sm:px-6 lg:py-16 lg:px-8">
     <h2 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
