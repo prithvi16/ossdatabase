@@ -38,9 +38,9 @@
   <% end %>
 </div>
 <% if @project_list.respond_to?(:total_pages) %>
-<nav class="flex items-center justify-between px-4 py-3 bg-white border-t border-gray-200 sm:px-6">
+<nav class="flex items-center justify-between px-4 py-3 sm:px-6">
   <div class="hidden sm:block">
-    <p class="text-sm leading-5 text-indigo-600">
+    <p class="text-sm leading-5 text-white">
       <%= paginate @project_list %>
     </p>
   </div>

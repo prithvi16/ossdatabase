@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   def home
-    @recently_added_projects = Project.includes([:tags, :taggings]).order(created_at: :desc).limit(10)
+    @q = Project.ransack(params[:q])
+    @q.sorts = ["created_at desc"] if @q.sorts.empty?
+    @projects = @q.result(distinct: true).includes(:taggings, :tags).page params[:page]
   end
 
   def static
