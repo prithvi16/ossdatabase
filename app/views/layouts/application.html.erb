@@ -29,28 +29,17 @@
                 </svg>
               </button>
             </div>
-            <div class="flex items-center justify-center shrink-0 pt-4">
+            <div class="flex items-center justify-center shrink-0">
               <%= link_to root_path do %>
-                <div class="block w-auto h-8 text-sm font-extrabold text-indigo-600 in md:text-lg">OSS DATABASE </div>
+                <div class="block w-auto h-8 px-2 text-lg font-semibold tracking-tight text-gray-800 border-2 border-gray-800">OSS DATABASE </div>
               </div>
             <% end %>
-            <div class="hidden md:ml-6 md:flex">
-              <%= link_to projects_search_path, class: "inline-flex items-center px-1 pt-1 #{active_tab_class(projects_search_path)} text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out" do %>
-                Search
-              <% end %>
-              <%= link_to projects_browse_path, class: "inline-flex items-center px-1 pt-1 #{active_tab_class(projects_browse_path)} text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out" do %>
-                Browse
-              <% end %>
-            </div>
           </div>
           <div class="flex items-center">
             <div class="shrink-0">
-              <%= link_to new_project_path do%>
-                <button type="button" class="relative inline-flex items-center px-2 py-1 text-xs font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md shadow-sm md:px-4 md:py-2 md:text-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700">
-                  <svg class="w-5 h-5 mr-2 -ml-1" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
-                  </svg>
-                  <span>Submit a project</span>
+              <%= link_to projects_search_path do%>
+                <button type="button" class="relative inline-flex items-center px-2 py-1 text-xs font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm md:px-4 md:py-2 md:text-sm hover:bg-blue-700 focus:outline-none focus:border-blue-700 focus:ring-indigo active:bg-blue-700">
+                  <span>Search Projects</span>
                 </button>
               <% end %>
             </div>
@@ -59,13 +48,13 @@
               <div class="relative ml-3">
                 <% if user_signed_in? %>
                   <div data-action="click->dropdown#toggle click@window->dropdown#hide">
-                    <button class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700" id="user-menu" aria-label="User menu" aria-haspopup="true">
+                    <button class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:ring-indigo active:bg-blue-700" id="user-menu" aria-label="User menu" aria-haspopup="true">
                       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     </button>
                   <% else %>
                     <%= link_to new_user_session_path do%>
-                      <button type="button" class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700">
-                        <span>Sign up / Sign In</span>
+                      <button type="button" class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:ring-indigo active:bg-blue-700">
+                        <span>Sign In</span>
                       </button>
                     <% end %>
                   <% end %>
