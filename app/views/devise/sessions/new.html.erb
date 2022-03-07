@@ -6,14 +6,14 @@
                        type: "website",
                        url: new_user_session_url},
                  canonical: new_user_session_url %>
-<div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+<div class="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8">
   <div class="sm:mx-auto sm:w-full sm:max-w-md">
-    <h1 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
+    <h1 class="mt-6 text-3xl font-extrabold leading-9 text-center text-gray-900">
       Sign In
     </h1>
   </div>
   <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+    <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div>
@@ -31,7 +31,7 @@
             <%= f.password_field :password, autocomplete: "current-password", class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" %>
           </div>
         </div>
-        <div class="mt-6 flex items-center justify-between">
+        <div class="flex items-center justify-between mt-6">
           <% if devise_mapping.rememberable? %>
             <div class="flex items-center">
               <%= f.check_box :remember_me, class: "form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out" %>
@@ -41,7 +41,7 @@
         </div>
         <div class="mt-6">
           <span class="block w-full rounded-md shadow-sm">
-            <%= f.submit "Sign In", class: "w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700 transition duration-150 ease-in-out" %>
+            <%= f.submit "Sign In", class: "w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700 transition duration-150 ease-in-out", id: "submit_sign_in_button" %>
           </span>
         </div>
       <% end %>
@@ -51,7 +51,7 @@
             <div class="w-full border-t border-gray-300"></div>
           </div>
           <div class="relative flex justify-center text-sm leading-5">
-            <span class="px-2 bg-white text-gray-500">
+            <span class="px-2 text-gray-500 bg-white">
               Or
             </span>
           </div>

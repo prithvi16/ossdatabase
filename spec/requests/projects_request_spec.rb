@@ -18,19 +18,4 @@ RSpec.describe "Projects", type: :request do
       expect(response).to have_http_status(:success)
     end
   end
-
-  # TODO:  Add spec for project creation
-  # describe "GET /create" do
-  #   it "returns http success" do
-  #     get "/projects/create"
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
-
-  describe "GET /search" do
-    it "returns http success" do
-      get "/projects/search"
-      expect(response).to have_http_status(:success)
-    end
-  end
 end

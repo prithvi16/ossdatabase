@@ -17,7 +17,7 @@ describe "Users" do
     visit new_user_session_path
     fill_in "Email", with: "ram@example.com"
     fill_in "Password", with: "222222"
-    click_button "Sign In"
+    find("#submit_sign_in_button").click
     expect(page).to have_content("Signed in successfully.")
     click_button "", {id: "user-menu"}
     click_link "Account settings"
