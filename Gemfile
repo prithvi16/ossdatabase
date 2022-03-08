@@ -26,6 +26,9 @@ gem "activeadmin"
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# s3 adapter
+gem "aws-sdk-s3", require: false
+
 # Use Active Storage variant
 gem 'image_processing', '~> 1.12'
 
@@ -59,6 +62,9 @@ gem "redcarpet", "~> 3.5" # A fast, safe and extensible Markdown to (X)HTML pars
 
 # pagination
 gem "kaminari"
+
+# File downloads
+gem "down", "~> 5.0"
 
 # Background jobs
 gem "sidekiq"

@@ -9,7 +9,7 @@ module Filterable
           results = results.merge(Project.public_send("filter_by_#{key}", value)) if is_present(value)
         end
       end
-      results.includes(:tags)
+      results.includes([:tags, :taggings])
     end
 
     def is_present(value)

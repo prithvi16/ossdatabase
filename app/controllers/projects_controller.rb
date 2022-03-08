@@ -25,6 +25,9 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
+      if @project.logo_url.present?
+        FetchProjectLogoWorker.perform_async(@project.id)
+      end
       redirect_to @project
     else
       render :new
@@ -54,13 +57,13 @@ class ProjectsController < ApplicationController
   end
 
   def set_project
-    @project = Project.friendly.find(params[:id])
+    @project = Project.includes(:taggings, :tags).friendly.find(params[:id])
     if @project.invisible? || @project.nil?
       render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found
     end
   end
 
   def project_params
-    params.require(:project).permit(:name, :tag_line, :description, :first_release, :last_release, :premium, :website, tag_ids: [])
+    params.require(:project).permit(:name, :tag_line, :description, :first_release, :last_release, :premium, :website, :logo_url, tag_ids: [])
   end
 end

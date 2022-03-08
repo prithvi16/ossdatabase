@@ -20,6 +20,7 @@
 #  last_updated_from_source :datetime
 #  repo_url                 :string
 #  proprietary              :boolean          default(FALSE)
+#  logo_url                 :string
 #
 FactoryBot.define do
   factory :project do
