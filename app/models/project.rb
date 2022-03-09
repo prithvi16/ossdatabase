@@ -38,7 +38,7 @@ class Project < ApplicationRecord
 
   pg_search_scope :pg_search_by_name, against: :name, using: {tsearch: {dictionary: "english", prefix: true}}
   scope :filter_by_name, ->(name) { where("lower(projects.name) like ?", "%#{name.downcase}%") }
-  scope :filter_by_tag_ids, ->(tag_ids) { joins(:taggings).group(:id).having("array_agg(taggings.tag_id ORDER BY taggings.tag_id) @> ARRAY[?]::bigint[]", tag_ids.reject { |element| element.empty? }.sort) }
+  scope :filter_by_tag_ids, ->(tag_ids) { preload(:tags, :taggings).joins(:taggings).group(:id).having("array_agg(taggings.tag_id ORDER BY taggings.tag_id) @> ARRAY[?]::bigint[]", tag_ids.reject { |element| element.empty? }.sort) }
 
   def self.tagged_with(name)
     Tag.find_by!(name: name).projects
