@@ -1,6 +1,7 @@
 class ProjectComponent < ViewComponent::Base
-  def initialize(project:)
+  def initialize(project:, current_user:)
     @project = project
+    @current_user = current_user
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
   end
 

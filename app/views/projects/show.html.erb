@@ -6,10 +6,12 @@
                        type: "website",
                        url: project_url(@project)},
                  canonical: project_url(@project)%>
-<div class="max-w-6xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
-  <%= render(ProjectComponent.new(project: @project))%>
-  <div class="text-lg leading-6 font-medium text-gray-900 my-4 mx-2">
-    Related projects
+<div class="bg-amber-100">
+  <div class="max-w-5xl px-4 py-8 mx-auto sm:px-6 lg:px-8 ">
+    <%= render(ProjectComponent.new(project: @project, current_user: current_user))%>
+    <div class="mx-2 my-8 text-xl font-medium leading-6 text-gray-900">
+      Alternative Projects
+    </div>
+    <%= render(ProjectListComponent.new(project_list: @alternative_projects)) %>
   </div>
-  <%= render(ProjectListComponent.new(project_list: @related_projects)) %>
 </div>
