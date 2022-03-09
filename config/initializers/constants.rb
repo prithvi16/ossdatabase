@@ -1,1 +1,1 @@
-TOP_TAG_TYPES = [ "license", "tech", "category", "usecase"]
+TOP_TAG_TYPES = [ "license", "tech", "category", "usecase", "platform"]

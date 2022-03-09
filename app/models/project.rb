@@ -56,20 +56,10 @@ class Project < ApplicationRecord
     tags.map(&:name).join(", ")
   end
 
-  def tech_tags
-    tags.where(tag_type: "tech")
-  end
-
-  def license_tags
-    tags.where(tag_type: "license")
-  end
-
-  def category_tags
-    tags.where(tag_type: "category")
-  end
-
-  def usecase_tags
-    tags.where(tag_type: "usecase")
+  TOP_TAG_TYPES.each do |tag_type|
+    define_method "#{tag_type}_tags" do
+      self.tags.where(tag_type: tag_type)
+    end
   end
 
   def self.ransackable_scopes(auth_object = nil)
