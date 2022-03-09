@@ -12,6 +12,14 @@ class ProjectComponent < ViewComponent::Base
     end
   end
 
+  def proprietary_description
+    if @project.proprietary
+      "YES"
+    else
+      "No"
+    end
+  end
+
   def release_description
     if @project.first_release? && @project.last_release?
       @project.first_release.strftime("%B, %Y") + " - " + @project.last_release.strftime("%B, %Y")

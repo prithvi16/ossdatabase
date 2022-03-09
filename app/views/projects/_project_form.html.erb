@@ -102,6 +102,15 @@
             <%= f.radio_button :premium, "false", checked: "checked"%>
           </div>
         </div>
+                <div class="sm:col-span-4">
+          <%= f.label :proprietary, "proprietary?", class: "block text-sm font-medium leading-5 text-gray-700" %>
+          <div class="mt-1">
+            <%= f.label :proprietary, "Yes", class: "inline-block text-sm font-medium leading-5 text-gray-700" %>
+            <%= f.radio_button :proprietary, "true"%>
+            <%= f.label :proprietary, "No", class: "inline-block text-sm font-medium leading-5 text-gray-700" %>
+            <%= f.radio_button :proprietary, "false", checked: "checked"%>
+          </div>
+        </div>
       </div>
     </div>
   </div>
