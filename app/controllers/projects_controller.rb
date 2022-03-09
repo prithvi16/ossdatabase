@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @tag_options = TOP_TAG_TYPES.map { |tag_type| [tag_type, Tag.where(tag_type: tag_type).map { |tag| [ tag.name, tag.id ] } ] }
   end
 
   def show
@@ -12,6 +13,7 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @tag_options = TOP_TAG_TYPES.map { |tag_type| [tag_type, Tag.where(tag_type: tag_type).map { |tag| [ tag.name, tag.id ] } ] }
   end
 
   def update
