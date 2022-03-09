@@ -59,7 +59,7 @@ class ProjectsController < ApplicationController
   end
 
   def set_project
-    @project = Project.includes(:taggings, :tags).friendly.find(params[:id])
+    @project = Project.friendly.find(params[:id])
     if @project.invisible? || @project.nil?
       render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found
     end
