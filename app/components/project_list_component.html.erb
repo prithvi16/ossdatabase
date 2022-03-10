@@ -1,13 +1,13 @@
 <div class="max-w-5xl mx-auto mt-3">
   <%if @project_list.empty? %>
-    <div class="m-8 text-sm font-medium leading-5 text-center text-indigo-600 truncate">
+    <div class="m-8 text-sm font-medium leading-5 text-center text-white truncate">
       No projects found
     </div>
   <% else %>
     <ul class="grid grid-cols-2 gap-4">
       <% @project_list.each do |project| %>
         <li class="max-w-xl col-span-1 bg-white rounded-lg shadow-lg">
-          <%=link_to project_path(project),  class: "block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out" do %>
+          <%=link_to project_path(project),  class: "block hover:bg-gray-50" do %>
             <div class="px-4 py-4 sm:px-6">
               <div class="flex items-center justify-between">
                 <div class="text-sm font-medium leading-5 text-blue-600 truncate">
@@ -32,10 +32,9 @@
   <% end %>
 </div>
 <% if @project_list.respond_to?(:total_pages) %>
-<nav class="flex justify-center max-w-5xl px-4 py-3 mx-auto mt-4 bg-white rounded-lg shadow-lg sm:px-6 ">
- 
+  <nav class="flex justify-center max-w-5xl px-4 py-3 mx-auto mt-4 bg-white rounded-lg shadow-lg sm:px-6 ">
     <p class="inline-block text-sm">
       <%= paginate @project_list %>
     </p>
-</nav>
+  </nav>
 <% end %>
