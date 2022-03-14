@@ -9,6 +9,6 @@ class TagsController < ApplicationController
       render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found
       return
     end
-    @tag_projects = @tag.projects.includes([:taggings, :tags]).page params[:page]
+    @tag_projects = @tag.projects.includes(:taggings,:avatar_attachment, :tags).page params[:page]
   end
 end

@@ -3,7 +3,7 @@
     <div class="flex">
       <% if @project.avatar.attached? %>
         <div>
-          <img src=<%= @project.avatar.url %> alt="">
+          <img class="inline-block rounded-md h-14 w-14" src=<%= @project.avatar.url %> alt="">
         </div>
       <% end %>
       <div class="ml-2">

@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
 
   def search
     @q = Project.ransack(params[:q])
-    @projects = @q.result.includes(:taggings, :tags).page params[:page]
+    @projects = @q.result.includes(:taggings, :tags, :avatar_attachment).page params[:page]
 
     respond_to do |format|
       format.js { render ProjectListComponent.new(project_list: @projects), layout: false, content_type: "text/html" }
