@@ -7,12 +7,12 @@ puts "================================"
 puts "Creating Projects, fulflling promises, vocal for local"
 1000.times do
   project = Project.create!(name: Faker::App.name,
-                            description: Faker::Markdown.sandwich(sentences: 5),
-                            website: Faker::Internet.url,
-                            tag_line: Faker::Company.catch_phrase,
-                            first_release: (1000..5000).to_a.sample.days.ago,
-                            last_release: (500..1000).to_a.sample.days.ago,
-                            premium: [true, false].sample)
+    description: Faker::Markdown.sandwich(sentences: 5),
+    website: Faker::Internet.url,
+    tag_line: Faker::Company.catch_phrase,
+    first_release: (1000..5000).to_a.sample.days.ago,
+    last_release: (500..1000).to_a.sample.days.ago,
+    premium: [true, false].sample)
   puts "Created project" + project.name
 end
 puts "============done================"
@@ -74,7 +74,7 @@ User.create!(
 puts "Created tan@example.com, he is non-admin with password 222222"
 puts "==============done=============="
 puts "Creating static pages"
-StaticPage.create!(key: "about", description: "TEST" ,  title: "About", content: File.read(File.open("#{Rails.root}/db/example_markdown/about.md")))
-StaticPage.create!(key: "site-updates", description: "TEST" , title: "Site Updates", content: File.read(File.open("#{Rails.root}/db/example_markdown/site-updates.md")))
-StaticPage.create!(key: "contact", description: "TEST" , title: "Contact", content: File.read(File.open("#{Rails.root}/db/example_markdown/contact.md")))
+StaticPage.create!(key: "about", description: "TEST", title: "About", content: File.read(File.open("#{Rails.root}/db/example_markdown/about.md")))
+StaticPage.create!(key: "site-updates", description: "TEST", title: "Site Updates", content: File.read(File.open("#{Rails.root}/db/example_markdown/site-updates.md")))
+StaticPage.create!(key: "contact", description: "TEST", title: "Contact", content: File.read(File.open("#{Rails.root}/db/example_markdown/contact.md")))
 puts "===========DONE==============="

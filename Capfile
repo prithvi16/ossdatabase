@@ -1,5 +1,5 @@
 # Required beacuse Rails is not running yet
-require 'dotenv'
+require "dotenv"
 Dotenv.load
 
 # Load DSL and set up stages

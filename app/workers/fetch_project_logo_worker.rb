@@ -1,4 +1,4 @@
-require 'open-uri'
+require "open-uri"
 class FetchProjectLogoWorker
   include Sidekiq::Worker
 

@@ -30,16 +30,13 @@ gem "activeadmin"
 gem "aws-sdk-s3", require: false
 
 # Use Active Storage variant
-gem 'image_processing', '~> 1.12'
+gem "image_processing", "~> 1.12"
 
 # Error tracking
 gem "honeybadger", "~> 4.11"
 
 # Annotations
 gem "annotate"
-
-# Background jobs
-gem "sidekiq"
 
 # deployment
 gem "capistrano-sidekiq", group: :development
@@ -52,7 +49,7 @@ gem "octokit"
 
 # search
 gem "ransack"
-gem 'pg_search'
+gem "pg_search"
 
 # friendly urls
 gem "friendly_id", "~> 5.4.2"

@@ -26,7 +26,7 @@ class Project < ApplicationRecord
   has_many :taggings
   has_many :tags, through: :taggings
   has_one_attached :avatar
-  
+
   validates_presence_of :name, :description, :website, :tag_line
   validates :website, format: {with: URI::DEFAULT_PARSER.make_regexp(%w[http https]),
                                message: "invalid link format"}
@@ -58,7 +58,7 @@ class Project < ApplicationRecord
 
   TOP_TAG_TYPES.each do |tag_type|
     define_method "#{tag_type}_tags" do
-      self.tags.where(tag_type: tag_type)
+      tags.where(tag_type: tag_type)
     end
   end
 

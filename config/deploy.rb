@@ -53,6 +53,6 @@ set :ssh_options, {
 
   auth_methods: %w[publickey],
 
-  keys: [ ENV["SERVER_KEY_NAME"], ENV["LOCAL_KEY_NAME"]]
+  keys: [ENV["SERVER_KEY_NAME"], ENV["LOCAL_KEY_NAME"]]
 
 }

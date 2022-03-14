@@ -1,4 +1,4 @@
-TOP_TAG_TYPES = [ "license", "tech", "category", "usecase", "platform"]
+TOP_TAG_TYPES = ["license", "tech", "category", "usecase", "platform"]
 TAG_COLORS = {
   "license" => "bg-cyan-500",
   "tech" => "bg-green-500",
