@@ -34,13 +34,13 @@
         <div class="sm:col-span-4">
           <%= f.label :name,"Name*", class: "block text-sm font-medium leading-5 text-gray-700" %>
           <div class="flex mt-1 rounded-md shadow-sm">
-            <%= f.text_field :name, class: "border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm" %>
+            <%= f.text_field :name, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
           </div>
         </div>
         <div class="sm:col-span-4">
           <%= f.label :tag_line, "Tagline*", class: "block text-sm font-medium leading-5 text-gray-700" %>
           <div class="flex mt-1 rounded-md shadow-sm">
-            <%= f.text_field :tag_line, class: "border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm" %>
+            <%= f.text_field :tag_line, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
           </div>
           <p class="mt-2 text-sm text-gray-500">A short one line description of the project 🔥.</p>
         </div>
@@ -63,45 +63,39 @@
         <div class="sm:col-span-4">
           <%= f.label :website,"Project website*" , class: "block text-sm font-medium leading-5 text-gray-700" %>
           <div class="mt-1 rounded-md shadow-sm">
-            <%= f.url_field :website, class: "border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm"%>
+            <%= f.url_field :website, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"%>
             <p class="mt-2 text-sm text-gray-500">URL should start with either http:// or https://</p>
           </div>
         </div>
         <div class="sm:col-span-4">
           <%= f.label :source,  class: "block text-sm font-medium leading-5 text-gray-700" %>
           <div class="mt-1 rounded-md shadow-sm">
-            <%= f.text_field :source, class: "border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm"%>
+            <%= f.text_field :source, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"%>
           </div>
         </div>
         <div class="sm:col-span-4">
           <%= f.label :source_id, "source_id",  class: "block text-sm font-medium leading-5 text-gray-700" %>
           <div class="mt-1 rounded-md shadow-sm">
-            <%= f.text_field :source_id, class: "border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm"%>
+            <%= f.text_field :source_id, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"%>
           </div>
         </div>
-                <div class="sm:col-span-4">
+        <div class="sm:col-span-4">
           <%= f.label :repo_url, "repo_url",  class: "block text-sm font-medium leading-5 text-gray-700" %>
           <div class="mt-1 rounded-md shadow-sm">
-            <%= f.url_field :repo_url, class: "border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm"%>
+            <%= f.url_field :repo_url, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"%>
           </div>
         </div>
         <div class="sm:col-span-4">
           <%= f.label :logo_url, "Project logo url" , class: "block text-sm font-medium leading-5 text-gray-700" %>
           <div class="mt-1 rounded-md shadow-sm">
-            <%= f.url_field :logo_url, class: "border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm"%>
+            <%= f.url_field :logo_url, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"%>
             <p class="mt-2 text-sm text-gray-500">URL should start with either http:// or https://</p>
           </div>
         </div>
         <div class="sm:col-span-4">
-          <%= f.label :first_release, class: "block text-sm font-medium leading-5 text-gray-700" %>
+          <%= f.label :avatar, class: "block text-sm font-medium leading-5 text-gray-700" %>
           <div class="mt-1 rounded-md shadow-sm">
-            <%= f.date_field :first_release, class: "border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm"%>
-          </div>
-        </div>
-        <div class="sm:col-span-4">
-          <%= f.label :last_release, class: "block text-sm font-medium leading-5 text-gray-700" %>
-          <div class="mt-1 rounded-md shadow-sm">
-            <%= f.date_field :last_release, class: "border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm"%>
+            <%= f.file_field :avatar, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"%>
           </div>
         </div>
         <div class="sm:col-span-4">

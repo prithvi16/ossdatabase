@@ -1,23 +1,25 @@
 <div class="overflow-hidden bg-white border border-gray-800 shadow-lg sm:rounded-lg">
   <div class="px-4 py-5 border-b border-gray-800 sm:px-6">
-    <% if @project.avatar.attached? %>
-    <div>
-    <img src=<%= @project.avatar.url %> alt="">
-    </div>
-    <% end %>
-    <div>
-      <h1 class="text-lg font-medium leading-6">
-        <%= @project.name %>
-      </h1>
-      <p class="max-w-2xl mt-1 text-sm text-blue-600">
-        <%= @project.tag_line %>
-      </p>
+    <div class="flex">
+      <% if @project.avatar.attached? %>
+        <div>
+          <img src=<%= @project.avatar.url %> alt="">
+        </div>
+      <% end %>
+      <div class="ml-2">
+        <h1 class="text-lg font-medium leading-6">
+          <%= @project.name %>
+        </h1>
+        <p class="max-w-2xl mt-1 text-sm text-blue-600">
+          <%= @project.tag_line %>
+        </p>
+      </div>
     </div>
     <div>
       <% if @current_user && @current_user.admin? %>
-      <a href=<%= edit_project_path(@project) %> class="inline-flex items-center px-2 py-1 mt-3 text-sm font-medium text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700">
-        Edit
-      </a>
+        <a href=<%= edit_project_path(@project) %> class="inline-flex items-center px-2 py-1 mt-3 text-sm font-medium text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700">
+          Edit
+        </a>
       <% end %>
     </div>
   </div>
