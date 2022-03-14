@@ -125,7 +125,7 @@ group :development do
   # recorder
   gem "heavens_door"
   # deploy
-  gem "capistrano", "~> 3.16"
+  gem "capistrano", "~> 3.17"
   gem "capistrano-rails", "~> 1.6"
   gem "capistrano-passenger", "~> 0.2.1"
   gem "capistrano-rbenv", "~> 2.1", ">= 2.1.4"
