@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home
     @q = Project.ransack(params[:q])
-    @projects = @q.result(distinct: true).includes(:taggings, :avatar_attachment, :tags).page params[:page]
+    @projects = @q.result(distinct: true).order(updated_at: :desc).includes(:taggings, :avatar_attachment, :tags).page params[:page]
   end
 
   def static
