@@ -394,13 +394,13 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.11.0)
-    rubocop (1.25.1)
+    rubocop (1.26.0)
       parallel (~> 1.10)
       parser (>= 3.1.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml
-      rubocop-ast (>= 1.15.1, < 2.0)
+      rubocop-ast (>= 1.16.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.16.0)
@@ -472,8 +472,8 @@ GEM
     sshkit-interactive (0.3.0)
       sshkit (~> 1.12)
     stackprof (0.2.19)
-    standard (1.7.3)
-      rubocop (= 1.25.1)
+    standard (1.8.0)
+      rubocop (= 1.26.0)
       rubocop-performance (= 1.13.3)
     temple (0.8.2)
     thin (1.7.2)
@@ -566,7 +566,7 @@ DEPENDENCIES
   ransack
   redcarpet (~> 3.5)
   rspec-rails
-  rubocop (~> 1.25.1)
+  rubocop (~> 1.26.0)
   rubocop-rails
   sass-rails (>= 6)
   shoulda-matchers
