@@ -9,7 +9,7 @@ class ProjectComponent < ViewComponent::Base
     if @project.premium
       "YES"
     else
-      "No"
+      "NO"
     end
   end
 
@@ -17,7 +17,7 @@ class ProjectComponent < ViewComponent::Base
     if @project.proprietary
       "YES"
     else
-      "No"
+      "NO"
     end
   end
 
