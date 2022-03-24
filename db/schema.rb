@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_24_160824) do
+ActiveRecord::Schema.define(version: 2022_03_24_190036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2022_03_24_160824) do
     t.boolean "proprietary", default: false
     t.string "logo_url"
     t.bigint "github_stars"
+    t.bigint "github_id"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
   end
 
