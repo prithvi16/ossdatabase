@@ -1,8 +1,6 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
-  get 'submissions/new'
-  get 'submissions/create'
   get "projects/browse", to: "tags#index", as: "projects_browse"
   get "projects/search", to: "projects#search", as: "projects_search"
   root to: "pages#home"

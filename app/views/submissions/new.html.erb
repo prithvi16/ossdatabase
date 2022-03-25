@@ -1,2 +1,80 @@
-<h1>Submissions#new</h1>
-<p>Find me in app/views/submissions/new.html.erb</p>
+<% title 'Submit a Project' %>
+<% description 'Submit an open-source project for ossdatabase' %>
+<% set_meta_tags og: { title: "Submit a project", 
+                       description: 'Submit an open-source project for ossdatabase', 
+                       image: BANNER_IMAGE_URL,
+                       type: "website",
+                       url: new_submission_url},
+                 canonical: new_submission_url %>
+<div class="max-w-5xl px-4 mx-auto mt-8 mb-20 sm:px-6 lg:px-8" data-controller="selectize">
+  <%= form_with model: @submission, method: :post, url: create_submission_path, local: true do |f| %>
+    <div>
+      <div>
+        <div>
+          <h1 class="text-lg font-medium leading-6 text-gray-900">
+            Submit a Project
+            <p class="mt-2 text-sm text-gray-500">Help us grow our database 😇</p>
+          </h1>
+        </div>
+        <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
+          <div class="sm:col-span-4">
+            <%= f.label :name,"Name*", class: "block text-sm font-medium leading-5 text-gray-700" %>
+            <div class="flex mt-1 rounded-md shadow-sm">
+              <%= f.text_field :name, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md", required: true %>
+            </div>
+          </div>
+          <div class="sm:col-span-4">
+            <%= f.label :tagline, "Tagline", class: "block text-sm font-medium leading-5 text-gray-700" %>
+            <div class="flex mt-1 rounded-md shadow-sm">
+              <%= f.text_field :tagline, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+            </div>
+            <p class="mt-2 text-sm text-gray-500">A short one line description of the project 🔥.</p>
+          </div>
+          <div class="sm:col-span-4">
+            <%= f.label :description,"About project*", class: "block text-sm font-medium leading-5 text-gray-700" %>
+            <div class="mt-1 rounded-md shadow-sm">
+              <%= f.text_area :description, class:"h-48 form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5",required: true %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 mt-8 border-t border-gray-200">
+        <div>
+          <h3 class="text-lg font-medium leading-6 text-gray-900">
+            More information
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
+          <div class="sm:col-span-4">
+            <%= f.label :website,"Project website" , class: "block text-sm font-medium leading-5 text-gray-700" %>
+            <div class="mt-1 rounded-md ">
+              <%= f.url_field :website, class: "focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"%>
+              <p class="mt-2 text-sm text-gray-500">URL should start with either http:// or https://</p>
+            </div>
+          </div>
+          <div class="sm:col-span-4">
+            <%= f.label :alternative_to,"Project is alternative to?" , class: "block text-sm font-medium leading-5 text-gray-700" %>
+            <div class="mt-1 rounded-md ">
+              <%= f.text_field :alternative_to, class: " focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"%>
+              <p class="mt-2 text-sm text-gray-500">A list of proprietory or open source alternatives to this project</p>
+            </div>
+          </div>
+          <div class="sm:col-span-4">
+            <%= f.label :suggested_tags,"Suggested tags" , class: "block text-sm font-medium leading-5 text-gray-700" %>
+            <div class="mt-1 rounded-md ">
+              <%= f.text_field :suggested_tags, class: "focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"%>
+              <p class="mt-2 text-sm text-gray-500">Tags that should be added to this project</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pt-5 mt-8 border-t border-gray-200">
+      <div class="flex justify-end">
+        <span class="inline-flex ml-3 rounded-md shadow-sm">
+          <%= f.submit "Submit Project", class:"inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700 transition duration-150 ease-in-out" %>
+        </span>
+      </div>
+    </div>
+  <% end %>
+</div>
