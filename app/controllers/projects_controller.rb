@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :update, :edit]
-  before_action :authenticate_user!, only: [:edit, :update]
-  before_action :only_admin, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :only_admin, only: [:edit, :update, :new, :create]
 
   def new
     @project = Project.new
