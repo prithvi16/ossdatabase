@@ -1,6 +1,8 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
+  get 'submissions/new'
+  get 'submissions/create'
   get "projects/browse", to: "tags#index", as: "projects_browse"
   get "projects/search", to: "projects#search", as: "projects_search"
   root to: "pages#home"
@@ -10,6 +12,8 @@ Rails.application.routes.draw do
     post "/site_admin/tags", to: "site_admin#tags", as: "site_admin_tags"
     mount Sidekiq::Web => "/sidekiq"
   end
+  get '/submit', to: "submissions#new", as: "new_submission"
+  post '/submissions', to: "submissions#create", as: "create_submission"
   get "tags/:tag_name", to: "tags#show", as: "tag_show"
   resources :projects, only: [:new, :show, :create, :edit, :update]
   devise_for :admin_users, ActiveAdmin::Devise.config
