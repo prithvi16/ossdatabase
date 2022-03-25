@@ -8,11 +8,11 @@
             <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">Projects</h3>
             <ul role="list" class="mt-4 space-y-4">
               <li>
-                <a href="#" class="text-base text-gray-300 hover:text-white"> Search Projects </a>
+                <a href=<%= projects_search_path %> class="text-base text-gray-300 hover:text-white"> Search Projects </a>
               </li>
 
               <li>
-                <a href="#" class="text-base text-gray-300 hover:text-white"> Browse Projects </a>
+                <a href=<%= projects_browse_path %> class="text-base text-gray-300 hover:text-white"> Browse Projects </a>
               </li>
 
               <li>
@@ -24,19 +24,19 @@
             <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">Support</h3>
             <ul role="list" class="mt-4 space-y-4">
               <li>
-                <a href="#" class="text-base text-gray-300 hover:text-white"> Sign Up </a>
+                <a href=<%= new_user_registration_path %> class="text-base text-gray-300 hover:text-white"> Sign Up </a>
               </li>
 
               <li>
-                <a href="#" class="text-base text-gray-300 hover:text-white"> Sign In </a>
+                <a href=<%= new_user_session_path %> class="text-base text-gray-300 hover:text-white"> Sign In </a>
               </li>
 
               <li>
-                <a href="#" class="text-base text-gray-300 hover:text-white"> Forgot Password </a>
+                <a href=<%= new_user_password_path %> class="text-base text-gray-300 hover:text-white"> Forgot Password </a>
               </li>
 
               <li>
-                <a href="#" class="text-base text-gray-300 hover:text-white"> Confirm Email </a>
+                <a href=<%= new_user_confirmation_path %> class="text-base text-gray-300 hover:text-white"> Confirm Email </a>
               </li>
             </ul>
           </div>
@@ -46,15 +46,15 @@
             <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">Company</h3>
             <ul role="list" class="mt-4 space-y-4">
               <li>
-                <a href="#" class="text-base text-gray-300 hover:text-white"> About </a>
+                <a href=<%= static_page_path(:about) %> class="text-base text-gray-300 hover:text-white"> About </a>
               </li>
 
               <li>
-                <a href="#" class="text-base text-gray-300 hover:text-white"> Blog </a>
+                <a href=<%= static_page_path(:blog) %> class="text-base text-gray-300 hover:text-white"> Blog </a>
               </li>
 
               <li>
-                <a href="#" class="text-base text-gray-300 hover:text-white"> Roadmap </a>
+                <a href=<%= static_page_path(:roadmap) %> class="text-base text-gray-300 hover:text-white"> Roadmap </a>
               </li>
             </ul>
           </div>
