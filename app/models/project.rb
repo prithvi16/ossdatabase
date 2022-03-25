@@ -22,6 +22,7 @@
 #  proprietary              :boolean          default(FALSE)
 #  logo_url                 :string
 #  github_stars             :bigint
+#  github_id                :bigint
 #
 class Project < ApplicationRecord
   has_many :taggings

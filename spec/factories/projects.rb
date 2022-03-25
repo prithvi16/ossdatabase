@@ -22,6 +22,7 @@
 #  proprietary              :boolean          default(FALSE)
 #  logo_url                 :string
 #  github_stars             :bigint
+#  github_id                :bigint
 #
 FactoryBot.define do
   factory :project do
