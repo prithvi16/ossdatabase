@@ -37,6 +37,7 @@ class ProjectsController < ApplicationController
   end
 
   def search
+    @tag_options = TOP_TAG_TYPES.map { |tag_type| [tag_type, Tag.where(tag_type: tag_type).map { |tag| [tag.name, tag.id] }] }
     @q = Project.ransack(params[:q])
     @projects = @q.result.includes(:taggings, :tags, :avatar_attachment).page params[:page]
 
