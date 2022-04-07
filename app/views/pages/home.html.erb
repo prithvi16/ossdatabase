@@ -32,7 +32,7 @@
 </main>
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="bg-blue-500" data-controller="search" id="search">
-  <div class="max-w-4xl px-4 py-16 mx-auto sm:px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:pt-24 lg:px-8">
+  <div class="max-w-4xl px-4 pt-16 mx-auto sm:px-6 sm:pt-20 lg:max-w-7xl lg:pt-24 lg:px-8">
     <h2 class="text-3xl font-extrabold text-white">Search for Open Source Projects</h2>
     <div class="pt-5">
       <%= search_form_for @q, url: projects_search_path, remote: true, data: {"search-target": "form", 'action': 'ajax:success->search#renderResults'}, method: "GET" do |f| %>
