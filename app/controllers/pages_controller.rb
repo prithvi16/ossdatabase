@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home
     @tag_options = TOP_TAG_TYPES.map { |tag_type| [tag_type, Tag.where(tag_type: tag_type).map { |tag| [tag.name, tag.id] }] }
-    @projects = Project.all.page params[:page]
+    @projects = Project.all.includes([:avatar_attachment]).page params[:page]
   end
 
   def static

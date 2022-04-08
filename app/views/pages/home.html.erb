@@ -32,7 +32,7 @@
 </main>
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="bg-blue-500" data-controller="search" id="search">
-  <div class="max-w-4xl px-4 pt-16 mx-auto sm:px-6 sm:pt-20 lg:max-w-7xl lg:pt-24 lg:px-8">
+  <div class="max-w-3xl px-4 pt-16 mx-auto sm:px-6 sm:pt-20 lg:max-w-7xl lg:pt-24 lg:px-8">
     <h2 class="text-3xl font-extrabold text-white">Search for Open Source Projects</h2>
     <div class="pt-5">
       <%= form_with url: projects_search_path, remote: true, data: {"search-target": "form", 'action': 'ajax:success->search#renderResults'}, method: "GET" do |f| %>
@@ -42,9 +42,16 @@
           </div>
         </div>
         <div class="mt-2">
-          <%= f.label :tag_ids, "Project tags", class: "block text-sm font-medium leading-5 text-white" %>
+          <%= f.label :tag_ids, "Project tags", class: "block font-medium leading-5 text-white" %>
           <div class="mt-1 rounded-md shadow-sm">
-            <%= f.select :tag_ids, grouped_options_for_select(@tag_options, :tag_ids), {}, {multiple: true, placeholder: "Select tags to filter projects" ,"data-search-target": "selectInput", "action": "onChange->search#triggerSearch"}%>
+            <%= f.select :tag_ids, grouped_options_for_select(@tag_options, :tag_ids), {}, {multiple: true, placeholder: "Select tags to filter projects" ,"data-search-target": "selectInput"}%>
+          </div>
+        </div>
+        <div class="mt-3">
+          <%= f.label :proprietary, "Open Source only?", class: "block  font-medium leading-5 text-white" %>
+          <div class="mt-1">
+            <%= f.label :proprietary, "Yes", class: "inline-block font-medium leading-5 text-white" %>
+            <%= f.check_box :proprietary, {"data-action": "change->search#triggerSearch"}%>
           </div>
         </div>
       </div>

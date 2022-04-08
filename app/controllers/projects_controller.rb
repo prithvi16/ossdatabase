@@ -38,11 +38,13 @@ class ProjectsController < ApplicationController
 
   def search
     @tag_options = TOP_TAG_TYPES.map { |tag_type| [tag_type, Tag.where(tag_type: tag_type).map { |tag| [tag.name, tag.id] }] }
-    
+
     @projects = Project.all
     @projects = @projects.pg_search_by_name(params[:pg_search_by_name]).reorder(nil) if params[:pg_search_by_name].present?
     @projects = @projects.filter_by_tag_ids(params[:tag_ids]) if params[:tag_ids].length > 1
-    @projects = @projects.page params[:page]
+    @projects = @projects.where(proprietary: false) if params[:proprietary].present? &&  ActiveRecord::Type::Boolean.new.cast(params[:proprietary])
+    @projects = @projects.includes([:avatar_attachment]).page params[:page]
+
 
     respond_to do |format|
       format.js { render ProjectListComponent.new(project_list: @projects), layout: false, content_type: "text/html" }
