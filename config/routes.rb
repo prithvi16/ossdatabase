@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "projects/browse", to: "tags#index", as: "projects_browse"
   get "projects/search", to: "projects#search", as: "projects_search"
   root to: "pages#home"
+  get "/subscribed", to: "pages#subscribed"
   authenticate :user, lambda { |u| u.admin? } do
     get "/site_admin/home", to: "site_admin#home"
     post "/site_admin/github_projects", to: "site_admin#github_projects", as: "site_admin_github_projects"

@@ -12,4 +12,7 @@ class PagesController < ApplicationController
       nil
     end
   end
+
+  def subscribed
+  end
 end
