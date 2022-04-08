@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home
-    @q = Project.ransack(params[:q])
-    @projects = @q.result(distinct: true).order(updated_at: :desc).includes(:taggings, :avatar_attachment, :tags).page params[:page]
+    @tag_options = TOP_TAG_TYPES.map { |tag_type| [tag_type, Tag.where(tag_type: tag_type).map { |tag| [tag.name, tag.id] }] }
+    @projects = Project.all.page params[:page]
   end
 
   def static

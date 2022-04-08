@@ -1,10 +1,15 @@
 import { Controller } from "stimulus";
 import Rails from "@rails/ujs";
 let debounce = require("lodash/debounce");
+import SlimSelect from "slim-select";
 
 export default class extends Controller {
-  static targets = ["form", "resultParent", "loader"];
+  static targets = ["form", "resultParent", "loader", "selectInput"];
   initialize() {
+    new SlimSelect({
+      select: this.selectInputTarget,
+      onChange: this.submitForm.bind(this),
+    });
     this.triggerSearch = debounce(this.triggerSearch, 500).bind(this);
   }
 
