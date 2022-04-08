@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
   def home
-    @tag_options = TOP_TAG_TYPES.map { |tag_type| [tag_type, Tag.where(tag_type: tag_type).map { |tag| [tag.name, tag.id] }] }
+    @license_tag_options = Tag.where(tag_type: "license").map { |t| [t.name, t.id] }
+    @tech_tag_options = Tag.where(tag_type: "tech").map { |t| [t.name, t.id] }
+    @usecase_tag_options = Tag.where(tag_type: "usecase").map { |t| [t.name, t.id] }
+    @platform_tag_options = Tag.where(tag_type: "platform").map { |t| [t.name, t.id] }
     @projects = Project.all.includes([:avatar_attachment]).page params[:page]
   end
 

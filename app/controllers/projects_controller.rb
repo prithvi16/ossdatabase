@@ -38,10 +38,10 @@ class ProjectsController < ApplicationController
 
   def search
     @tag_options = TOP_TAG_TYPES.map { |tag_type| [tag_type, Tag.where(tag_type: tag_type).map { |tag| [tag.name, tag.id] }] }
-
+    tag_filters = params[:license_tag_ids] + params[:tech_tag_ids] + params[:usecase_tag_ids] + params[:platform_tag_ids]
     @projects = Project.all
     @projects = @projects.pg_search_by_name(params[:pg_search_by_name]).reorder(nil) if params[:pg_search_by_name].present?
-    @projects = @projects.filter_by_tag_ids(params[:tag_ids]) if params[:tag_ids].length > 1
+    @projects = @projects.filter_by_tag_ids(tag_filters) if tag_filters.length > 4
     @projects = @projects.where(proprietary: false) if params[:proprietary].present? &&  ActiveRecord::Type::Boolean.new.cast(params[:proprietary])
     @projects = @projects.includes([:avatar_attachment]).page params[:page]
 
