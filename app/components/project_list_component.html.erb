@@ -7,7 +7,7 @@
     <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
       <% @project_list.each do |project| %>
         <li class="max-w-xl col-span-1 bg-white rounded-lg shadow-lg">
-          <%=link_to project_path(project),  class: "block hover:bg-gray-50" do %>
+          <%= link_to project_path(project), class: "block hover:bg-gray-50", target: "_blank" do %>
             <div class="px-4 py-4 sm:px-6">
               <div class="flex">
                 <% if project.avatar.attached? %>
@@ -41,6 +41,13 @@
                   <%= number_to_human(project.github_stars, :format => '%n%u', :units => { thousand: 'K' }) %>
                 </div>
               <% end %>
+              <div class="mt-2">
+                <button type="button" class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Open alternatives <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                  </svg>
+                </button>
+              </div>
             </div>
           <% end %>
         </li>
