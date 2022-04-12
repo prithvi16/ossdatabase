@@ -30,7 +30,6 @@
     </div>
   </div>
 </main>
-<!-- This example requires Tailwind CSS v2.0+ -->
 <div class="bg-blue-500" data-controller="search" id="search">
   <div class="max-w-3xl px-4 pt-16 mx-auto sm:px-6 sm:pt-20 lg:max-w-6xl lg:pt-24 lg:px-8">
     <h2 class="text-3xl font-extrabold text-white">Search for Open Source Projects</h2>
@@ -79,6 +78,14 @@
   <% end %>
   <div class="mt-12 lg:mt-16" data-search-target="resultParent">
     <%= render(ProjectListComponent.new(project_list: @projects)) %>
+  </div>
+</div>
+<div class="bg-blue-500" data-controller="search" id="search">
+  <div class="max-w-3xl px-4 pt-16 mx-auto sm:px-6 sm:pt-20 lg:max-w-6xl lg:pt-24 lg:px-8">
+    <h2 class="text-3xl font-extrabold text-white">Alternatives To Proprietory Software</h2>
+    <div class="mt-12 lg:mt-16" data-search-target="resultParent">
+      <%= render(ProjectListComponent.new(project_list: Project.where(proprietary: true).limit(20))) %>
+    </div>
   </div>
 </div>
 <%= render NewsLetterComponent.new %>
