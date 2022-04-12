@@ -37,15 +37,26 @@ class ProjectsController < ApplicationController
   end
 
   def search
-    @tag_options = TOP_TAG_TYPES.map { |tag_type| [tag_type, Tag.where(tag_type: tag_type).map { |tag| [tag.name, tag.id] }] }
-    tag_filters = params[:license_tag_ids] + params[:tech_tag_ids] + params[:usecase_tag_ids] + params[:platform_tag_ids]
-    @projects = Project.all
-    @projects = @projects.pg_search_by_name(params[:pg_search_by_name]).reorder(nil) if params[:pg_search_by_name].present?
-    @projects = @projects.filter_by_tag_ids(tag_filters) if tag_filters.length > 4
-    @projects = @projects.where(proprietary: false) if params[:proprietary].present? &&  ActiveRecord::Type::Boolean.new.cast(params[:proprietary])
-    @projects = @projects.includes([:avatar_attachment]).page params[:page]
-
-
+    @license_tag_options = Tag.where(tag_type: "license").map { |t| [t.name, t.id] }
+    @tech_tag_options = Tag.where(tag_type: "tech").map { |t| [t.name, t.id] }
+    @usecase_tag_options = Tag.where(tag_type: "usecase").map { |t| [t.name, t.id] }
+    @platform_tag_options = Tag.where(tag_type: "platform").map { |t| [t.name, t.id] }
+    if params.key?(:search)
+      tag_filters = []
+      tag_list = %w[license_tag_ids tech_tag_ids usecase_tag_ids platform_tag_ids]
+      tag_list.each do |tag_type|
+        if params[:search][tag_type].present?
+          tag_filters = tag_filters + params[:search][tag_type]
+        end
+      end
+      @projects = Project.all
+      @projects = @projects.pg_search_by_name(params[:search][:pg_search_by_name]).reorder(nil) if params[:search][:pg_search_by_name].present?
+      @projects = @projects.filter_by_tag_ids(tag_filters) if tag_filters.length > 4
+      @projects = @projects.where(proprietary: false) if params[:search][:proprietary].present? &&  ActiveRecord::Type::Boolean.new.cast(params[:search][:proprietary])
+      @projects = @projects.includes([:avatar_attachment]).page params[:page]
+    else
+      @projects = Project.all.order(updated_at: :desc).includes([:avatar_attachment]).page params[:page]
+    end
     respond_to do |format|
       format.js { render ProjectListComponent.new(project_list: @projects), layout: false, content_type: "text/html" }
       format.html { render :search }

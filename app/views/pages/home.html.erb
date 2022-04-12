@@ -34,7 +34,7 @@
   <div class="max-w-3xl px-4 pt-16 mx-auto sm:px-6 sm:pt-20 lg:max-w-6xl lg:pt-24 lg:px-8">
     <h2 class="text-3xl font-extrabold text-white">Search for Open Source Projects</h2>
     <div class="pt-5">
-      <%= form_with url: projects_search_path, remote: true, data: {"search-target": "form", 'action': 'ajax:success->search#renderResults'}, method: "GET" do |f| %>
+      <%= form_with scope: :search, url: projects_search_path, remote: true, data: {"search-target": "form", 'action': 'ajax:success->search#renderResults'}, method: "GET" do |f| %>
         <div>
           <div class="mt-2">
             <%= f.text_field :pg_search_by_name, class:"block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg", placeholder:"Search for projects by name", data: { "action": "input->search#triggerSearch" } %>
@@ -73,9 +73,9 @@
             <%= f.check_box :proprietary, {"data-action": "change->search#triggerSearch"}%>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
   <div class="mt-12 lg:mt-16" data-search-target="resultParent">
     <%= render(ProjectListComponent.new(project_list: @projects)) %>
   </div>
