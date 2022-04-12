@@ -35,15 +35,22 @@
               </div>
             <% end %>
           </div>
-          <div class="flex items-center">
+          <div class="flex items-center gap-x-1">
             <div class="shrink-0">
-              <%= link_to root_path + "#search" do%>
+              <%= link_to root_path + "#search" do %>
                 <button type="button" class="relative inline-flex items-center px-2 py-1 text-xs font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm md:px-4 md:py-2 md:text-sm hover:bg-blue-700 focus:outline-none focus:border-blue-700 focus:ring-indigo active:bg-blue-700">
                   <span>Search Projects</span>
                 </button>
               <% end %>
             </div>
-            <div class="hidden md:ml-4 md:shrink-0 md:flex md:items-center">
+            <div class="">
+              <%= link_to new_submission_path do %>
+                <button type="button" class="relative inline-flex items-center px-2 py-1 text-xs font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm md:px-4 md:py-2 md:text-sm hover:bg-blue-700 focus:outline-none focus:border-blue-700 focus:ring-indigo active:bg-blue-700">
+                  <span>Submit a Project</span>
+                </button>
+              <% end %>
+            </div>
+            <div class="hidden md:shrink-0 md:flex md:items-center">
               <!-- Profile dropdown -->
               <div class="relative ml-3">
                 <% if user_signed_in? %>
