@@ -4,7 +4,7 @@ class PagesController < ApplicationController
     @tech_tag_options = Tag.where(tag_type: "tech").map { |t| [t.name, t.id] }
     @usecase_tag_options = Tag.where(tag_type: "usecase").map { |t| [t.name, t.id] }
     @platform_tag_options = Tag.where(tag_type: "platform").map { |t| [t.name, t.id] }
-    @projects = Project.all.includes([:avatar_attachment]).page params[:page]
+    @projects = Project.all.order(updated_at: :desc).includes([:avatar_attachment]).page params[:page]
   end
 
   def static
