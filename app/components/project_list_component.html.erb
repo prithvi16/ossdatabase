@@ -45,7 +45,7 @@
                 <div class="mt-1 text-sm ">
                   <% if project.proprietary? %>
                     <span class="inline-flex items-center text-white px-1.5 py-0.5 rounded text-xs uppercase bg-blue-500 ">
-                      Proprietory
+                      Proprietary
                     </span>
                   <% else %>
                     <%= render TagListComponent.new(tag_list: project.license_tags) %>
