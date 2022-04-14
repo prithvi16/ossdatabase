@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/submit', to: "submissions#new", as: "new_submission"
   post '/submissions', to: "submissions#create", as: "create_submission"
   get "tags/:tag_name", to: "tags#show", as: "tag_show"
+  get "/projects/:id/preview", to: "projects#preview", as: "project_preview"
   resources :projects, only: [:new, :show, :create, :edit, :update]
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

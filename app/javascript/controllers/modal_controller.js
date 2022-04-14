@@ -1,9 +1,12 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
+
   connect() {
+    console.log("modal connected");
     this.element[this.identifier] = this;
   }
+
   static targets = ["panel", "background", "inset", "content"];
   openModal() {
     $(this.insetTarget).addClass("inset-0");

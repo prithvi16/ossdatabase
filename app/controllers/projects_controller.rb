@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :update, :edit]
+  before_action :set_project, only: [:show, :update, :edit, :preview]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :only_admin, only: [:edit, :update, :new, :create]
 
@@ -14,6 +14,10 @@ class ProjectsController < ApplicationController
 
   def edit
     @tag_options = TOP_TAG_TYPES.map { |tag_type| [tag_type, Tag.where(tag_type: tag_type).map { |tag| [tag.name, tag.id] }] }
+  end
+
+  def preview
+    render ::ProjectComponent.new(project: @project, current_user: current_user), content_type: "text/html", layout: false
   end
 
   def update
