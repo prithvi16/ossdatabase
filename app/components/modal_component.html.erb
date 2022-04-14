@@ -1,0 +1,33 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div data-controller="modal" id="global_modal_root" data-modal-target="inset" class="fixed z-10 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div data-action="click->modal#clickOutside" class="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+    <!--
+      Background overlay, show/hide based on modal state.
+      Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div data-modal-target="background" class="fixed transition-opacity bg-gray-500 bg-opacity-0" aria-hidden="true"></div>
+    <!-- This element is to trick the browser into centering the modal contents. -->
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+    <!--
+      Modal panel, show/hide based on modal state.
+      Entering: "ease-out duration-300"
+        From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        To: "opacity-100 translate-y-0 sm:scale-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100 translate-y-0 sm:scale-100"
+        To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+    -->
+    <div data-modal-target="panel" data-action="modal:click:outside->modal#closeModal" class="inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform translate-y-4 bg-white rounded-lg shadow-xl panel-closest-class sm:my-8 sm:align-middle sm:w-full sm:p-4 sm:translate-y-0 sm:scale-95">
+      <div class="flex justify-end mb-2">
+        <div class=""><svg data-action="click->modal#closeModal" class="w-6 h-6 duration-100 ease-in rounded-md hover:bg-indigo-100" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </div>
+      </div>
+      <div data-modal-target="content"></div>
+    </div>
+  </div>
+</div>

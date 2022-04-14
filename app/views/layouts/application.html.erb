@@ -116,5 +116,6 @@
     <% if Rails.env.production? %>
       <script defer data-domain="ossdatabase.com" src="https://plausible.io/js/plausible.js"></script>
     <% end %>
+    <%= render ModalComponent.new %>
   </body>
 </html>
