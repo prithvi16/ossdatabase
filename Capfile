@@ -45,6 +45,7 @@ require "capistrano/passenger"
 require "capistrano/rbenv"
 require "capistrano/rails/console"
 require "capistrano/sidekiq"
+require 'capistrano/sitemap_generator'
 install_plugin Capistrano::Sidekiq # Default sidekiq tasks
 install_plugin Capistrano::Sidekiq::Systemd
 
