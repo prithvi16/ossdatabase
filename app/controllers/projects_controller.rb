@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @alternative_projects = Project.filter_by_tag_ids(@project.usecase_tags.map { |tag| tag.id.to_s })
+    @alternative_projects = Project.filter_by_any_of_tag_ids(@project.usecase_tags.map { |tag| tag.id.to_s })
   end
 
   def edit
