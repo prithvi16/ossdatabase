@@ -20,4 +20,11 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
   get "pages/:key", to: "pages#static", as: "static_page"
+
+  get "/blog", to: "articles#index", as: "blog"
+  get "/blog/:id", to: "articles#show", as: "article"
+  get "/blog/:id/edit", to: "articles#edit", as: "edit_article"
+  get "/blogs/new", to: "articles#new", as: "new_article"
+  post "/blogs", to: "articles#create", as: "article"
+  post "/blogs/:id", to: "articles#update", as: "update_article"
 end
