@@ -1,10 +1,13 @@
+require 'redcarpet/render_strip'
+
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :ensure_user_admin , except: [:index, :show]
 
   def index
-    @articles = Article.all.order(created_at: :desc).page(params[:page]).per(10)
+    @articles = Article.all.order(created_at: :desc)
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
   end
 
   def show
