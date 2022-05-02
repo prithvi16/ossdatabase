@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
   def new
@@ -39,7 +40,7 @@ class ArticlesController < ApplicationController
   private
 
   def set_article
-    @article = Article.frinedly.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
 
   def article_params
