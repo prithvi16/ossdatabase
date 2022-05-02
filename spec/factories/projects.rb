@@ -23,6 +23,9 @@
 #  logo_url                 :string
 #  github_stars             :bigint
 #  github_id                :bigint
+#  github_last_release_date :datetime
+#  github_last_commit_date  :datetime
+#  github_open_issues_count :bigint
 #
 FactoryBot.define do
   factory :project do
