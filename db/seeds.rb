@@ -78,3 +78,9 @@ StaticPage.create!(key: "about", description: "TEST", title: "About", content: F
 StaticPage.create!(key: "site-updates", description: "TEST", title: "Site Updates", content: File.read(File.open("#{Rails.root}/db/example_markdown/site-updates.md")))
 StaticPage.create!(key: "contact", description: "TEST", title: "Contact", content: File.read(File.open("#{Rails.root}/db/example_markdown/contact.md")))
 puts "===========DONE==============="
+
+puts "======GEnerating articles======"
+10.times do
+  Article.create!(title: Faker::Book.title , content:Faker::Markdown.sandwich(sentences: 6, repeat: 3))
+end
+puts "======DONE======"
