@@ -37,6 +37,7 @@
     "slim-select": "^1.26.0",
     "stimulus": "^2.0.0",
     "tailwindcss-stimulus-components": "^2.0.9",
+    "trix": "^2.0.0-beta.0",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",

@@ -23,3 +23,4 @@ $(document).on("turbolinks:load", function () {
   });
 });
 import "controllers";
+import "trix"
