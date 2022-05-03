@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @stripped_markdown = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
