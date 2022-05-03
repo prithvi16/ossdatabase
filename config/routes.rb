@@ -26,5 +26,5 @@ Rails.application.routes.draw do
   get "/blog/:id/edit", to: "articles#edit", as: "edit_article"
   get "/blogs/new", to: "articles#new", as: "new_article"
   post "/blog", to: "articles#create"
-  post "/blogs/:id", to: "articles#update", as: "update_article"
+  post "/blog/:id", to: "articles#update", as: "update_article"
 end
