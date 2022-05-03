@@ -1,8 +1,12 @@
 <div class="relative py-16 bg-white overflow-hidden">
   <div class="relative px-4 sm:px-6 lg:px-8">
     <div class="text-lg max-w-prose mx-auto">
-      <div class="max-w-prose pb-10">
+      <div class="max-w-prose pb-10 flex flex-col">
         <%= link_to " ← All Posts", blog_path %>
+        <% if current_user && current_user.admin? %>
+          <%= link_to "New Post", new_article_path, class: "mt-4 text-base text-indigo-600 font-semibold tracking-wide uppercase" %>
+          <%= link_to "Edit Post", edit_article_path(@article), class: "mt-4 text-base text-indigo-600 font-semibold tracking-wide uppercase"   %>
+        <% end %>
       </div>
       <h1 class="mt-10">
         <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase"><%= @article.created_at.strftime("%b %d, %Y") %></span>
