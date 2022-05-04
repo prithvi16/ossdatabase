@@ -33,6 +33,11 @@ SitemapGenerator::Sitemap.create do
     add tag_show_path(tag)
   end
 
+  add blog_path
+  Article.find_each do |article|
+    add article_path(article), :lastmod => article.updated_at
+  end
+
   add projects_browse_path, :changefreq => 'daily'
   add projects_search_path, :changefreq => 'daily'
   add new_submission_path
