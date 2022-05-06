@@ -2,7 +2,7 @@ class ProjectComponent < ViewComponent::Base
   def initialize(project:, current_user:)
     @project = project
     @current_user = current_user
-    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, link_attributes: { target: "_blank", rel: "noopener noreferrer nofollow" })
   end
 
   def premium_description
