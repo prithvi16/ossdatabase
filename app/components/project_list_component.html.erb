@@ -14,7 +14,7 @@
             <div class="flex">
               <% if project.avatar.attached? %>
                 <div class="mr-2">
-                  <img class="inline-block object-contain w-12 h-12 rounded-md" src=<%= project.avatar.url %> alt="">
+                  <img class="inline-block object-contain w-12 h-12 rounded-md" src=<%= project.avatar.url %> alt="" loading="lazy">
                 </div>
               <% end %>
               <div>

@@ -9,10 +9,6 @@ const context = require.context("controllers", true, /_controller\.js$/);
 application.load(definitionsFromContext(context));
 
 import {
-  Dropdown,
-  Modal,
-  Tabs,
-  Popover,
-  Toggle,
+  Dropdown
 } from "tailwindcss-stimulus-components";
 application.register("dropdown", Dropdown);
