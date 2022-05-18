@@ -28,6 +28,18 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def nav_search
+    if params.key?(:q)
+      if params[:q][:name].present?
+        @projects = Project.pg_search_by_name(params[:q][:name]).page params[:page]
+      else
+        @projects = Project.all.order(created_at: :desc).page params[:page]
+      end
+    else
+      @projects = Project.all.order(created_at: :desc).page params[:page]
+    end
+  end
+
   def create
     @project = Project.new(project_params)
     if @project.save

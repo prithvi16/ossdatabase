@@ -3,6 +3,7 @@ require "sidekiq/web"
 Rails.application.routes.draw do
   get "projects/browse", to: "tags#index", as: "projects_browse"
   get "projects/search", to: "projects#search", as: "projects_search"
+  get "/search", to: "projects#nav_search", as: "nav_search"
   root to: "pages#home"
   get "/subscribed", to: "pages#subscribed"
   authenticate :user, lambda { |u| u.admin? } do
