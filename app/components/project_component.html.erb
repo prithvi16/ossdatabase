@@ -40,8 +40,8 @@
             Open Issues
           </div>
           <div class="text-sm">
-          <%= number_to_human(@project.github_open_issues_count , :format => '%n%u', :units => { thousand: 'K' })  %>
-        </div>
+            <%= number_to_human(@project.github_open_issues_count , :format => '%n%u', :units => { thousand: 'K' })  %>
+          </div>
         </div>
       <% end %>
       <% if @project.github_last_release_date.present? %>
@@ -50,7 +50,7 @@
             Last Release
           </div>
           <div class="text-sm">
-          <%= time_ago_in_words(@project.github_last_release_date) + " ago" %>
+            <%= time_ago_in_words(@project.github_last_release_date) + " ago" %>
           </div>
         </div>
       <% end %>
@@ -60,7 +60,7 @@
             Last Commit
           </div>
           <div class="text-sm">
-          <%= time_ago_in_words(@project.github_last_commit_date) + " ago" %>
+            <%= time_ago_in_words(@project.github_last_commit_date) + " ago" %>
           </div>
         </div>
       <% end %>
@@ -89,7 +89,13 @@
           License
         </dt>
         <dd class="mt-1 text-sm leading-5 text-gray-900">
-          <%= render TagListComponent.new(tag_list: @project.license_tags) %>
+          <% if @project.proprietary? %>
+            <span class="inline-flex items-center text-white px-1.5 py-0.5 rounded text-xs uppercase bg-blue-500 ">
+              proprietary
+            </span>
+          <% else %>
+            <%= render TagListComponent.new(tag_list: @project.license_tags) %>
+          <% end %>
         </dd>
       </div>
       <div class="sm:col-span-1">
