@@ -61,6 +61,10 @@ class Project < ApplicationRecord
     tags.map(&:name).join(", ")
   end
 
+  def self.search_suggestions(query)
+    Project.pg_search_by_name(query).limit(10).select(:id, :name, :tag_line)
+  end
+
   TOP_TAG_TYPES.each do |tag_type|
     define_method "#{tag_type}_tags" do
       tags.where(tag_type: tag_type)

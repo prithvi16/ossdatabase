@@ -1,0 +1,11 @@
+<% if @results.any? %>
+  <% @results.each do |result| %>
+    <div class="py-1" role="none">
+      <a href=<%= nav_search_url(params:  {q: {name: result.name}}) %> class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" ><%= result.name%></a>
+    </div>
+  <% end %>
+<% else %>
+  <div class="py-1" role="none">
+      <div class="text-gray-700 block px-4 py-2 text-sm"> No results found </div>
+    </div>
+<% end %>

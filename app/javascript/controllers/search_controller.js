@@ -5,7 +5,7 @@ import SlimSelect from "slim-select";
 
 export default class extends Controller {
   static targets = ["form", "resultParent", "loader", "selectLicenseInput", "selectTechInput", "selectPlatformInput", "selectUsecaseInput"];
-  initialize() {
+  connect() {
     new SlimSelect({
       select: this.selectLicenseInputTarget,
       onChange: this.submitForm.bind(this),
@@ -34,7 +34,7 @@ export default class extends Controller {
   }
 
   triggerSearch() {
-    this.submitForm();
+    
   }
 
   renderResults(event) {

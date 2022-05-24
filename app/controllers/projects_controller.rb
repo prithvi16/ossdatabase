@@ -28,6 +28,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def search_suggestions
+    render ::NavSearchResultComponent.new(results: Project.search_suggestions(params[:query])), layout: false, content_type: "text/html"
+  end
+
   def nav_search
     if params.key?(:q)
       if params[:q][:name].present?
