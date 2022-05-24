@@ -2,7 +2,7 @@
 // Controller files must be named *_controller.js.
 
 import { Application } from "@hotwired/stimulus";
-import { definitionsFromContext } from "@hotwired/stimulus/webpack-helpers";
+import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers";
 
 const application = Application.start();
 const context = require.context("controllers", true, /_controller\.js$/);
