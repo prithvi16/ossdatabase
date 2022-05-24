@@ -1,4 +1,4 @@
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus";
 import globalModal  from "../utils/constants";
 
 export default class extends Controller {

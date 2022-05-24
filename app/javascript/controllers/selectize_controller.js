@@ -7,7 +7,7 @@
 //   <h1 data-target="hello.output"></h1>
 // </div>
 
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus";
 import SlimSelect from "slim-select";
 
 export default class extends Controller {

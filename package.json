@@ -35,7 +35,8 @@
     "postcss": "8.2.13",
     "postcss-loader": "^4.2.0",
     "slim-select": "^1.26.0",
-    "stimulus": "^2.0.0",
+    "@hotwired/stimulus": "^3.0.1",
+    "stimulus-use": "^0.50.0",
     "tailwindcss-stimulus-components": "^2.0.9",
     "trix": "^2.0.0-beta.0",
     "turbolinks": "^5.2.0"

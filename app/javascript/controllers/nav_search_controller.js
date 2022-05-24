@@ -1,5 +1,5 @@
-import { Controller } from "stimulus";
-import Rails from "@rails/ujs";
+import { Controller } from "@hotwired/stimulus";
+import { useClickOutside } from 'stimulus-use'
 let debounce = require("lodash/debounce");
 
 
@@ -7,8 +7,15 @@ export default class extends Controller {
   static targets = ["form", "resultParent"];
   connect() 
   {
-    console.log("nav search")
+    useClickOutside(this, { element: this.resultParentTarget })
     this.triggerSearch = debounce(this.triggerSearch, 500).bind(this);
+  }
+
+  clickOutside(event) {
+    // example to close a modal
+    event.preventDefault()
+    this.resultParentTarget.classList.add("opacity-0", "-z-10");
+    this.resultParentTarget.classList.remove("opacity-100", "z-10");
   }
   
 

@@ -1,4 +1,4 @@
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus";
 import Rails from "@rails/ujs";
 let debounce = require("lodash/debounce");
 import SlimSelect from "slim-select";
