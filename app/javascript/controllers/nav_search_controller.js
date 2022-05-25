@@ -7,7 +7,6 @@ export default class extends Controller {
   static targets = ["form", "resultParent"];
   connect() 
   {
-    useClickOutside(this, { element: this.resultParentTarget })
     this.triggerSearch = debounce(this.triggerSearch, 500).bind(this);
   }
 
