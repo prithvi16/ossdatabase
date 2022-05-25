@@ -485,9 +485,10 @@ GEM
     thor (1.2.1)
     tilt (2.0.10)
     timecop (0.9.5)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
+    turbo-rails (1.1.1)
+      actionpack (>= 6.0.0)
+      activejob (>= 6.0.0)
+      railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.1.0)
@@ -567,6 +568,7 @@ DEPENDENCIES
   rails (~> 6.1.4)
   ransack
   redcarpet (~> 3.5)
+  redis (~> 4.0)
   rspec-rails
   rubocop (~> 1.28.2)
   rubocop-rails
@@ -580,7 +582,7 @@ DEPENDENCIES
   stackprof
   standard
   timecop
-  turbolinks (~> 5)
+  turbo-rails
   tzinfo-data
   view_component
   web-console (>= 3.3.0)

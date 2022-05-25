@@ -4,11 +4,11 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start();
-require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
 require("jquery");
-
+import "@hotwired/turbo-rails"
+Turbo.session.drive = false
 import "../stylesheets/application.scss";
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -17,7 +17,8 @@ import "../stylesheets/application.scss";
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-$(document).on("turbolinks:load", function () {
+$(document).on("turbo:load", function () {
+  console.log("turbo is here");
   $("#mobile_menu_button").click(function () {
     $("#mobile_menu").toggleClass(["block", "hidden"]);
   });
