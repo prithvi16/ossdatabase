@@ -1,23 +1,45 @@
-<div class="bg-[#ffd700]">
-  <div class="max-w-5xl px-4 py-8 mx-auto sm:px-6 lg:px-8 ">
-    <%= form_with scope: :q, url: nav_search_url, method: :get, local: true do |f|%>
-      <% if params[:q].present? && params[:q][:name].present? %>
-        <div class="relative">
-          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <!-- Heroicon name: solid/search -->
-            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-            </svg>
-          </div>
-          <%= f.text_field :name, value: params[:q][:name] ,class: "block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm", placeholder: "Search Projects" %>
+<div class="bg-blue-500">
+  <div class="max-w-5xl px-4 py-8 mx-auto sm:px-6 lg:px-8" data-controller="search">
+    <%= form_with url: nav_search_path, data: {"search-target": "form", 'turbo-frame': 'search-results', 'turbo-action': 'advance'}, method: "GET" do |f| %>
+      <div>
+        <div class="mt-2">
+          <%= f.text_field :pg_search_by_name ,class:"block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg", placeholder:"Search for projects by name", data: { "action": "input->search#triggerSearch" } %>
         </div>
-      <% else %>
-        <%= f.text_field :name, class: "block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm", placeholder: "Search Projects"%>
-      <% end %>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4">
+        <div class="mt-3">
+          <%= f.label :license_tag_ids, "Filter by license", class: "block font-medium leading-5 text-white" %>
+          <div class="mt-1 rounded-md shadow-sm">
+            <%= f.select :license_tag_ids, options_for_select(@license_tag_options, :license_tag_ids), {}, {multiple: true,  class: "block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500", placeholder: "Select tags to filter projects" ,"data-search-target": "selectLicenseInput"}%>
+          </div>
+        </div>
+        <div class="mt-3">
+          <%= f.label :tech_tag_ids, "Filter by tech", class: "block font-medium leading-5 text-white" %>
+          <div class="mt-1 rounded-md shadow-sm">
+            <%= f.select :tech_tag_ids, options_for_select(@tech_tag_options, :tech_tag_ids), {}, {multiple: true,  class: "block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500", placeholder: "Select tags to filter projects" ,"data-search-target": "selectTechInput"}%>
+          </div>
+        </div>
+        <div class="mt-3">
+          <%= f.label :usecase_tag_ids, "Filter by usecase", class: "block font-medium leading-5 text-white" %>
+          <div class="mt-1 rounded-md shadow-sm">
+            <%= f.select :usecase_tag_ids, options_for_select(@usecase_tag_options, :usecase_tag_ids), {}, {multiple: true,  class: "block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500", placeholder: "Select tags to filter projects" ,"data-search-target": "selectUsecaseInput"}%>
+          </div>
+        </div>
+        <div class="mt-3">
+          <%= f.label :platform_tag_ids, "Filter by platform", class: "block font-medium leading-5 text-white" %>
+          <div class="mt-1 rounded-md shadow-sm">
+            <%= f.select :platform_tag_ids, options_for_select(@platform_tag_options, :platform_tag_ids), {}, {multiple: true,  class: "block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500", placeholder: "Select tags to filter projects" ,"data-search-target": "selectPlatformInput"}%>
+          </div>
+        </div>
+      </div>
+      <div class="mt-3">
+        <%= f.label :proprietary, "Open Source only?", class: "block  font-medium leading-5 text-white" %>
+        <div class="">
+          <%= f.label :proprietary, "Yes", class: "inline-block font-medium leading-5 text-white" %>
+          <%= f.check_box :proprietary, {"data-action": "change->search#triggerSearch"}%>
+        </div>
+      </div>
     <% end %>
-    <div class="mx-2 my-8 text-xl font-medium leading-6 ">
-      Search results
-    </div>
-    <%= render(ProjectListComponent.new(project_list: @projects)) %>
+    <%= render partial: "pages/search_results", locals: {projects: @projects}%>
   </div>
 </div>

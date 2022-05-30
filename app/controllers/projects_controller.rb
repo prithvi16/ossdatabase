@@ -33,15 +33,17 @@ class ProjectsController < ApplicationController
   end
 
   def nav_search
-    if params.key?(:q)
-      if params[:q][:name].present?
-        ahoy.track "search", query: params[:q][:name]
-        @projects = Project.pg_search_by_name(params[:q][:name]).page params[:page]
-      else
-        @projects = Project.all.order(created_at: :desc).page params[:page]
-      end
+    @license_tag_options = Tag.where(tag_type: "license").map { |t| [t.name, t.id] }
+    @tech_tag_options = Tag.where(tag_type: "tech").map { |t| [t.name, t.id] }
+    @usecase_tag_options = Tag.where(tag_type: "usecase").map { |t| [t.name, t.id] }
+    @platform_tag_options = Tag.where(tag_type: "platform").map { |t| [t.name, t.id] }
+
+    @projects = Project.search(params)
+
+    if turbo_frame_request?
+      render partial: "pages/search_results", locals: { projects: @projects }
     else
-      @projects = Project.all.order(created_at: :desc).page params[:page]
+      render "nav_search"
     end
   end
 
