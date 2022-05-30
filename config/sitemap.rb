@@ -41,6 +41,6 @@ SitemapGenerator::Sitemap.create do
   end
 
   add projects_browse_path, :changefreq => 'daily'
-  add projects_search_path, :changefreq => 'daily'
+  add nav_search_path, :changefreq => 'daily'
   add new_submission_path
 end

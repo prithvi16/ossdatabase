@@ -2,7 +2,6 @@ require "sidekiq/web"
 
 Rails.application.routes.draw do
   get "projects/browse", to: "tags#index", as: "projects_browse"
-  get "projects/search", to: "projects#search", as: "projects_search"
   post "projects/search_suggestions", to: "projects#search_suggestions", as: "projects_search_suggestions"
   get "/search", to: "projects#nav_search", as: "nav_search"
   root to: "pages#home"
