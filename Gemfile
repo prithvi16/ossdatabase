@@ -38,6 +38,9 @@ gem "honeybadger", "~> 4.12"
 # Annotations
 gem "annotate"
 
+# First party analytics
+gem "ahoy_matey"
+
 # deployment
 gem "capistrano-sidekiq", group: :development
 

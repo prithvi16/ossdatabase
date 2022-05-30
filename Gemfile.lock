@@ -79,6 +79,10 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ahoy_matey (4.0.3)
+      activesupport (>= 5.2)
+      device_detector
+      safely_block (>= 0.2.1)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
     annotate (3.2.0)
@@ -166,6 +170,7 @@ GEM
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
     debug_inspector (1.1.0)
+    device_detector (1.0.7)
     devise (4.8.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -179,6 +184,7 @@ GEM
       railties (>= 3.2)
     down (5.3.1)
       addressable (~> 2.8)
+    errbase (0.2.2)
     erubi (1.10.0)
     eventmachine (1.2.7)
     factory_bot (6.2.0)
@@ -417,6 +423,8 @@ GEM
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    safely_block (0.3.0)
+      errbase (>= 0.1.1)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -524,6 +532,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
+  ahoy_matey
   annotate
   aws-sdk-s3
   better_errors
