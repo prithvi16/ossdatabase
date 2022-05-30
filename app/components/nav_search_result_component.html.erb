@@ -1,7 +1,7 @@
 <% if @results.any? %>
   <% @results.each do |result| %>
     <div class="py-1" role="none">
-      <a href=<%= nav_search_url(params:  {q: {name: result.name}}) %> class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" ><%= result.name%></a>
+      <a href=<%= nav_search_url(params: {pg_search_by_name: result.name}) %> class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" ><%= result.name%></a>
     </div>
   <% end %>
 <% else %>
