@@ -18,7 +18,6 @@ import "../stylesheets/application.scss";
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 $(document).on("turbo:load", function () {
-  console.log("turbo is here");
   $("#mobile_menu_button").click(function () {
     $("#mobile_menu").toggleClass(["block", "hidden"]);
   });
