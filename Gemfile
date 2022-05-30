@@ -41,6 +41,9 @@ gem "annotate"
 # First party analytics
 gem "ahoy_matey"
 
+# Business intelligence
+gem "blazer"
+
 # deployment
 gem "capistrano-sidekiq", group: :development
 

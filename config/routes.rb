@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     post "/site_admin/github_projects", to: "site_admin#github_projects", as: "site_admin_github_projects"
     post "/site_admin/tags", to: "site_admin#tags", as: "site_admin_tags"
     mount Sidekiq::Web => "/sidekiq"
+    mount Blazer::Engine, at: "blazer"
   end
   
   get '/submit', to: "submissions#new", as: "new_submission"
