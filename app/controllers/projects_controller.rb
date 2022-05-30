@@ -33,11 +33,8 @@ class ProjectsController < ApplicationController
   end
 
   def nav_search
-    @license_tag_options = Tag.where(tag_type: "license").map { |t| [t.name, t.id] }
-    @tech_tag_options = Tag.where(tag_type: "tech").map { |t| [t.name, t.id] }
-    @usecase_tag_options = Tag.where(tag_type: "usecase").map { |t| [t.name, t.id] }
-    @platform_tag_options = Tag.where(tag_type: "platform").map { |t| [t.name, t.id] }
-
+    set_tag_options
+    track_search_query(params)
     @projects = Project.search(params)
 
     if turbo_frame_request?

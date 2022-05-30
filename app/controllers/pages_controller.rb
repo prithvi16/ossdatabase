@@ -1,12 +1,8 @@
 class PagesController < ApplicationController
   def home
-    @license_tag_options = Tag.where(tag_type: "license").map { |t| [t.name, t.id] }
-    @tech_tag_options = Tag.where(tag_type: "tech").map { |t| [t.name, t.id] }
-    @usecase_tag_options = Tag.where(tag_type: "usecase").map { |t| [t.name, t.id] }
-    @platform_tag_options = Tag.where(tag_type: "platform").map { |t| [t.name, t.id] }
-    
+    set_tag_options
     @projects = Project.search(params)
-
+    track_search_query(params)
     if turbo_frame_request?
       render partial: "pages/search_results", locals: { projects: @projects }
     else
