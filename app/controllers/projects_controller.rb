@@ -35,6 +35,7 @@ class ProjectsController < ApplicationController
   def nav_search
     if params.key?(:q)
       if params[:q][:name].present?
+        ahoy.track "search", query: params[:q][:name]
         @projects = Project.pg_search_by_name(params[:q][:name]).page params[:page]
       else
         @projects = Project.all.order(created_at: :desc).page params[:page]
@@ -70,7 +71,10 @@ class ProjectsController < ApplicationController
         end
       end
       @projects = Project.all
-      @projects = @projects.pg_search_by_name(params[:search][:pg_search_by_name]).reorder(nil) if params[:search][:pg_search_by_name].present?
+      if params[:search][:pg_search_by_name].present?
+        @projects = @projects.pg_search_by_name(params[:search][:pg_search_by_name]).reorder(nil)
+        ahoy.track "search", query: params[:search][:pg_search_by_name]
+      end
       @projects = @projects.filter_by_tag_ids(tag_filters) if tag_filters.length > 4
       @projects = @projects.where(proprietary: false) if params[:search][:proprietary].present? &&  ActiveRecord::Type::Boolean.new.cast(params[:search][:proprietary])
       @projects = @projects.includes([:avatar_attachment]).page params[:page]
