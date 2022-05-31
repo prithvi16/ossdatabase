@@ -1,9 +1,4 @@
 {
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "app/**/*.{html,md,js,jsx,json,yml}": [
       "prettier --write",
@@ -16,7 +11,8 @@
     "{app,test}/**/*html.erb": [
       "bundle exec htmlbeautifier",
       "git add"
-    ]
+    ],
+    "*.{js,css,md}": "prettier --write"
   },
   "name": "rails_ossdatabase",
   "private": true,
@@ -45,14 +41,17 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "husky": "^4.2.5",
+    "husky": "^8.0.0",
     "lint-staged": "^10.2.11",
     "prettier": "2.0.5",
     "tailwindcss": "^3.0.23",
     "webpack-dev-server": "^3.10.1"
   },
   "engines": {
-    "node": "^14.19.3",
+    "node": "^16.15.0",
     "yarn": "^1.21.1"
+  },
+  "scripts": {
+    "prepare": "husky install"
   }
 }
