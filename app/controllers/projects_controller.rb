@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
     @projects = Project.search(params)
 
     if turbo_frame_request?
-      render partial: "pages/search_results", locals: { projects: @projects }
+      render partial: "pages/search_results", locals: {projects: @projects}
     else
       render "nav_search"
     end

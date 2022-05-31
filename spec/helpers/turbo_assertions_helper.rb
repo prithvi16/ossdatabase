@@ -15,7 +15,7 @@ module TurboAssertionsHelper
 
     visit_location, _ = turbo_visit_location_and_action
 
-    redirect_is       = normalize_argument_to_redirection(visit_location)
+    redirect_is = normalize_argument_to_redirection(visit_location)
     redirect_expected = normalize_argument_to_redirection(options)
 
     message ||= "Expected response to be a Turbo visit to <#{redirect_expected}> but was a visit to <#{redirect_is}>"
@@ -38,7 +38,7 @@ module TurboAssertionsHelper
 
   def turbo_visit_location_and_action
     if response.body =~ TURBO_VISIT
-      [ $1, $2 ]
+      [$1, $2]
     end
   end
 end

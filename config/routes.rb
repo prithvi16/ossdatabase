@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get "/subscribed", to: "pages#subscribed"
-  
+
   authenticate :user, lambda { |u| u.admin? } do
     get "/site_admin/home", to: "site_admin#home"
     post "/site_admin/github_projects", to: "site_admin#github_projects", as: "site_admin_github_projects"
@@ -15,10 +15,10 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => "/sidekiq"
     mount Blazer::Engine, at: "blazer"
   end
-  
-  get '/submit', to: "submissions#new", as: "new_submission"
-  post '/submissions', to: "submissions#create", as: "create_submission"
-  
+
+  get "/submit", to: "submissions#new", as: "new_submission"
+  post "/submissions", to: "submissions#create", as: "create_submission"
+
   get "tags/:tag_name", to: "tags#show", as: "tag_show"
   get "/projects/:id/preview", to: "projects#preview", as: "project_preview"
   resources :projects, only: [:new, :show, :create, :edit, :update]

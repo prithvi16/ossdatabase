@@ -1,7 +1,7 @@
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = "https://ossdatabase.com"
 
-SitemapGenerator::Sitemap.sitemaps_path = 'shared/'
+SitemapGenerator::Sitemap.sitemaps_path = "shared/"
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
@@ -28,7 +28,7 @@ SitemapGenerator::Sitemap.create do
   #   end
 
   Project.find_each do |project|
-    add project_path(project), :lastmod => project.updated_at
+    add project_path(project), lastmod: project.updated_at
   end
 
   Tag.find_each do |tag|
@@ -37,10 +37,10 @@ SitemapGenerator::Sitemap.create do
 
   add blog_path
   Article.find_each do |article|
-    add article_path(article), :lastmod => article.updated_at
+    add article_path(article), lastmod: article.updated_at
   end
 
-  add projects_browse_path, :changefreq => 'daily'
-  add nav_search_path, :changefreq => 'daily'
+  add projects_browse_path, changefreq: "daily"
+  add nav_search_path, changefreq: "daily"
   add new_submission_path
 end

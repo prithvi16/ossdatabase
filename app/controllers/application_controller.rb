@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   include Turbo::Redirection
 
-
   def set_tag_options
     @license_tag_options = Tag.where(tag_type: "license").map { |t| [t.name, t.id] }
     @tech_tag_options = Tag.where(tag_type: "tech").map { |t| [t.name, t.id] }

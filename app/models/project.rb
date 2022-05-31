@@ -37,14 +37,13 @@ class Project < ApplicationRecord
                                message: "invalid link format"}
 
   extend FriendlyId
-  include Filterable
   include PgSearch::Model
   friendly_id :name, use: :slugged
 
-  pg_search_scope :pg_search_by_name, against: {name: 'A', tag_line: 'B' }, using: {tsearch: {dictionary: "english", prefix: true}}
+  pg_search_scope :pg_search_by_name, against: {name: "A", tag_line: "B"}, using: {tsearch: {dictionary: "english", prefix: true}}
   scope :filter_by_tag_ids, ->(tag_ids) { preload(:tags, :taggings).joins(:taggings).group(:id).having("array_agg(taggings.tag_id ORDER BY taggings.tag_id) @> ARRAY[?]::bigint[]", tag_ids.reject { |element| element.empty? }.sort) }
   scope :filter_by_any_of_tag_ids, ->(tag_ids) { preload(:tags, :taggings).joins(:taggings).group(:id).having("array_agg(taggings.tag_id ORDER BY taggings.tag_id) && ARRAY[?]::bigint[]", tag_ids.reject { |element| element.empty? }.sort) }
-  
+
   def self.tagged_with(name)
     Tag.find_by!(name: name).projects
   end
@@ -70,7 +69,7 @@ class Project < ApplicationRecord
     tag_list = %w[license_tag_ids tech_tag_ids usecase_tag_ids platform_tag_ids]
     tag_list.each do |tag_type|
       if params[tag_type].present?
-        tag_filters = tag_filters + params[tag_type]
+        tag_filters += params[tag_type]
       end
     end
     projects = Project.all
@@ -78,8 +77,8 @@ class Project < ApplicationRecord
       projects = projects.pg_search_by_name(params[:pg_search_by_name]).reorder(nil)
     end
     projects = projects.filter_by_tag_ids(tag_filters) if tag_filters.length > 4
-    projects = projects.where(proprietary: false) if params[:proprietary].present? &&  ActiveRecord::Type::Boolean.new.cast(params[:proprietary])
-    projects = projects.includes([:avatar_attachment]).page params[:page]
+    projects = projects.where(proprietary: false) if params[:proprietary].present? && ActiveRecord::Type::Boolean.new.cast(params[:proprietary])
+    projects.includes([:avatar_attachment]).page params[:page]
   end
 
   TOP_TAG_TYPES.each do |tag_type|

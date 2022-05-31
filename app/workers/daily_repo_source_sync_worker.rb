@@ -1,7 +1,7 @@
 class DailyRepoSourceSyncWorker
   include Sidekiq::Worker
 
-  def perform()
+  def perform
     all_projects = Project.where(source: "github").where("source_id is not null")
     counter = 0
     all_projects.each do |project|

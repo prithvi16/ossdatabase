@@ -14,7 +14,7 @@ gem "sass-rails", ">= 6"
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem "webpacker", "~> 5.4"
 # Turbo and hotwire
-gem 'turbo-rails'
+gem "turbo-rails"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.11"
 # Auhentication
@@ -22,7 +22,7 @@ gem "devise"
 # Admin
 gem "activeadmin"
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.0'
+gem "redis", "~> 4.0"
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -50,7 +50,7 @@ gem "capistrano-sidekiq", group: :development
 # meta tags
 gem "meta-tags"
 
-# Sitemap 
+# Sitemap
 gem "sitemap_generator"
 
 # Github API access

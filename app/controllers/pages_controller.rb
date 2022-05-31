@@ -4,7 +4,7 @@ class PagesController < ApplicationController
     @projects = Project.search(params)
     track_search_query(params)
     if turbo_frame_request?
-      render partial: "pages/search_results", locals: { projects: @projects }
+      render partial: "pages/search_results", locals: {projects: @projects}
     else
       render "home"
     end
