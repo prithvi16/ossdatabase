@@ -7,8 +7,9 @@ This is the source for ossdatabase.com 🚀. OssDatabse is a database of open so
 
 ## Features
  - Search for open-source projects
-
+ - Submit open-source projects
+ - View alternative open-source projects
 
 
 ### Liscence 
-© Prithviraj Sukale, 2020. All rights reserved.
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
