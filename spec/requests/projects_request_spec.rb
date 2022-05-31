@@ -7,7 +7,7 @@ RSpec.describe "Projects", type: :request do
 
   describe "GET /new" do
     it "returns http success" do
-      get new_project_path
+      get new_submission_path
       expect(response).to have_http_status(:success)
     end
   end
