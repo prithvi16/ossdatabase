@@ -11,6 +11,10 @@
 #  suggested_tags :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  proprietary    :boolean          default(FALSE)
+#  premium        :boolean          default(FALSE)
+#  github_url     :string
+#  logo_url       :string
 #
 class Submission < ApplicationRecord
 end

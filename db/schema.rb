@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_30_113745) do
+ActiveRecord::Schema.define(version: 2022_06_02_102709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -232,6 +232,10 @@ ActiveRecord::Schema.define(version: 2022_05_30_113745) do
     t.string "suggested_tags"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "proprietary", default: false
+    t.boolean "premium", default: false
+    t.string "github_url"
+    t.string "logo_url"
   end
 
   create_table "taggings", force: :cascade do |t|
