@@ -17,4 +17,5 @@
 #  logo_url       :string
 #
 class Submission < ApplicationRecord
+  validates :name, :description, presence: true
 end

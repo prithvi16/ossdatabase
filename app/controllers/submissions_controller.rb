@@ -16,6 +16,6 @@ class SubmissionsController < ApplicationController
   private
 
   def submission_params
-    params.require(:submission).permit(:name, :tagline, :description, :website, :alternative_to, :suggested_tags)
+    params.require(:submission).permit(:name, :tagline, :description, :website, :alternative_to, :suggested_tags, :github_url, :logo_url, :proprietary, :premium)
   end
 end
