@@ -1,10 +1,21 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :update, :edit, :preview]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  before_action :only_admin, only: [:edit, :update, :new, :create]
+  before_action :is_user_admin, only: [:edit, :update, :new, :create]
 
   def new
     @project = Project.new
+    if params.key?(:submission_id)
+      @submission = Submission.find(params[:submission_id])
+      @project.name = @submission.name
+      @project.tag_line = @submission.tagline
+      @project.description = @submission.description
+      @project.website = @submission.website
+      @project.proprietary = @submission.proprietary
+      @project.premium = @submission.premium
+      @project.repo_url = @submission.github_url
+      @project.logo_url = @submission.logo_url
+    end
     @tag_options = TOP_TAG_TYPES.map { |tag_type| [tag_type, Tag.where(tag_type: tag_type).map { |tag| [tag.name, tag.id] }] }
   end
 
@@ -60,12 +71,6 @@ class ProjectsController < ApplicationController
 
   def search_project_params
     params[:project].nil? ? nil : params.require(:project).permit(:name, tag_ids: [])
-  end
-
-  def only_admin
-    if !current_user.admin?
-      render plain: "Not allowed", status: :forbidden
-    end
   end
 
   def set_project

@@ -103,6 +103,14 @@
           <div class="mt-1 rounded-md shadow-sm">
             <%= f.select :tag_ids, grouped_options_for_select(@tag_options, project.tag_ids), {}, {multiple: true,  "data-target": "selectize.selectInput"}%>
             <p class="mt-2 text-sm text-gray-500">Tags help us with discovering projects</p>
+            <% if @submission.present? %>
+              <div class="my-2">
+                <%= "Suggested tags: #{@submission.suggested_tags } " %>
+              </div>
+              <div class="my-2">
+                <%= "Suggested alternatives to: #{@submission.alternative_to }" %>
+              </div>
+            <% end %>
           </div>
         </div>
         <div class="sm:col-span-4">
