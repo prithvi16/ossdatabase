@@ -22,4 +22,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
+
+  def is_user_admin
+    if !current_user.admin?
+      redirect_to root_path
+    end
+  end
 end

@@ -3,6 +3,7 @@ class SiteAdminController < ApplicationController
   before_action :is_user_admin
 
   def home
+    @submissions = Submission.all
   end
 
   def github_projects
@@ -17,14 +18,6 @@ class SiteAdminController < ApplicationController
       redirect_to site_admin_home_path, flash: {notice: "Tag created  sucessfully"}
     else
       redirect_to site_admin_home_path, flash: {alert: "Issues: #{@tag.errors.full_messages}"}
-    end
-  end
-
-  private
-
-  def is_user_admin
-    if !current_user.admin?
-      redirect_to root_path
     end
   end
 end

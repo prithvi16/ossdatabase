@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get "/submit", to: "submissions#new", as: "new_submission"
   post "/submissions", to: "submissions#create", as: "create_submission"
+  delete "/submissions/:id", to: "submissions#destroy", as: "delete_submission"
 
   get "tags/:tag_name", to: "tags#show", as: "tag_show"
   get "/projects/:id/preview", to: "projects#preview", as: "project_preview"
