@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "/subscribed", to: "pages#subscribed"
 
   authenticate :user, lambda { |u| u.admin? } do
-    get "/site_admin/home", to: "site_admin#home"
+    get "/site_admin/home", to: "site_admin#home", as: "admin_dashboard"
     post "/site_admin/github_projects", to: "site_admin#github_projects", as: "site_admin_github_projects"
     post "/site_admin/tags", to: "site_admin#tags", as: "site_admin_tags"
     mount Sidekiq::Web => "/sidekiq"
