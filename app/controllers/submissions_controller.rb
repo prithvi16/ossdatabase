@@ -19,9 +19,9 @@ class SubmissionsController < ApplicationController
 
   def destroy
     if @submission.destroy
-      redirect_to site_admin_home_path, flash: {notice: "Submission deleted sucessfully"}
+      redirect_to admin_dashboard_path, flash: {notice: "Submission deleted sucessfully"}
     else
-      redirect_to site_admin_home_path, flash: {alert: "Issues: #{@submission.errors.full_messages}"}
+      redirect_to admin_dashboard_path, flash: {alert: "Issues: #{@submission.errors.full_messages}"}
     end
   end
 
