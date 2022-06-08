@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="flex items-center gap-x-1">
-        <%= form_with scope: :q, method: :get, url: nav_search_url, local: true, data: {"controller": "nav-search", "nav-search-target": "form"} do |f| %>
+        <%= form_with method: :get, url: nav_search_url, local: true, data: {"controller": "nav-search", "nav-search-target": "form"} do |f| %>
           <div class="flex-1 hidden sm:flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
             <div class="max-w-lg w-full lg:max-w-xs">
               <label for="search" class="sr-only">Search</label>
@@ -33,7 +33,7 @@
                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                   </svg>
                 </div>
-                <%= f.text_field :name, class: "block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm", placeholder: "Search Projects", data: {action: "input->nav-search#triggerSearch"} %>
+                <%= f.text_field :pg_search_by_name, class: "block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm", autocomplete: "off", spellcheck: "false", autocorrect: "off" ,autocapitalize: "off" ,placeholder: "Press enter to search", data: {action: "input->nav-search#triggerSearch"} %>
                 <div data-nav-search-target="resultParent" class="-z-10 opacity-0 origin-top-left absolute w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                 </div>
               </div>
