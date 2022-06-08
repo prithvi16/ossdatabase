@@ -61,7 +61,7 @@ class Project < ApplicationRecord
   end
 
   def self.search_suggestions(query)
-    Project.pg_search_by_name(query).limit(10).select(:id, :name, :tag_line)
+    Project.pg_search_by_name(query).limit(5).select(:id, :name, :tag_line)
   end
 
   def self.search(params)
@@ -72,11 +72,12 @@ class Project < ApplicationRecord
         tag_filters += params[tag_type]
       end
     end
+    tag_filters = tag_filters.reject(&:empty?)
     projects = Project.all
     if params[:pg_search_by_name].present?
       projects = projects.pg_search_by_name(params[:pg_search_by_name]).reorder(nil)
     end
-    projects = projects.filter_by_tag_ids(tag_filters) if tag_filters.length > 4
+    projects = projects.filter_by_tag_ids(tag_filters) if tag_filters.length >= 1
     projects = projects.where(proprietary: false) if params[:proprietary].present? && ActiveRecord::Type::Boolean.new.cast(params[:proprietary])
     projects.includes([:avatar_attachment]).page params[:page]
   end

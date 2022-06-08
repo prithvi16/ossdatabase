@@ -40,7 +40,7 @@ class ProjectsController < ApplicationController
   end
 
   def search_suggestions
-    render ::NavSearchResultComponent.new(results: Project.search_suggestions(params[:query])), layout: false, content_type: "text/html"
+    render ::NavSearchResultComponent.new(results: {projects: Project.search_suggestions(params[:query]), tags: Tag.search_suggestions(params[:query])}), layout: false, content_type: "text/html"
   end
 
   def nav_search

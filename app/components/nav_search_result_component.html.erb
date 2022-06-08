@@ -1,11 +1,22 @@
-<% if @results.any? %>
-  <% @results.each do |result| %>
+<% if @results[:projects].any? %>
+  <% @results[:projects].each do |project| %>
     <div class="py-1" role="none">
-      <a href=<%= nav_search_path(params: {pg_search_by_name: result.name}) %> class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" ><%= result.name%></a>
+      <a href=<%= nav_search_path(params: {pg_search_by_name: project.name}) %> class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" ><%= project.name%></a>
     </div>
   <% end %>
 <% else %>
   <div class="py-1" role="none">
-      <div class="text-gray-700 block px-4 py-2 text-sm"> No results found </div>
+    <div class="text-gray-700 block px-4 py-2 text-sm"> No projects found </div>
+  </div>
+<% end %>
+<% if @results[:tags].any? %>
+  <% @results[:tags].each do |tag| %>
+    <div class="py-1" role="none">
+      <a href=<%= nav_search_path(params: {usecase_tag_ids: [tag.id]}) %> class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" ><%= tag.name %> projects</a>
     </div>
+  <% end %>
+<% else %>
+  <div class="py-1" role="none">
+    <div class="text-gray-700 block px-4 py-2 text-sm"> No categories found </div>
+  </div>
 <% end %>
