@@ -1,7 +1,7 @@
 <% if @results[:projects].any? %>
   <% @results[:projects].each do |project| %>
-    <div class="py-1" role="none">
-      <a href=<%= nav_search_path(params: {pg_search_by_name: project.name}) %> class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" ><%= project.name%></a>
+    <div class="py-1" role="menuitem" tabindex="-1">
+      <a href=<%= nav_search_path(params: {pg_search_by_name: project.name}) %> class="text-gray-700 hover:bg-slate-300 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" ><%= project.name%></a>
     </div>
   <% end %>
 <% else %>
@@ -11,12 +11,12 @@
 <% end %>
 <% if @results[:tags].any? %>
   <% @results[:tags].each do |tag| %>
-    <div class="py-1" role="none">
-      <a href=<%= nav_search_path(params: {usecase_tag_ids: [tag.id]}) %> class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" ><%= tag.name %> projects</a>
+    <div class="py-1" role="menuitem" tabindex="-1">
+      <a href=<%= nav_search_path(params: {usecase_tag_ids: [tag.id]}) %> class="text-gray-700 hover:bg-slate-300 block px-4 py-2 text-sm"  ><%= tag.name %> projects</a>
     </div>
   <% end %>
 <% else %>
   <div class="py-1" role="none">
-    <div class="text-gray-700 block px-4 py-2 text-sm"> No categories found </div>
+    <div class="text-gray-700 block px-4 py-2 text-sm" role="none"> No categories found </div>
   </div>
 <% end %>
