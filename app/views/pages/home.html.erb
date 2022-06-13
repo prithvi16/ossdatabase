@@ -32,9 +32,9 @@
 </main>
 <div class="bg-blue-500">
   <div class="max-w-3xl px-4 pt-16 mx-auto sm:px-6 sm:pt-20 lg:max-w-6xl lg:pt-24 lg:px-8">
-    <div class="flex gap-2 justify-center">
+    <div class="flex gap-2 justify-center flex-wrap items-center">
       <% @top_tags.each do |tag| %>
-        <%= link_to tag.name, projects_filter_path(params: {usecase_tag_ids: [tag.id]}), class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-gray-900 bg-white hover:bg-blue-100 focus:outline-none focus:ring-1  focus:ring-yellow-500", data: { 'turbo-frame': 'filter-results', 'turbo': 'true'} %>
+        <%= link_to tag.name.capitalize, projects_filter_path(params: {usecase_tag_ids: [tag.id]}), class: "inline-flex items-center px-2.5 py-1.5 border border-amber-500 text-xs font-medium rounded text-amber-700 bg-amber-100 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500", data: { 'turbo-frame': 'filter-results', 'turbo': 'true'} %>
       <% end %>
     </div>
     <%= render partial:"pages/filter_results", locals: { projects: Project.tagged_with_top_categories.limit(20) } %>
