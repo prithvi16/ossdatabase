@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post "projects/search_suggestions", to: "projects#search_suggestions", as: "projects_search_suggestions"
   get "/search", to: "projects#nav_search", as: "nav_search"
   root to: "pages#home"
+  get "/projects", to: "projects#filter", as: "projects_filter"
 
   get "/subscribed", to: "pages#subscribed"
 

@@ -19,6 +19,13 @@ class ProjectsController < ApplicationController
     @tag_options = TOP_TAG_TYPES.map { |tag_type| [tag_type, Tag.where(tag_type: tag_type).map { |tag| [tag.name, tag.id] }] }
   end
 
+  def filter
+    @projects = Project.search(params)
+    if turbo_frame_request?
+      render partial: "pages/filter_results", locals: {projects: @projects}
+    end
+  end
+
   def show
     @alternative_projects = Project.filter_by_any_of_tag_ids(@project.usecase_tags.map { |tag| tag.id.to_s }).where.not(id: @project.id)
   end

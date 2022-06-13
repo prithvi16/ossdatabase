@@ -1,0 +1,5 @@
+<div class="mt-12 lg:mt-16">
+  <%= turbo_frame_tag "filter-results" do %>
+    <%= render(ProjectListComponent.new(project_list: projects)) %>
+  <% end %>
+</div>

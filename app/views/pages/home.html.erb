@@ -30,6 +30,16 @@
     </div>
   </div>
 </main>
+<div class="bg-blue-500">
+  <div class="max-w-3xl px-4 pt-16 mx-auto sm:px-6 sm:pt-20 lg:max-w-6xl lg:pt-24 lg:px-8">
+    <div class="flex gap-2 justify-center">
+      <% @top_tags.each do |tag| %>
+        <%= link_to tag.name, projects_filter_path(params: {usecase_tag_ids: [tag.id]}), class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-gray-900 bg-white hover:bg-blue-100 focus:outline-none focus:ring-1  focus:ring-yellow-500", data: { 'turbo-frame': 'filter-results', 'turbo': 'true'} %>
+      <% end %>
+    </div>
+    <%= render partial:"pages/filter_results", locals: { projects: Project.tagged_with_top_categories.limit(20) } %>
+  </div>
+</div>
 <div class="bg-blue-500" data-controller="search" id="search">
   <div class="max-w-3xl px-4 pt-16 mx-auto sm:px-6 sm:pt-20 lg:max-w-6xl lg:pt-24 lg:px-8">
     <h2 class="text-3xl font-extrabold text-white">Search for Open Source Projects</h2>
@@ -77,13 +87,5 @@
     </div>
   </div>
   <%= render partial: "pages/search_results", locals: {projects: @projects}%>
-</div>
-<div class="bg-blue-500">
-  <div class="max-w-3xl px-4 pt-16 mx-auto sm:px-6 sm:pt-20 lg:max-w-6xl lg:pt-24 lg:px-8">
-    <h2 class="text-3xl font-extrabold text-white">Alternatives To Proprietary Software</h2>
-    <div class="mt-12 lg:mt-16">
-      <%= render(ProjectListComponent.new(project_list: Project.order(updated_at: :desc).where(proprietary: true).limit(20))) %>
-    </div>
-  </div>
 </div>
 <%= render NewsLetterComponent.new %>

@@ -60,6 +60,10 @@ class Project < ApplicationRecord
     tags.map(&:name).join(", ")
   end
 
+  def self.tagged_with_top_categories
+    Project.joins(:tags).where(tags: {top_category: true}).group("projects.id")
+  end
+
   def self.search_suggestions(query)
     Project.pg_search_by_name(query).limit(5).select(:id, :name, :tag_line)
   end
