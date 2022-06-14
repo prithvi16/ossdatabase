@@ -23,6 +23,8 @@ class ProjectsController < ApplicationController
     @projects = Project.search(params)
     if turbo_frame_request?
       render partial: "pages/filter_results", locals: {projects: @projects}
+    else
+      redirect_to nav_search_path(params: {usecase_tag_ids: params[:usecase_tag_ids]})
     end
   end
 
