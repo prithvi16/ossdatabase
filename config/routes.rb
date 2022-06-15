@@ -39,7 +39,8 @@ Rails.application.routes.draw do
 
   # Open Source
   get "/open-source", to: "open_source#index", as: "opensource"
-  get "/open-source-licenses", to: "opensource#license", as: "licenses_index"
-  get "/licenses/:id", to: "opensource#license_show", as: "license"
-  get "/open-source-license-picker", to: "opensource#license_picker", as: "oss_license_picker"
+  get "/open-source-licenses", to: "open_source#license", as: "licenses_index"
+  get "/licenses/:id", to: "open_source#license_show", as: "license"
+  get "/open-source-license-picker", to: "open_source#license_picker", as: "oss_license_picker"
+  get "/list-of-open-source-licenses", to: "open_source#licenses_list", as: "licenses_list"
 end
