@@ -29,10 +29,17 @@ Rails.application.routes.draw do
   devise_for :users
   get "pages/:key", to: "pages#static", as: "static_page"
 
+  # Blog
   get "/blog", to: "articles#index", as: "articles"
   get "/blog/:id", to: "articles#show", as: "article"
   get "/blog/:id/edit", to: "articles#edit", as: "edit_article"
   get "/blogs/new", to: "articles#new", as: "new_article"
   post "/blog", to: "articles#create"
   post "/blog/:id", to: "articles#update", as: "update_article"
+
+  # Open Source
+  get "/open-source", to: "open_source#index", as: "opensource"
+  get "/open-source-licenses", to: "opensource#license", as: "licenses_index"
+  get "/licenses/:id", to: "opensource#license_show", as: "license"
+  get "/open-source-license-picker", to: "opensource#license_picker", as: "oss_license_picker"
 end
