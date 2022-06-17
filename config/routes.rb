@@ -46,4 +46,5 @@ Rails.application.routes.draw do
 
   # New browsing experience for tags
   get "/open-source-alternatives", to: "open_source#alternatives", as: "open_source_alternatives"
+  get "/usecase/:id", to: "open_source#alternative_usecase", as: "open_source_usecase", constraints: { id: /open-source-[a-z0-9]+(?:-[a-z0-9]+)*-software/ }
 end

@@ -18,7 +18,7 @@
       <div class="mb-10">
         <h2 class="text-xl my-3"> Open source <%= tag.name.capitalize %> software </h2>
         <%= render ProjectListComponent.new(project_list: Project.filter_by_tag_ids([tag.id.to_s]).limit(4)) %>
-        <%= link_to "Checkout more #{tag.name.capitalize} software →", tag_show_path(tag), class: "text-blue-600" %>
+        <%= link_to "Checkout more #{tag.name.capitalize} software →", open_source_usecase_path("open-source-#{tag.slug}-software"), class: "text-blue-600" %>
       </div>
     <% end %>
   </div>

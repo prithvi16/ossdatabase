@@ -14,4 +14,10 @@ class OpenSourceController < ApplicationController
   def alternatives
     @usecase_tags = Tag.where(tag_type: "usecase").order(:name)
   end
+
+  def alternative_usecase
+    full_url = params[:id]
+    usecase = full_url.gsub("open-source-", "").gsub("-software", "")
+    @usecase_tag = Tag.friendly.find(usecase)
+  end
 end
