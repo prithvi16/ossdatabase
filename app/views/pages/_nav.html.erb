@@ -21,7 +21,7 @@
           <%= link_to "OSS DATABASE" ,root_path, class: "block w-auto h-8 px-2 text-lg font-semibold tracking-tight text-gray-800 border-2 border-gray-800"  %>
         </div>
       </div>
-      <div class="flex items-center gap-x-1">
+      <div class="flex items-center gap-x-2">
         <%= form_with method: :get, url: nav_search_url, local: true, data: {"controller": "nav-search", "nav-search-target": "form"} do |f| %>
           <div class="flex-1 hidden sm:flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
             <div class="max-w-lg w-full lg:max-w-xs">
@@ -40,6 +40,13 @@
             </div>
           </div>
         <% end %>
+        <div class="hidden sm:block">
+          <%= link_to open_source_alternatives_path do %>
+            <button type="button" class="relative inline-flex items-center px-2 py-1 text-xs font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm md:px-4 md:py-2 md:text-sm hover:bg-blue-700 focus:outline-none focus:border-blue-700 focus:ring-indigo active:bg-blue-700">
+              <span>Browse Projects</span>
+            </button>
+          <% end %>
+        </div>
         <div class="hidden sm:block">
           <%= link_to new_submission_path do %>
             <button type="button" class="relative inline-flex items-center px-2 py-1 text-xs font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm md:px-4 md:py-2 md:text-sm hover:bg-blue-700 focus:outline-none focus:border-blue-700 focus:ring-indigo active:bg-blue-700">
