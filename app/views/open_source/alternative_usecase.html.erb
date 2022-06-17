@@ -3,8 +3,8 @@
                        description: "List of open source #{@usecase_tag.name} software. For most consumer and business software, there are open source alternatives. This page lists the open source alternatives in #{@usecase_tag.name} category", 
                        image: BANNER_IMAGE_URL,
                        type: "website",
-                       url: open_source_alternatives_url},
-                 canonical: open_source_alternatives_url %>
+                       url:  open_source_usecase_url("open-source-#{@usecase_tag.slug}-software")},
+                 canonical: open_source_usecase_url("open-source-#{@usecase_tag.slug}-software") %>
 <% description "List of open source #{@usecase_tag.name} software. For most consumer and business software, there are open source alternatives. This page lists the open source alternatives in #{@usecase_tag.name} category" %>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   <div class="max-w-3xl mx-auto">

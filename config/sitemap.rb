@@ -45,4 +45,7 @@ SitemapGenerator::Sitemap.create do
   add new_submission_path
 
   add open_source_alternatives_path
+  Tag.where(tag_type: "usecase").find_each do |tag|
+    add open_source_usecase_path("open-source-#{tag.slug}-software")
+  end
 end
