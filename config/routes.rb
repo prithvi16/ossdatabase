@@ -37,10 +37,13 @@ Rails.application.routes.draw do
   post "/blog", to: "articles#create"
   post "/blog/:id", to: "articles#update", as: "update_article"
 
-  # Open Source
-  get "/open-source", to: "open_source#index", as: "opensource"
+  # Open Source guides
+  get "/open-source", to: "open_source#index", as: "open_source"
   get "/open-source-licenses", to: "open_source#license", as: "licenses_index"
   get "/licenses/:id", to: "open_source#license_show", as: "license"
-  get "/open-source-license-picker", to: "open_source#license_picker", as: "oss_license_picker"
+  get "/open-source-license-picker", to: "open_source#license_picker", as: "open_source_license_picker"
   get "/list-of-open-source-licenses", to: "open_source#licenses_list", as: "licenses_list"
+
+  # New browsing experience for tags
+  get "/open-source-alternatives", to: "open_source#alternatives", as: "open_source_alternatives"
 end

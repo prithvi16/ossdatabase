@@ -1,0 +1,25 @@
+<% title 'Open Source alternatives' %>
+<% set_meta_tags og: { title: "Open Source alternatives", 
+                       description: 'Find open source alternatives to popular software.For most consumer and business software, there are open source alternatives. This page lists the open source alternatives in most popular software use cases.', 
+                       image: BANNER_IMAGE_URL,
+                       type: "website",
+                       url: open_source_alternatives_url},
+                 canonical: open_source_alternatives_url %>
+<% description 'Find open source alternatives to popular software. For most consumer and business software, there are open source alternatives. This page lists the open source alternatives in most popular software use cases.' %>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-center text-3xl font-semibold tracking-tight my-20"> Open source alternatives </h1>
+    <p class="text-xl prose my-10">
+      Open source in software means a software is whose source code is available to the public. This means generally that the software is free to use and can be modified and redistributed.
+      Companies and consumers worldwide spend billions of dollars on proprietary software. But since the 90s and the 2000s, the open source software has become a popular alternative to proprietary software.
+      For most consumer and business software, there are open source alternatives. This page lists the open source alternatives in most popular software use cases.
+    </p>
+    <% @usecase_tags.each do |tag| %>
+      <div class="mb-10">
+        <h2 class="text-xl my-3"> Open source <%= tag.name.capitalize %> software </h2>
+        <%= render ProjectListComponent.new(project_list: Project.filter_by_tag_ids([tag.id.to_s]).limit(4)) %>
+        <%= link_to "Checkout more #{tag.name.capitalize} software →", tag_show_path(tag), class: "text-blue-600" %>
+      </div>
+    <% end %>
+  </div>
+</div>

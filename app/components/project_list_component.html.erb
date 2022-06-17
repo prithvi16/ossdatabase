@@ -6,7 +6,7 @@
   <% else %>
     <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
       <% @project_list.each do |project| %>
-        <li class="max-w-xl col-span-1 bg-white rounded-lg shadow-lg" 
+        <li class="max-w-xl col-span-1 bg-white rounded-lg shadow-lg border border-1" 
             data-controller="project-card"
             data-project-card-project-id-value=<%= project.slug %>
         >

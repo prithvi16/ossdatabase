@@ -10,4 +10,8 @@ class OpenSourceController < ApplicationController
 
   def license_picker
   end
+
+  def alternatives
+    @usecase_tags = Tag.where(tag_type: "usecase").order(:name)
+  end
 end
