@@ -7,7 +7,7 @@
                  canonical: open_source_usecase_url("open-source-#{@usecase_tag.slug}-software") %>
 <% description "List of open source #{@usecase_tag.name} software. For most consumer and business software, there are open source alternatives. This page lists the open source alternatives in #{@usecase_tag.name} category" %>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-  <div class="max-w-3xl mx-auto pt-10">
+  <div class="max-w-4xl mx-auto pt-10">
     <%= link_to "← Back to all projects list", open_source_alternatives_path, class: "text-gray-500 text-md mb-10 pt-10" %>
     <h1 class="text-center text-3xl font-semibold tracking-tight my-20"> <%=  "Open Source #{@usecase_tag.name.capitalize} Software" %> </h1>
     <%= render ProjectListComponent.new(project_list: Project.filter_by_tag_ids([@usecase_tag.id.to_s]) )  %>
