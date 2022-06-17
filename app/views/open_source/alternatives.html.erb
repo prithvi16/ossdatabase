@@ -8,18 +8,27 @@
 <% description 'Find open source alternatives to popular software. For most consumer and business software, there are open source alternatives. This page lists the open source alternatives in most popular software use cases.' %>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   <div class="max-w-3xl mx-auto">
-    <h1 class="text-center text-3xl font-semibold tracking-tight my-20"> Open source alternatives </h1>
+    <h1 class="text-center text-3xl font-semibold tracking-tight my-20"> Open Source Alternatives </h1>
     <p class="text-xl prose my-10">
       Open source in software means a software is whose source code is available to the public. This means generally that the software is free to use and can be modified and redistributed.
       Companies and consumers worldwide spend billions of dollars on proprietary software. But since the 90s and the 2000s, the open source software has become a popular alternative to proprietary software.
       For most consumer and business software, there are open source alternatives. This page lists the open source alternatives in most popular software use cases.
     </p>
-    <% @usecase_tags.each do |tag| %>
-      <div class="mb-10">
-        <h2 class="text-xl my-3"> Open source <%= tag.name.capitalize %> software </h2>
-        <%= render ProjectListComponent.new(project_list: Project.filter_by_tag_ids([tag.id.to_s]).limit(4)) %>
-        <%= link_to "Checkout more #{tag.name.capitalize} software →", open_source_usecase_path("open-source-#{tag.slug}-software"), class: "text-blue-600" %>
-      </div>
-    <% end %>
+    <!-- This example requires Tailwind CSS v2.0+ -->
+    <div>
+      <ul role="list" class="mt-3 grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 my-10">
+        <% @usecase_tags.each do |tag| %>
+          <li class="col-span-1 flex shadow-sm rounded-md">
+            <div class="flex-shrink-0 flex items-center justify-center w-16 bg-blue-500 text-white text-sm font-medium rounded-l-md"> <%= tag.name[0..1].upcase %> </div>
+            <div class="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white rounded-r-md truncate">
+              <div class="flex-1 px-4 py-2 text-sm truncate">
+                <a href=<%= open_source_usecase_url("open-source-#{tag.slug}-software") %> class="text-gray-900 font-medium text-md hover:text-gray-600"><%= tag.name.capitalize %></a>
+                <p class="text-gray-500"> <%= tag.taggings.count %> projects </p>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
