@@ -79,7 +79,7 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
-    ahoy_matey (4.0.3)
+    ahoy_matey (4.1.0)
       activesupport (>= 5.2)
       device_detector
       safely_block (>= 0.2.1)
