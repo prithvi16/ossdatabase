@@ -44,6 +44,9 @@ SitemapGenerator::Sitemap.create do
   add nav_search_path, changefreq: "daily"
   add new_submission_path
   add open_source_path
+  add open_source_license_picker_path
+  add licenses_list_path
+  add licenses_index_path
 
   add open_source_alternatives_path
   Tag.where(tag_type: "usecase").find_each do |tag|
