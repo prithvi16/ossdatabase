@@ -48,7 +48,7 @@ SitemapGenerator::Sitemap.create do
   add licenses_list_path
   add licenses_index_path
   
-  License.each do |license|
+  License.find_each do |license|
     add license_path(license)
   end
 
