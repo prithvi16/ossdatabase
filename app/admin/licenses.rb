@@ -1,3 +1,3 @@
 ActiveAdmin.register License do
-  permit_params :name, :key, :content
+  permit_params :name, :key, :content, :slug
 end

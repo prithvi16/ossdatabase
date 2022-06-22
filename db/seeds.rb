@@ -84,3 +84,9 @@ puts "======GEnerating articles======"
   Article.create!(title: Faker::Book.title, content: Faker::Markdown.sandwich(sentences: 6, repeat: 3))
 end
 puts "======DONE======"
+
+puts "======Generating licenses ======"
+10.times do
+  License.create!(name: Faker::App.name, key: Faker::Lorem.characters(number: 10), content: Faker::Markdown.sandwich(sentences: 6, repeat: 3))
+end
+puts "======DONE======"
