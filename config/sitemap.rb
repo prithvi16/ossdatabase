@@ -47,6 +47,10 @@ SitemapGenerator::Sitemap.create do
   add open_source_license_picker_path
   add licenses_list_path
   add licenses_index_path
+  
+  License.each do |license|
+    add license_path(license)
+  end
 
   add open_source_alternatives_path
   Tag.where(tag_type: "usecase").find_each do |tag|

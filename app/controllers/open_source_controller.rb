@@ -3,6 +3,7 @@ class OpenSourceController < ApplicationController
   end
 
   def license
+    @license = License.friendly.find(params[:id])
   end
 
   def licenses_index
