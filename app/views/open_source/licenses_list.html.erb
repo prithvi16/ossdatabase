@@ -10,8 +10,15 @@
   <!-- We've used 3xl here, but feel free to try other max-widths based on your needs -->
   <div class="max-w-3xl mx-auto py-20">
     <%= render OpenSourceGuideNavComponent.new %>
-    <div class="prose md:prose-lg lg:prose-xl">
+    <div class="prose md:prose-lg lg:prose-xl mt-10">
       <h1 class="">Open source licences list</h1>
+      <ul>
+        <% @licenses.each do |licence| %>
+          <li>
+            <a href="<%=license_path(licence) %>" class="text-blue-500 no-underline"><%= " #{licence.name}  (#{licence.key}) " %></a>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

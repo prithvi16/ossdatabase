@@ -8,6 +8,10 @@ class OpenSourceController < ApplicationController
   def licenses_index
   end
 
+  def licenses_list
+    @licenses = License.all.select(:name, :key, :slug).order(:name)
+  end
+
   def license_picker
   end
 
