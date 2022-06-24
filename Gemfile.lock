@@ -363,7 +363,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redcarpet (3.5.1)
-    redis (4.6.0)
+    redis (4.7.0)
     regexp_parser (2.5.0)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -564,7 +564,7 @@ DEPENDENCIES
   rails (~> 6.1.4)
   ransack
   redcarpet (~> 3.5)
-  redis (~> 4.0)
+  redis (~> 4.7)
   rspec-rails
   rubocop (~> 1.28.2)
   rubocop-rails
