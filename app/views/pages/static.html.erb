@@ -8,6 +8,6 @@
                  canonical: static_page_url(@static_page.key) %>
 <div class="max-w-6xl mx-auto mt-8 prose px-4 sm:px-6 lg:px-8">
   <div class="bg-white border-b shadow overflow-hidden sm:rounded-lg p-6">
-    <%= @markdown.render(@static_page.content).html_safe %>
+    <%= render_markdown_html(@static_page.content).html_safe %>
   </div>
 </div>

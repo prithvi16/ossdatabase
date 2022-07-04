@@ -148,7 +148,7 @@
           About
         </dt>
         <dd class="mt-1 text-sm leading-5 prose text-gray-900">
-          <%= @markdown.render(@project.description).html_safe %>
+          <%= render_markdown_html(@project.description).html_safe %>
         </dd>
       </div>
     </dl>

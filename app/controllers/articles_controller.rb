@@ -7,12 +7,9 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all.order(created_at: :desc)
-    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
   end
 
   def show
-    @stripped_markdown = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
-    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
   def new

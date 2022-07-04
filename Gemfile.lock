@@ -563,7 +563,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 6.1.4)
   ransack
-  redcarpet (~> 3.5)
+  redcarpet (~> 3.5, >= 3.5.1)
   redis (~> 4.7)
   rspec-rails
   rubocop (~> 1.28.2)

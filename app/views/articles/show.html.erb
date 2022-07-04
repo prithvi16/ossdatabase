@@ -1,7 +1,7 @@
 <% title @article.title %>
-<% description @stripped_markdown.render(@article.content).html_safe.truncate(100) %>
+<% description render_markdown_text(@article.content).truncate(100) %>
 <% set_meta_tags og: { title: @article.title, 
-    description: @stripped_markdown.render(@article.content).html_safe.truncate(100), 
+    description: render_markdown_text(@article.content).truncate(100), 
     image: BANNER_IMAGE_URL,
     type: "website",
     url: article_url(@article)},
@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
-      <%= @markdown.render(@article.content).html_safe %>
+      <%= render_markdown_html(@article.content).html_safe %>
     </div>
     <div class="max-w-prose pt-10 mx-auto text-center text-lg">
       <%= link_to " ← All Posts", blog_path %>
