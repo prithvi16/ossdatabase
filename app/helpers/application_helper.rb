@@ -1,3 +1,9 @@
+class MarkdownRenderer < Redcarpet::Render::HTML
+  def initialize(extensions = {})
+    super extensions.merge(link_attributes: {rel: "nofollow noopener"})
+  end
+end
+
 module ApplicationHelper
   def active_tab_class(path)
     active = false
@@ -6,7 +12,7 @@ module ApplicationHelper
   end
 
   def render_markdown_html(input_markdown)
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, {
+    markdown = Redcarpet::Markdown.new(::MarkdownRenderer, {
       autolink: true,
       no_intra_emphasis: true,
       fenced_code_blocks: true,
@@ -15,8 +21,7 @@ module ApplicationHelper
       strikethrough: true,
       superscript: false,
       tables: true,
-      footnotes: true,
-      link_attributes: {rel: "nofollow"}
+      footnotes: true
     })
     markdown.render(input_markdown)
   end
