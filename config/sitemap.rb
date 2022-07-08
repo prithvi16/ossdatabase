@@ -52,6 +52,10 @@ SitemapGenerator::Sitemap.create do
     add license_path(license)
   end
 
+  StaticPage.find_each do |page|
+    add static_page_url(page.key)
+  end
+
   add open_source_alternatives_path
   Tag.where(tag_type: "usecase").find_each do |tag|
     add open_source_usecase_path("open-source-#{tag.slug}-software")
