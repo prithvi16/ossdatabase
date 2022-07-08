@@ -53,7 +53,7 @@ SitemapGenerator::Sitemap.create do
   end
 
   StaticPage.find_each do |page|
-    add static_page_url(page.key)
+    add static_page_path(page.key)
   end
 
   add open_source_alternatives_path
