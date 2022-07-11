@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: 85016fe969c0ea6044def6192c169a9992747742
+  revision: 2333f9ee4a4e1d8329e19f9e4b07e927648add7c
   branch: master
   specs:
     faker (2.21.0)
@@ -281,13 +281,13 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     memory_profiler (1.0.0)
-    meta-tags (2.16.0)
+    meta-tags (2.17.0)
       actionpack (>= 3.2.0, < 7.1)
     method_source (1.0.0)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
-    minitest (5.16.1)
+    minitest (5.16.2)
     msgpack (1.5.2)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
@@ -318,15 +318,15 @@ GEM
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
-    rack (2.2.3.1)
+    rack (2.2.4)
     rack-mini-profiler (3.0.0)
       rack (>= 1.2.0)
     rack-protection (2.2.0)
       rack
     rack-proxy (0.7.0)
       rack
-    rack-test (1.1.0)
-      rack (>= 1.0, < 3)
+    rack-test (2.0.2)
+      rack (>= 1.3)
     rails (6.1.4.7)
       actioncable (= 6.1.4.7)
       actionmailbox (= 6.1.4.7)
@@ -400,7 +400,7 @@ GEM
     rubocop-performance (1.13.3)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.15.1)
+    rubocop-rails (2.15.2)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.7.0, < 2.0)
