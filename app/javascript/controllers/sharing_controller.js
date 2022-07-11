@@ -25,7 +25,7 @@ export default class extends Controller {
     </div>
     <div class="mt-5 sm:mt-6">
       <button data-action="click->clipboard#copy" type="button" class="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
-        Copy Profile URL
+        Copy Page URL
       </button>
     </div>
   </div>`;
