@@ -34,8 +34,8 @@
                   </svg>
                 </div>
                 <%= f.text_field :pg_search_by_name, class: "block w-full sm:pl-10 pl-7 sm:pr-3 pr-2 sm:py-2 py-1 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-xs sm:text-sm", autocomplete: "off", spellcheck: "false", autocorrect: "off" ,autocapitalize: "off" ,placeholder: "Press enter to search", data: {action: "input->nav-search#triggerSearch"} %>
-                <div data-nav-search-target="resultParent" class="z-40 absolute mt-1 w-full overflow-hidden text-sm bg-white border border-gray-100 rounded-lg shadow-lg divide-y divide-gray-100 max-h-[calc(100vh-100px)] overflow-y-auto" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-                </div>
+                <ul data-nav-search-target="resultParent">
+                </ul>
               </div>
             </div>
           </div>

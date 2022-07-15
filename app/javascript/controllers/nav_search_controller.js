@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
-import { useClickOutside } from "stimulus-use";
 let debounce = require("lodash/debounce");
+import morphdom from "morphdom";
 
 export default class extends Controller {
   static targets = ["form", "resultParent"];
@@ -23,7 +23,8 @@ export default class extends Controller {
         data: { query: query },
         method: "POST",
         success: function (data) {
-          this.resultParentTarget.innerHTML = data;
+          morphdom(this.resultParentTarget, data);
+          this.resultParentTarget.children[0].focus();
           this.resultParentTarget.classList.remove("opacity-0", "-z-10");
           this.resultParentTarget.classList.add("opacity-100", "z-10");
         }.bind(this),

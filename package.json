@@ -31,6 +31,7 @@
     "@tailwindcss/typography": "^0.5.2",
     "jquery": "^3.5.0",
     "lodash": "^4.17.21",
+    "morphdom": "^2.6.1",
     "notyf": "^3.10.0",
     "postcss": "8.2.13",
     "postcss-loader": "^4.2.0",
