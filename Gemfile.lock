@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: 2333f9ee4a4e1d8329e19f9e4b07e927648add7c
+  revision: b98d32dcca8aa482525320d8463dff741af0d84d
   branch: master
   specs:
     faker (2.21.0)
@@ -225,7 +225,7 @@ GEM
     heavens_door (0.3.0)
     honeybadger (4.12.1)
     htmlbeautifier (1.4.2)
-    i18n (1.10.0)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
       mini_magick (>= 4.9.5, < 5)
