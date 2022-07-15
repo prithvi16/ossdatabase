@@ -2,14 +2,14 @@
   <% if @results[:projects].any? %>
     <% @results[:projects].each do |project| %>
       <div class="py-1" role="menuitem" tabindex="-1">
-        <a href=<%= nav_search_path(params: {pg_search_by_name: project.name}) %> class="text-gray-700 hover:bg-slate-300 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" ><%= project.name%></a>
+        <a href=<%= nav_search_path(params: {pg_search_by_name: project.name}) %> class="flex items-center h-8 px-2 text-xs  hover:bg-gray-50 " role="menuitem" tabindex="-1" ><%= project.name%></a>
       </div>
     <% end %>
   <% end %>
   <% if @results[:tags].any? %>
     <% @results[:tags].each do |tag| %>
       <div class="py-1" role="menuitem" tabindex="-1">
-        <a href=<%= nav_search_path(params: {usecase_tag_ids: [tag.id]}) %> class="text-gray-700 hover:bg-slate-300 block px-4 py-2 text-sm"  ><%= tag.name %> projects</a>
+        <a href=<%= nav_search_path(params: {usecase_tag_ids: [tag.id]}) %> class="flex items-center h-8 px-2 text-xs hover:bg-gray-50 "  ><%= tag.name %> projects</a>
       </div>
     <% end %>
   <% end %>
