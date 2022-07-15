@@ -222,7 +222,6 @@ GEM
     has_scope (0.8.0)
       actionpack (>= 5.2)
       activesupport (>= 5.2)
-    heavens_door (0.3.0)
     honeybadger (4.12.1)
     htmlbeautifier (1.4.2)
     i18n (1.12.0)
@@ -544,7 +543,6 @@ DEPENDENCIES
   faker!
   flamegraph
   friendly_id (~> 5.4.2)
-  heavens_door
   honeybadger (~> 4.12)
   htmlbeautifier
   image_processing (~> 1.12)

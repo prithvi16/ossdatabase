@@ -131,8 +131,6 @@ group :development do
   gem "letter_opener"
   # Shooting N+1 queries
   gem "bullet"
-  # recorder
-  gem "heavens_door"
   # deploy
   gem "capistrano", "~> 3.17"
   gem "capistrano-rails", "~> 1.6"
