@@ -32,7 +32,7 @@
 #  github_total_releases_count       :integer
 #  github_open_pull_requests_count   :integer
 #  github_closed_pull_requests_count :integer
-#  github_commits_count_last_year    :integer
+#  github_commits_count              :integer
 #
 FactoryBot.define do
   factory :project do
