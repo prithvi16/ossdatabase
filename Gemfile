@@ -81,6 +81,9 @@ gem "bootsnap", ">= 1.4.2", require: false
 # forms
 gem "simple_form"
 
+# json 
+gem "oj"
+
 # Fast partials
 gem "view_component"
 

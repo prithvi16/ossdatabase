@@ -1,0 +1,39 @@
+query RepositoryDataQuery($owner: String!, $name: String!) {
+  repository(owner: $owner, name: $name) {
+    licenseInfo {
+      key
+    }
+    primaryLanguage {
+      name
+    }
+    closedIssues: issues(states: CLOSED) {
+      totalCount
+    }
+    openPullRequests: pullRequests(states: OPEN) {
+      totalCount
+    }
+    mergedPullRequests: pullRequests(states: MERGED) {
+      totalCount
+    }
+    releases {
+      totalCount
+    }
+    defaultBranchRef {
+      target {
+        ... on Commit {
+          history(first: 1) {
+            totalCount
+            edges {
+              node {
+                committedDate
+              }
+            }
+          }
+        }
+      }
+    }
+    latestRelease {
+      publishedAt
+    }
+  }
+}
