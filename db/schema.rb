@@ -226,7 +226,7 @@ ActiveRecord::Schema.define(version: 2022_07_16_090054) do
     t.integer "github_total_releases_count"
     t.integer "github_open_pull_requests_count"
     t.integer "github_closed_pull_requests_count"
-    t.integer "github_commits_count_last_year"
+    t.integer "github_commits_count"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
   end
 

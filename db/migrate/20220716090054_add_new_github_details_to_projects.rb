@@ -6,6 +6,6 @@ class AddNewGithubDetailsToProjects < ActiveRecord::Migration[6.1]
     add_column :projects, :github_total_releases_count, :integer
     add_column :projects, :github_open_pull_requests_count, :integer
     add_column :projects, :github_closed_pull_requests_count, :integer
-    add_column :projects, :github_commits_count_last_year, :integer
+    add_column :projects, :github_commits_count, :integer
   end
 end
