@@ -24,19 +24,28 @@
     </div>
   </div>
   <% if @project.source == "github" && @project.github_id.present? %>
-    <div class="flex px-4 py-5 border-b border-gray-800 justify-evenly sm:px-6">
+    <div class="grid grid-cols-4 gap-4 px-4 py-5 border-b border-gray-800 sm:px-6 text-sm">
       <% if @project.github_stars.present? %>
         <div class="flex flex-col items-center">
-          <div class="font-semibold">
-            Github ⭐️ </div>
+          <div class="text-sm font-medium leading-5 text-gray-500">
+            Github stars </div>
           <div class="text-sm">
             <%= number_to_human(@project.github_stars, :format => '%n%u', :units => { thousand: 'K' }) %>
           </div>
         </div>
       <% end %>
+      <% if @project.github_forks_count.present? %>
+        <div class="flex flex-col items-center">
+          <div class="text-sm font-medium leading-5 text-gray-500">
+            Forks </div>
+          <div class="text-sm">
+            <%= number_to_human(@project.github_forks_count, :format => '%n%u', :units => { thousand: 'K' }) %>
+          </div>
+        </div>
+      <% end %>
       <% if @project.github_open_issues_count.present? %>
         <div class="flex flex-col items-center">
-          <div class="font-semibold">
+          <div class="text-sm font-medium leading-5 text-gray-500">
             Open Issues
           </div>
           <div class="text-sm">
@@ -44,9 +53,19 @@
           </div>
         </div>
       <% end %>
+      <% if @project.github_closed_issues_count.present? %>
+        <div class="flex flex-col items-center">
+          <div class="text-sm font-medium leading-5 text-gray-500">
+            Closed Issues
+          </div>
+          <div class="text-sm">
+            <%= number_to_human(@project.github_closed_issues_count , :format => '%n%u', :units => { thousand: 'K' })  %>
+          </div>
+        </div>
+      <% end %>
       <% if @project.github_last_release_date.present? %>
         <div class="flex flex-col items-center">
-          <div class="font-semibold">
+          <div class="text-sm font-medium leading-5 text-gray-500">
             Last Release
           </div>
           <div class="text-sm">
@@ -56,11 +75,61 @@
       <% end %>
       <% if @project.github_last_commit_date.present? %>
         <div class="flex flex-col items-center">
-          <div class="font-semibold">
+          <div class="text-sm font-medium leading-5 text-gray-500">
             Last Commit
           </div>
           <div class="text-sm">
             <%= time_ago_in_words(@project.github_last_commit_date) + " ago" %>
+          </div>
+        </div>
+      <% end %>
+      <% if @project.github_watchers_count.present? %>
+        <div class="flex flex-col items-center">
+          <div class="text-sm font-medium leading-5 text-gray-500">
+            Watchers
+          </div>
+          <div class="text-sm">
+            <%= number_to_human(@project.github_watchers_count , :format => '%n%u', :units => { thousand: 'K' })  %>
+          </div>
+        </div>
+      <% end %>
+      <% if @project.github_total_releases_count.present? %>
+        <div class="flex flex-col items-center">
+          <div class="text-sm font-medium leading-5 text-gray-500">
+            Total releases
+          </div>
+          <div class="text-sm">
+            <%= number_to_human(@project.github_total_releases_count , :format => '%n%u', :units => { thousand: 'K' })  %>
+          </div>
+        </div>
+      <% end %>
+      <% if @project.github_commits_count.present? %>
+        <div class="flex flex-col items-center">
+          <div class="text-sm font-medium leading-5 text-gray-500">
+            Total commits
+          </div>
+          <div class="text-sm">
+            <%= number_to_human(@project.github_commits_count , :format => '%n%u', :units => { thousand: 'K' })  %>
+          </div>
+        </div>
+      <% end %>
+      <% if @project.github_open_pull_requests_count.present? %>
+        <div class="flex flex-col items-center">
+          <div class="text-sm font-medium leading-5 text-gray-500">
+            Open pull requests
+          </div>
+          <div class="text-sm">
+            <%= number_to_human(@project.github_open_pull_requests_count , :format => '%n%u', :units => { thousand: 'K' })  %>
+          </div>
+        </div>
+      <% end %>
+      <% if @project.github_closed_pull_requests_count.present? %>
+        <div class="flex flex-col items-center">
+          <div class="text-sm font-medium leading-5 text-gray-500">
+            Closed pull requests
+          </div>
+          <div class="text-sm">
+            <%= number_to_human(@project.github_closed_pull_requests_count , :format => '%n%u', :units => { thousand: 'K' })  %>
           </div>
         </div>
       <% end %>
