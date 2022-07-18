@@ -6,3 +6,4 @@ TAG_COLORS = {
   "usecase" => "bg-orange-400",
   "platform" => "bg-red-500"
 }
+REPOSITORY_DATA_QUERY = Rails.root.join("app", "graphql", "github_repo.graphql").read

@@ -3,24 +3,30 @@ class GithubToProjectWorker
 
   def perform(project_github_string)
     github_client = Octokit::Client.new(access_token: ENV["GITHUB_API_ACCESS_TOKEN"])
-    github_repo_data = github_client.repo project_github_string
-    project_readme = github_client.readme project_github_string, accept: "application/vnd.github.html"
-    project = if !Project.where(source: "github", github_id: github_repo_data.id).exists?
+    owner, name = project_github_string.split("/")
+    body = {query: REPOSITORY_DATA_QUERY, variables: {owner: owner, name: name}}
+    graphql_response = github_client.post "https://api.github.com/graphql", Oj.dump(body, mode: :compat)
+    parsed_github_data = GithubRepositoryDataService.new(graphql_response)
+
+    raw_project_readme = github_client.readme project_github_string, accept: "application/vnd.github.html"
+    processed_readme = GithubReadmeFixerService.new(raw_project_readme, parsed_github_data.blob_url).perform
+    project = if !Project.where(source: "github", github_id: parsed_github_data.database_id).exists?
       Project.create!(
-        name: github_repo_data.name,
-        website: github_repo_data.html_url,
-        tag_line: github_repo_data.description,
-        description: project_readme,
+        name: parsed_github_data.name,
+        website: parsed_github_data.html_url,
+        tag_line: parsed_github_data.description,
+        description: processed_readme,
         visible: true,
         reviewed: true,
         source: "github",
-        source_id: github_repo_data.id,
+        github_id: parsed_github_data.database_id,
+        source_id: project_github_string,
         last_updated_from_source: DateTime.now,
-        repo_url: github_repo_data.html_url
+        repo_url: parsed_github_data.html_url
       )
     else
-      Project.where(source: "github", github_id: github_repo_data.id).first
+      Project.where(source: "github", github_id: parsed_github_data.database_id).first
     end
-    GithubSyncWorker.perform_async(project.id)
+    GithubSyncWorker.perform_async(project.id.to_i)
   end
 end

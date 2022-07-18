@@ -1,5 +1,9 @@
 query RepositoryDataQuery($owner: String!, $name: String!) {
   repository(owner: $owner, name: $name) {
+    url
+    name
+    description
+    databaseId
     licenseInfo {
       key
     }
@@ -19,6 +23,7 @@ query RepositoryDataQuery($owner: String!, $name: String!) {
       totalCount
     }
     defaultBranchRef {
+      name
       target {
         ... on Commit {
           history(first: 1) {

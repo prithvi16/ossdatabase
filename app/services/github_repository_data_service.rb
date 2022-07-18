@@ -25,6 +25,30 @@ class GithubRepositoryDataService
     raw_data.dig(:releases, :totalCount)
   end
 
+  def default_branch_name
+    raw_data.dig(:defaultBranchRef, :name)
+  end
+
+  def html_url
+    raw_data.dig(:url)
+  end
+
+  def blob_url
+    html_url + "/blob/" + default_branch_name
+  end
+
+  def name
+    raw_data.dig(:name)
+  end
+
+  def description
+    raw_data.dig(:description)
+  end
+
+  def database_id
+    raw_data.dig(:databaseId)
+  end
+
   def last_release_date
     if total_releases > 0
       raw_data.dig(:latestRelease, :publishedAt)

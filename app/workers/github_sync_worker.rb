@@ -1,6 +1,5 @@
 class GithubSyncWorker
   include Sidekiq::Worker
-  REPOSITORY_DATA_QUERY = Rails.root.join("app", "graphql", "github_repo.graphql").read
 
   def perform(project_id)
     project = Project.find(project_id)
