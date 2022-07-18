@@ -21,7 +21,15 @@ class GithubSyncWorker
     owner, name = github_repo_data.full_name.split("/")
     body = {query: REPOSITORY_DATA_QUERY, variables: {owner: owner, name: name}}
     graphql_response = github_client.post "https://api.github.com/graphql", Oj.dump(body, mode: :compat)
-    github_repo_data = GithubRespoitoryData.new(graphql_response.data)
-    puts github_repo_data
+    parsed_github_data = GithubRepositoryDataService.new(graphql_response)
+    project.update!(
+      github_commits_count: parsed_github_data.total_commits,
+      github_closed_issues_count: parsed_github_data.total_closed_issues,
+      github_open_pull_requests_count: parsed_github_data.open_pull_requests,
+      github_closed_pull_requests_count: parsed_github_data.merged_pull_requests,
+      github_total_releases_count: parsed_github_data.total_releases,
+      github_last_release_date: parsed_github_data.last_release_date,
+      github_last_commit_date: parsed_github_data.last_commit_date
+    )
   end
 end
