@@ -3,10 +3,7 @@ class GithubToProjectWorker
 
   def perform(project_github_string)
     github_client = Octokit::Client.new(access_token: ENV["GITHUB_API_ACCESS_TOKEN"])
-    owner, name = project_github_string.split("/")
-    body = {query: REPOSITORY_DATA_QUERY, variables: {owner: owner, name: name}}
-    graphql_response = github_client.post "https://api.github.com/graphql", Oj.dump(body, mode: :compat)
-    parsed_github_data = GithubRepositoryDataService.new(graphql_response)
+    parsed_github_data = GithubDataFetcherService.new(project_github_string).fetch_data
 
     raw_project_readme = github_client.readme project_github_string, accept: "application/vnd.github.html"
     processed_readme = GithubReadmeFixerService.new(raw_project_readme, parsed_github_data.blob_url).perform

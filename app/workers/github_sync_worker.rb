@@ -17,10 +17,7 @@ class GithubSyncWorker
       github_forks_count: github_repo_data.forks_count,
       github_watchers_count: github_repo_data.watchers_count,
       last_updated_from_source: DateTime.now)
-    owner, name = github_repo_data.full_name.split("/")
-    body = {query: REPOSITORY_DATA_QUERY, variables: {owner: owner, name: name}}
-    graphql_response = github_client.post "https://api.github.com/graphql", Oj.dump(body, mode: :compat)
-    parsed_github_data = GithubRepositoryDataService.new(graphql_response)
+    parsed_github_data = GithubDataFetcherService.new(project.source_id).fetch_data
     project.update!(
       github_commits_count: parsed_github_data.total_commits,
       github_closed_issues_count: parsed_github_data.total_closed_issues,
