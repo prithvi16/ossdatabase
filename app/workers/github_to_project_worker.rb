@@ -2,11 +2,10 @@ class GithubToProjectWorker
   include Sidekiq::Worker
 
   def perform(project_github_string)
-    github_client = Octokit::Client.new(access_token: ENV["GITHUB_API_ACCESS_TOKEN"])
     parsed_github_data = GithubDataFetcherService.new(project_github_string).fetch_data
 
     project = if !Project.where(source: "github", github_id: parsed_github_data.database_id).exists?
-      raw_project_readme = github_client.readme project_github_string, accept: "application/vnd.github.html"
+      raw_project_readme = GithubApi.client.readme project_github_string, accept: "application/vnd.github.html"
       processed_readme = GithubReadmeFixerService.new(raw_project_readme, parsed_github_data.blob_url).perform
       Project.create!(
         name: parsed_github_data.name,
