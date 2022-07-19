@@ -8,7 +8,8 @@ class GithubReadmeFixerService
     return if @html.blank?
     sanitized = Sanitize.fragment(@html, Sanitize::Config::RELAXED)
 
-    fix_links sanitized, base_url: @base_url
+    links_fixed = fix_links sanitized, base_url: @base_url
+    Sanitize.fragment(links_fixed, Sanitize::Config::BASIC)
   end
 
   def fix_links(sanitized, base_url:)
