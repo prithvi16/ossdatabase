@@ -11,9 +11,11 @@ class SiteAdminController < ApplicationController
     github_projects = params[:github_projects]
     tag_ids = params[:tag_ids]
     if params[:bulk_import].present? && params[:bulk_import] == "1"
+      counter = 0
       params[:github_projects].split(/[\r\n]+/).each do |project_string|
+        counter += 1
         project_params = {project_github_string: project_string, tag_ids: tag_ids}
-        GithubToProjectWorker.perform_async(project_params)
+        GithubToProjectWorker.perform_in(counter.seconds, project_params)
       end
     else
       project_params = {project_github_string: github_projects, tag_ids: tag_ids}
