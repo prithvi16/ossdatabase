@@ -26,7 +26,11 @@
       <div>
         <%= f.label :github_projects, class: "block text-sm font-medium leading-5 text-gray-700"%>
         <div class="relative mt-1 rounded-md shadow-sm">
-          <%= f.text_field :github_projects, class:"block w-full border-gray-300 rounded-md focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 sm:text-sm sm:leading-5" %>
+          <%= f.text_area :github_projects, class:"block w-full border-gray-300 rounded-md focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 sm:text-sm sm:leading-5" %>
+        </div>
+        <div>
+          <%= f.label :bulk_import, class: "block text-sm font-medium leading-5 text-gray-700" %>
+          <%= f.check_box :bulk_import , class: "form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"%>
         </div>
         <div class="mt-1 rounded-md shadow-sm">
           <%= f.select :tag_ids, grouped_options_for_select(@tag_options, nil, {}), {}, {multiple: true, "data-selectize-target": "selectInput", "data-controller": "selectize"} %>

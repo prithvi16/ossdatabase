@@ -10,8 +10,15 @@ class SiteAdminController < ApplicationController
   def github_projects
     github_projects = params[:github_projects]
     tag_ids = params[:tag_ids]
-    project_params = {project_github_string: github_projects, tag_ids: tag_ids}
-    GithubToProjectWorker.perform_async(project_params)
+    if params[:bulk_import].present? && params[:bulk_import] == "1"
+      params[:github_projects].split(/[\r\n]+/).each do |project_string|
+        project_params = {project_github_string: project_string, tag_ids: tag_ids}
+        GithubToProjectWorker.perform_async(project_params)
+      end
+    else
+      project_params = {project_github_string: github_projects, tag_ids: tag_ids}
+      GithubToProjectWorker.perform_async(project_params)
+    end
     redirect_to admin_dashboard_path, flash: {notice: "Added to queue sucessfully"}
   end
 
