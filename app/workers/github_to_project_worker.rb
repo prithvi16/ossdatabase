@@ -23,7 +23,11 @@ class GithubToProjectWorker
         last_updated_from_source: DateTime.now,
         repo_url: parsed_github_data.html_url
       )
-      puts tag_ids
+      if tag_ids.any?
+        tag_ids.reject { |element| element.empty? }.each do |tag_id|
+          project.tags << Tag.find(tag_id)
+        end
+      end
     else
       project = Project.where(source: "github", github_id: parsed_github_data.database_id).first
     end
