@@ -83,7 +83,10 @@ class Project < ApplicationRecord
         tag_filters += params[tag_type]
       end
     end
-    tag_filters = tag_filters.reject(&:empty?)
+    if params[:sidebar_tag_ids].present?
+      tag_filters += JSON.parse(params[:sidebar_tag_ids])
+    end
+    tag_filters = tag_filters.reject(&:empty?).uniq
     projects = Project.all
     if params[:pg_search_by_name].present?
       projects = projects.pg_search_by_name(params[:pg_search_by_name]).reorder(nil)
