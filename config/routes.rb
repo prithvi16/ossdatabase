@@ -3,7 +3,7 @@ require "sidekiq/web"
 Rails.application.routes.draw do
   get "projects/browse", to: "tags#index", as: "projects_browse"
   post "projects/search_suggestions", to: "projects#search_suggestions", as: "projects_search_suggestions"
-  get "/search", to: "projects#nav_search", as: "nav_search"
+  get "/search", to: "projects#search", as: "search"
   root to: "pages#home"
   get "/projects", to: "projects#filter", as: "projects_filter"
 

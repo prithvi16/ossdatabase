@@ -3,14 +3,14 @@
     <% if @results[:projects].any? %>
       <% @results[:projects].each do |project| %>
         <li class="py-1 focus:bg-blue-500 focus:text-white" role="option" tabindex="-1">
-          <a href=<%= nav_search_path(params: {pg_search_by_name: project.name}) %> class="cursor-default select-none flex items-center h-8 px-2 text-xs focus:bg-blue-500 focus:text-white hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" ><%= project.name%></a>
+          <a href=<%= search_path(params: {pg_search_by_name: project.name}) %> class="cursor-default select-none flex items-center h-8 px-2 text-xs focus:bg-blue-500 focus:text-white hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" ><%= project.name%></a>
         </li>
       <% end %>
     <% end %>
     <% if @results[:tags].any? %>
       <% @results[:tags].each do |tag| %>
         <li class="py-1" role="option" tabindex="-1">
-          <a href=<%= nav_search_path(params: {usecase_tag_ids: [tag.id]}) %> class="flex items-center h-8 px-2 text-xs hover:bg-blue-500 hover:text-white"  ><%= tag.name %> projects</a>
+          <a href=<%= search_path(params: {usecase_tag_ids: [tag.id]}) %> class="flex items-center h-8 px-2 text-xs hover:bg-blue-500 hover:text-white"  ><%= tag.name %> projects</a>
         </li>
       <% end %>
     <% end %>

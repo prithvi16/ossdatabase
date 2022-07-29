@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
     if turbo_frame_request?
       render partial: "pages/filter_results", locals: {projects: @projects}
     else
-      redirect_to nav_search_path(params: {usecase_tag_ids: params[:usecase_tag_ids]})
+      redirect_to search_path(params: {usecase_tag_ids: params[:usecase_tag_ids]})
     end
   end
 
@@ -52,7 +52,7 @@ class ProjectsController < ApplicationController
     render ::NavSearchResultComponent.new(results: {projects: Project.search_suggestions(params[:query]), tags: Tag.search_suggestions(params[:query])}), layout: false, content_type: "text/html"
   end
 
-  def nav_search
+  def search
     set_tag_options
     track_search_query(params)
     @projects = Project.search(params)
@@ -60,7 +60,7 @@ class ProjectsController < ApplicationController
     if turbo_frame_request?
       render partial: "pages/search_results", locals: {projects: @projects}
     else
-      render "nav_search"
+      render "search"
     end
   end
 

@@ -41,13 +41,13 @@ SitemapGenerator::Sitemap.create do
   end
 
   add projects_browse_path, changefreq: "daily"
-  add nav_search_path, changefreq: "daily"
+  add search_path, changefreq: "daily"
   add new_submission_path
   add open_source_path
   add open_source_license_picker_path
   add licenses_list_path
   add licenses_index_path
-  
+
   License.find_each do |license|
     add license_path(license)
   end
