@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     @tech_tag_options = Tag.where(tag_type: "tech").map { |t| [t.name, t.id] }
     @usecase_tag_options = Tag.where(tag_type: "usecase").map { |t| [t.name, t.id] }
     @platform_tag_options = Tag.where(tag_type: "platform").map { |t| [t.name, t.id] }
-    @top_tags = Tag.where(top_category: true).order(:name)
+    @top_tags = Tag.joins(:taggings).where(top_category: true).select("tags.name AS name", "count(taggings.id) AS taggings_count").group("tags.id").order(:name)
   end
 
   def track_search_query(params)

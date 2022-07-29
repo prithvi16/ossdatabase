@@ -3,14 +3,15 @@
     <h2 class="text-3xl font-extrabold text-center mb-5">Search for Open Source Projects</h2>
     <div class="grid grid-cols-1 sm:grid-cols-4">
       <div class="col-span-1 mt-5">
-        <div class=" border border-gray-300 rounded shadow-lg mx-auto mt-2 p-5 w-3/4 space-y-1">
+        <div class=" border border-gray-300 rounded shadow-lg mx-auto mt-2 p-5 w-3/4 space-y-3">
           <div class="mb-4 text-lg font-bold">
             Top Categories
           </div>
           <% @top_tags.each do |tag| %>
-            <div>
+            <div >
               <input data-action="change->search#sidebarFilterChange" id=<%= tag.id %>  name=<%= tag.name %> type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
               <span class="ml-1 capitalize"><%= tag.name %></span>
+              <span class="inline-flex  items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-200 text-gray-800"> <%= tag.taggings_count %></span>
             </div>
           <% end %>
         </div>
