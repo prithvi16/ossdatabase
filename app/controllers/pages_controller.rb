@@ -3,7 +3,6 @@ class PagesController < ApplicationController
     set_tag_options
     @projects = Project.search(params)
     track_search_query(params)
-    @top_tags = Tag.where(top_category: true).order(:name)
     if turbo_frame_request?
       render partial: "pages/search_results", locals: {projects: @projects}
     else
