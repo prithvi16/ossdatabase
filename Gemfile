@@ -163,3 +163,5 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Linting
 gem "standard", group: [:development, :test]
+
+gem "ruby-lsp", "~> 0.0.4", :group => :development

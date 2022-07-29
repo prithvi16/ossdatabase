@@ -255,6 +255,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
+    language_server-protocol (3.16.0.3)
     launchy (2.5.0)
       addressable (~> 2.7)
     letter_opener (1.8.1)
@@ -404,6 +405,11 @@ GEM
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.7.0, < 2.0)
+    ruby-lsp (0.0.4)
+      language_server-protocol
+      rubocop (>= 1.0)
+      sorbet-runtime
+      syntax_tree (>= 2.3)
     ruby-progressbar (1.11.0)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
@@ -451,6 +457,7 @@ GEM
     skinny (0.2.2)
       eventmachine (~> 1.0)
       thin
+    sorbet-runtime (0.5.10233)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -474,6 +481,7 @@ GEM
     standard (1.11.0)
       rubocop (= 1.28.2)
       rubocop-performance (= 1.13.3)
+    syntax_tree (2.3.1)
     temple (0.8.2)
     thin (1.7.2)
       daemons (~> 1.0, >= 1.0.9)
@@ -571,6 +579,7 @@ DEPENDENCIES
   rspec-rails
   rubocop (~> 1.28.2)
   rubocop-rails
+  ruby-lsp (~> 0.0.4)
   sanitize
   sass-rails (>= 6)
   shoulda-matchers
