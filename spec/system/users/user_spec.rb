@@ -6,6 +6,7 @@ describe "Users" do
   it "Creates a user account and logs in" do
     visit new_user_registration_path
     expect(page).to have_content("Sign up")
+    scroll_to "Sign up"
     fill_in "Email", with: "ram@example.com"
     fill_in "Username", with: "ram"
     fill_in "Password", with: "222222"
