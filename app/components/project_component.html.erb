@@ -1,4 +1,4 @@
-<div class="overflow-hidden bg-white border border-gray-300 shadow-lg sm:rounded-lg">
+<div class="overflow-hidden bg-white border border-gray-300 shadow-lg sm:rounded-lg" data-controller="project">
   <div class="px-4 py-5 border-b border-gray-300 sm:px-6">
     <div class="flex">
       <% if @project.avatar.attached? %>
@@ -259,9 +259,14 @@
         <dt class="text-sm font-medium leading-5 text-gray-600">
           About
         </dt>
-        <dd class="mt-1 text-sm leading-5 prose text-gray-900">
+        <dd data-project-target="projectDescription" class="mt-1 text-sm leading-5 prose text-gray-900 line-clamp-6">
           <%= render_markdown_html(@project.description).html_safe %>
         </dd>
+        <div class="mt-2">
+          <button data-action="click->project#toggleReadMore" class="py-2 px-3 text-xs font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+            Read more ↓
+          </button>
+        </div>
       </div>
       <div class="flex justify-start">
         <button data-controller="sharing" data-action="click->sharing#openShareWidget" type="button" class="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
