@@ -6,7 +6,7 @@
   <% else %>
     <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
       <% @project_list.each do |project| %>
-        <li class="max-w-xl col-span-1 bg-white rounded-lg shadow-lg border border-1" 
+        <li class="max-w-xl col-span-1 bg-white rounded-lg shadow-lg border border-1"
             data-controller="project-card"
             data-project-card-project-id-value=<%= project.slug %>
         >
@@ -14,7 +14,7 @@
             <div class="flex">
               <% if project.avatar.attached? %>
                 <div class="mr-2">
-                  <img class="inline-block object-contain w-12 h-12 rounded-md" src=<%= project.avatar.url %> alt="" loading="lazy">
+                  <img class="inline-block object-contain w-12 h-12 rounded-md max-w-none" src=<%= project.avatar.url %> alt="" loading="lazy">
                 </div>
               <% end %>
               <div>
@@ -62,7 +62,7 @@
                   </svg>
                 </button>
               <% end %>
-              <button data-action="click->project-card#openProjectPreview" type="button" class="inline-flex items-center px-2.5 py-1.5 border border-amber-500 text-xs font-medium rounded text-amber-700 bg-amber-100 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500">Quick Preview 
+              <button data-action="click->project-card#openProjectPreview" type="button" class="inline-flex items-center px-2.5 py-1.5 border border-amber-500 text-xs font-medium rounded text-amber-700 bg-amber-100 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500">Quick Preview
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
