@@ -1,12 +1,12 @@
 <% title "Open source alternatives to #{@project.name}" %>
 <% description @project.description  %>
-<% set_meta_tags og: { title: "Open source alternatives to #{@project.name}", 
-                       description: @project.description, 
+<% set_meta_tags og: { title: "Open source alternatives to #{@project.name}",
+                       description: @project.description,
                        image: BANNER_IMAGE_URL,
                        type: "website",
                        url: project_url(@project)},
                  canonical: project_url(@project)%>
-<div class="bg-[#ffd700]">
+<div class="bg-gradient-to-r from-sky-400 to-blue-500">
   <div class="max-w-5xl px-4 py-8 mx-auto sm:px-6 lg:px-8 ">
     <%= render(ProjectComponent.new(project: @project, current_user: current_user))%>
     <div class="mx-2 my-8 text-xl font-medium leading-6 ">

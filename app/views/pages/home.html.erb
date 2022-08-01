@@ -6,14 +6,14 @@
                        url: root_url},
                  canonical: root_url %>
 <% description 'Search for open source projects, submit open source projects' %>
-<main style="background: linear-gradient(to right, rgb(56, 189, 248), rgb(59, 130, 246))">
+<main class="hero-background">
   <div class="flex flex-col items-center justify-center w-full pt-16 pb-20 mx-auto text-center max-w-7xl lg:py-14 lg:text-left md:flex-row">
     <div class="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
-      <h1 class="text-4xl font-extrabold leading-10 tracking-tight text-gray-900 sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl">
+      <h1 class="text-4xl font-semibold leading-10 subpixel-antialiased	 text-white sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl">
         Find open source alternatives
       </h1>
-      <p class="max-w-md mx-auto mt-3 text-lg text-gray-800 sm:text-xl md:mt-5 md:max-w-3xl">
-        <span class="px-2 font-semibold tracking-tight text-gray-800 border-2 border-gray-800 ">OSS DATABASE</span> is a crowdsourced database of Open Source software. Our goal is to make it easy to look for open source alternatives and compare them with their proprietary peers.
+      <p class="max-w-md mx-auto mt-3 text-lg text-white sm:text-xl md:mt-5 md:max-w-3xl">
+        <span class="px-2 font-semibold tracking-tight text-white border-2 border-white ">OSS DATABASE</span> is a crowdsourced database of Open Source software. Our goal is to make it easy to look for open source alternatives and compare them with their proprietary peers.
       </p>
     </div>
     <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
@@ -30,5 +30,7 @@
     </div>
   </div>
 </main>
-<%= render partial: "layouts/project_search"%>
+<div class="bg-gray-100">
+  <%= render partial: "layouts/project_search"%>
+</div>
 <%= render NewsLetterComponent.new %>
