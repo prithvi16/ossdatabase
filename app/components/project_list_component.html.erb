@@ -41,10 +41,10 @@
                   <%= number_to_human(project.github_stars, :format => '%n%u', :units => { thousand: 'K' }) %>
                 </div>
               <% end %>
-              <div class="mt-1 text-sm">
+              <div class="mt-1 text-sm flex gap-1 flex-wrap">
                 <%= render TagListComponent.new(tag_list: project.usecase_tags) %>
               </div>
-              <div class="mt-1 text-sm ">
+              <div class="mt-1 text-sm flex gap-1 flex-wrap">
                 <% if project.proprietary? %>
                   <span class="inline-flex items-center text-white px-1.5 py-0.5 rounded text-xs uppercase bg-blue-500 ">
                     Proprietary

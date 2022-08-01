@@ -1,5 +1,5 @@
-<div class="overflow-hidden bg-white border border-gray-800 shadow-lg sm:rounded-lg">
-  <div class="px-4 py-5 border-b border-gray-800 sm:px-6">
+<div class="overflow-hidden bg-white border border-gray-500 shadow-lg sm:rounded-lg">
+  <div class="px-4 py-5 border-b border-gray-500 sm:px-6">
     <div class="flex">
       <% if @project.avatar.attached? %>
         <div>
@@ -7,7 +7,7 @@
         </div>
       <% end %>
       <div class="ml-2">
-        <h1 class="text-lg font-medium leading-6">
+        <h1 class="text-xl font-medium leading-6">
           <%= @project.name %>
         </h1>
         <p class="max-w-2xl mt-1 text-sm text-gray-600">
@@ -40,7 +40,7 @@
       <% if @project.github_forks_count.present? %>
         <div class="flex flex-col items-center">
           <div class="text-sm font-medium leading-5 text-gray-600 flex">
-            Forks 
+            Forks
           </div>
           <div class="text-sm font-medium leading-5 text-gray-600 flex">
             <%= number_to_human(@project.github_forks_count, :format => '%n%u', :units => { thousand: 'K' }) %>
@@ -192,15 +192,15 @@
         <dt class="text-sm font-medium leading-5 text-gray-600">
           Platform
         </dt>
-        <dd class="mt-1 text-sm leading-5 text-gray-900">
+        <dd class="mt-1 text-sm leading-5 text-gray-900 flex gap-1 flex-wrap">
           <%= render TagListComponent.new(tag_list: @project.platform_tags) %>
         </dd>
       </div>
       <div class="sm:col-span-1">
-        <dt class="text-sm font-medium leading-5 text-gray-600">
+        <dt class="text-sm font-medium leading-5 text-gray-600 ">
           License
         </dt>
-        <dd class="mt-1 text-sm leading-5 text-gray-900">
+        <dd class="mt-1 text-sm leading-5 text-gray-900 flex gap-1 flex-wrap">
           <% if @project.proprietary? %>
             <span class="inline-flex items-center text-white px-1.5 py-0.5 rounded text-xs uppercase bg-blue-500 ">
               proprietary
@@ -214,7 +214,7 @@
         <dt class="text-sm font-medium leading-5 text-gray-600">
           Category
         </dt>
-        <dd class="mt-1 text-sm leading-5 text-gray-900">
+        <dd class="mt-1 text-sm leading-5 text-gray-900 flex gap-1 flex-wrap">
           <%= render TagListComponent.new(tag_list: @project.category_tags) %>
         </dd>
       </div>
@@ -222,7 +222,7 @@
         <dt class="text-sm font-medium leading-5 text-gray-600">
           Usecase
         </dt>
-        <dd class="mt-1 text-sm leading-5 text-gray-900">
+        <dd class="mt-1 text-sm leading-5 text-gray-900 flex gap-1 flex-wrap">
           <%= render TagListComponent.new(tag_list: @project.usecase_tags) %>
         </dd>
       </div>
@@ -230,7 +230,7 @@
         <dt class="text-sm font-medium leading-5 text-gray-600">
           Technology
         </dt>
-        <dd class="mt-1 text-sm leading-5 text-gray-900">
+        <dd class="mt-1 text-sm leading-5 text-gray-900 flex gap-1 flex-wrap">
           <%= render TagListComponent.new(tag_list: @project.tech_tags) %>
         </dd>
       </div>
@@ -238,7 +238,7 @@
         <dt class="text-sm font-medium leading-5 text-gray-600">
           Offers premium version?
         </dt>
-        <dd class="mt-1 text-sm leading-5 text-gray-900">
+        <dd class="mt-1 text-sm leading-5 text-gray-900 flex gap-1 flex-wrap">
           <%= premium_description %>
         </dd>
       </div>
@@ -246,7 +246,7 @@
         <dt class="text-sm font-medium leading-5 text-gray-600">
           Proprietary?
         </dt>
-        <dd class="mt-1 text-sm leading-5 text-gray-900">
+        <dd class="mt-1 text-sm leading-5 text-gray-900 flex gap-1 flex-wrap">
           <%= proprietary_description %>
         </dd>
       </div>
