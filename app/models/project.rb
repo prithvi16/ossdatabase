@@ -93,6 +93,9 @@ class Project < ApplicationRecord
     end
     projects = projects.filter_by_tag_ids(tag_filters) if tag_filters.length >= 1
     projects = projects.where(proprietary: false) if params[:proprietary].present? && ActiveRecord::Type::Boolean.new.cast(params[:proprietary])
+    if !params.key?(:pg_search_by_name) && !params.key?(:sidebar_tag_ids) && !params.key?(:proprietary) && tag_filters.length == 0
+      projects = projects.order("updated_at DESC")
+    end
     projects.includes([:avatar_attachment]).page params[:page]
   end
 
