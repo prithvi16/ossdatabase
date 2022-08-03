@@ -47,7 +47,7 @@ class Project < ApplicationRecord
   include PgSearch::Model
   friendly_id :name, use: :slugged
 
-  pg_search_scope :pg_search_by_name, against: {name: "A", tag_line: "B"}, using: {tsearch: {dictionary: "english", prefix: true}}
+  pg_search_scope :pg_search_by_name, against: {name: "A"}, using: {tsearch: {dictionary: "english", prefix: true}}
   scope :filter_by_tag_ids, ->(tag_ids) { preload(:tags, :taggings).joins(:taggings).group(:id).having("array_agg(taggings.tag_id ORDER BY taggings.tag_id) @> ARRAY[?]::bigint[]", tag_ids.reject { |element| element.empty? }.sort) }
   scope :filter_by_any_of_tag_ids, ->(tag_ids) { preload(:tags, :taggings).joins(:taggings).group(:id).having("array_agg(taggings.tag_id ORDER BY taggings.tag_id) && ARRAY[?]::bigint[]", tag_ids.reject { |element| element.empty? }.sort) }
 
