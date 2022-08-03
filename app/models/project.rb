@@ -88,8 +88,9 @@ class Project < ApplicationRecord
     if params[:pg_search_by_name].present?
       projects = projects.pg_search_by_name(params[:pg_search_by_name]).reorder(nil)
     end
-    if params[:sidebar_tag_ids].present?
-      projects = projects.filter_by_any_of_tag_ids(JSON.parse(params[:sidebar_tag_ids]))
+    sidebar_tag_ids = JSON.parse(params[:sidebar_tag_ids]) if params[:sidebar_tag_ids].present?
+    if !sidebar_tag_ids.nil? && sidebar_tag_ids.any?
+      projects = projects.filter_by_any_of_tag_ids(sidebar_tag_ids)
     end
     projects = projects.filter_by_tag_ids(tag_filters) if tag_filters.length >= 1
     projects = projects.where(proprietary: false) if params[:proprietary].present? && ActiveRecord::Type::Boolean.new.cast(params[:proprietary])
