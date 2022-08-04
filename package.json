@@ -37,6 +37,7 @@
     "notyf": "^3.10.0",
     "postcss": "8.2.13",
     "postcss-loader": "^4.2.0",
+    "scroll-into-view-if-needed": "^2.2.29",
     "slim-select": "^1.26.0",
     "stimulus-use": "^0.50.0",
     "tailwindcss-stimulus-components": "^3.0.4",

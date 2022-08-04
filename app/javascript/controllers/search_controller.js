@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 let debounce = require("lodash/debounce");
 import SlimSelect from "slim-select";
+import scrollIntoView from "scroll-into-view-if-needed";
 
 export default class extends Controller {
   static targets = [
@@ -40,6 +41,12 @@ export default class extends Controller {
 
   submitForm() {
     this.formTarget.requestSubmit();
+    const resultTop = document.getElementById("search_results_parent");
+    scrollIntoView(resultTop, {
+      scrollMode: "if-needed",
+      alignToTop: true,
+      behavior: "smooth",
+    });
   }
 
   sidebarFilterChange(event) {
