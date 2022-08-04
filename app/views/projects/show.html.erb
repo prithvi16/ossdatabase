@@ -9,8 +9,10 @@
 <div class="bg-gray-100">
   <div class="max-w-3xl px-4 py-8 mx-auto sm:px-6 lg:px-8 ">
     <%= render(ProjectComponent.new(project: @project, current_user: current_user))%>
-    <div class="mx-2 my-8 text-xl font-medium leading-6 ">
-      Alternative Projects
+    <div class="flex items-center justify-center">
+      <div class="text-3xl font-semibold leading-10 text-center my-10 text-white tracking-tight border-blue-500 rounded shadow-lg p-2 bg bg-blue-600 inline-block">
+        Alternative Projects
+      </div>
     </div>
     <%= render(ProjectListComponent.new(project_list: @alternative_projects)) %>
   </div>

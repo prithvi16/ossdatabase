@@ -4,7 +4,7 @@
       No projects found
     </div>
   <% else %>
-    <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <ul class="grid grid-cols-1 gap-4 sm:grid-cols-3">
       <% @project_list.each do |project| %>
         <li class="max-w-xl col-span-1 bg-white rounded-lg shadow-lg border border-1"
             data-controller="project-card"
@@ -23,12 +23,12 @@
                     <%= link_to project.name, project_path(project) %>
                   </div>
                 </div>
-                <div class="sm:flex sm:justify-between">
-                  <div class="sm:flex">
-                    <div class="flex items-center text-sm leading-5 text-gray-500">
-                      <%= project.tag_line %>
-                    </div>
-                  </div>
+              </div>
+            </div>
+            <div class="sm:flex sm:justify-between mt-1">
+              <div class="sm:flex">
+                <div class="flex items-center text-sm leading-5 text-gray-500 line-clamp-4">
+                  <%= project.tag_line %>
                 </div>
               </div>
             </div>
@@ -41,6 +41,8 @@
                   <%= number_to_human(project.github_stars, :format => '%n%u', :units => { thousand: 'K' }) %>
                 </div>
               <% end %>
+            </div>
+            <div class="flex mt-1 -ml-2 space-x-2">
               <div class="mt-1 text-sm flex gap-1 flex-wrap">
                 <%= render TagListComponent.new(tag_list: project.usecase_tags) %>
               </div>
