@@ -31,6 +31,55 @@
   </div>
 </main>
 <div class="bg-gray-100">
+  <div class="max-w-3xl px-4 pt-10  mx-auto sm:px-6  lg:max-w-6xl lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+      <div class="col-span-1 space-y-3 flex flex-col items-center justify-center text-left">
+        <!-- This example requires Tailwind CSS v2.0+ -->
+        <div>
+          <dl class="mt-5 grid gap-5 grid-cols-3 ">
+            <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+              <dt class="text-sm font-medium text-gray-500 truncate">Total Projects</dt>
+              <dd class="mt-1 text-3xl text-center font-semibold text-gray-900"><%= Project.count %></dd>
+            </div>
+            <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+              <dt class="text-sm font-medium text-gray-500 truncate">Open Source</dt>
+              <dd class="mt-1 text-3xl text-center font-semibold text-gray-900"><%= @projects_stats[:open_source] %></dd>
+            </div>
+            <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+              <dt class="text-sm font-medium text-gray-500 truncate">Proprietary</dt>
+              <dd class="mt-1 text-3xl text-center font-semibold text-gray-900"><%= @projects_stats[:proprietary] %></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <div class="col-span-1 flex items-center flex-col justify-center">
+        <%= pie_chart @projects_stats  %>
+      </div>
+    </div>
+    <div class="text-3xl font-semibold text-center my-10 tracking-tight">
+      Open Source projects by licenses
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-5">
+      <div class="col-span-1 flex items-center flex-col justify-center">
+        <%= pie_chart @license_data  %>
+      </div>
+      <div class="col-span-1">
+        <!-- This example requires Tailwind CSS v2.0+ -->
+        <div>
+          <dl class="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4">
+            <% @license_data.each do |license, count| %>
+              <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+                <dt class="text-base font-medium text-gray-500 truncate"><%= license.upcase %></dt>
+                <dd class="mt-1 text-2xl  font-semibold text-gray-900"><%= count %></dd>
+              </div>
+            <% end %>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-gray-100">
   <%= render partial: "layouts/project_search"%>
 </div>
 <%= render NewsLetterComponent.new %>

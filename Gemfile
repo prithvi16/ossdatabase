@@ -75,6 +75,9 @@ gem "kaminari"
 # File downloads
 gem "down", "~> 5.3"
 
+# Charts
+gem "chartkick"
+
 # Background jobs
 gem "sidekiq"
 
@@ -84,7 +87,7 @@ gem "bootsnap", ">= 1.4.2", require: false
 # forms
 gem "simple_form"
 
-# json 
+# json
 gem "oj"
 
 # Fast partials

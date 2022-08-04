@@ -29,6 +29,8 @@
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/line-clamp": "^0.4.0",
     "@tailwindcss/typography": "^0.5.2",
+    "chart.js": "^3.9.1",
+    "chartkick": "^4.2.0",
     "jquery": "^3.5.0",
     "lodash": "^4.17.21",
     "morphdom": "^2.6.1",

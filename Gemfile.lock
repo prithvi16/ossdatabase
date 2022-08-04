@@ -547,6 +547,7 @@ DEPENDENCIES
   capistrano-rbenv (~> 2.1, >= 2.1.4)
   capistrano-sidekiq
   capybara (>= 2.15)
+  chartkick
   cuprite
   database_cleaner-active_record
   devise
