@@ -9,7 +9,7 @@
 <main class="hero-background">
   <div class="flex flex-col items-center justify-center w-full pt-16 pb-20 mx-auto text-center max-w-7xl lg:py-14 lg:text-left md:flex-row">
     <div class="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
-      <h1 class="text-4xl font-semibold leading-10 subpixel-antialiased	 text-white sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl">
+      <h1 class="text-4xl font-semibold leading-10 subpixel-antialiased text-white sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl">
         Find open source alternatives
       </h1>
       <p class="max-w-md mx-auto mt-3 text-lg text-white sm:text-xl md:mt-5 md:max-w-3xl">
@@ -32,21 +32,26 @@
 </main>
 <div class="bg-gray-100">
   <div class="max-w-3xl px-4 pt-10  mx-auto sm:px-6  lg:max-w-6xl lg:px-8">
+    <div class="flex items-center justify-center">
+      <div class="text-3xl font-semibold leading-10 text-center my-10 text-white tracking-tight border-blue-500 rounded shadow-lg p-2 bg bg-blue-600 inline-block">
+        Project Statistics
+      </div>
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
       <div class="col-span-1 space-y-3 flex flex-col items-center justify-center text-left">
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div>
           <dl class="mt-5 grid gap-5 grid-cols-3 ">
             <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
-              <dt class="text-sm font-medium text-gray-500 truncate">Total Projects</dt>
+              <dt class="text-sm font-medium text-gray-500">Total Projects</dt>
               <dd class="mt-1 text-3xl text-center font-semibold text-gray-900"><%= Project.count %></dd>
             </div>
             <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
-              <dt class="text-sm font-medium text-gray-500 truncate">Open Source</dt>
+              <dt class="text-sm font-medium text-gray-500">Open Source</dt>
               <dd class="mt-1 text-3xl text-center font-semibold text-gray-900"><%= @projects_stats[:open_source] %></dd>
             </div>
             <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
-              <dt class="text-sm font-medium text-gray-500 truncate">Proprietary</dt>
+              <dt class="text-sm font-medium text-gray-500">Proprietary</dt>
               <dd class="mt-1 text-3xl text-center font-semibold text-gray-900"><%= @projects_stats[:proprietary] %></dd>
             </div>
           </dl>
@@ -56,8 +61,10 @@
         <%= pie_chart @projects_stats  %>
       </div>
     </div>
-    <div class="text-3xl font-semibold text-center my-10 tracking-tight">
-      Open Source projects by licenses
+    <div class="flex items-center justify-center">
+      <div class="text-3xl font-semibold leading-10 text-center my-10 text-white tracking-tight border-blue-500 rounded shadow-lg p-2 bg bg-blue-600 inline-block">
+        Open Source projects by licenses
+      </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-5">
       <div class="col-span-1 flex items-center flex-col justify-center">
@@ -68,7 +75,7 @@
         <div>
           <dl class="mt-5 grid grid-cols-3 gap-2 sm:grid-cols-5">
             <% @license_data.each do |license, count| %>
-              <div class="px-2 py-2 bg-white shadow rounded-lg sm:p-3">
+              <div class="px-2 py-2 bg-white shadow rounded-lg sm:p-3 text-center">
                 <dt class="text-xs font-medium text-gray-500 text-wrap"><%= license.upcase %></dt>
                 <dd class="mt-1 text-md font-semibold text-gray-900"><%= count %></dd>
               </div>
