@@ -45,8 +45,6 @@
             <div class="flex mt-1 -ml-2 space-x-2">
               <div class="mt-1 text-sm flex gap-1 flex-wrap">
                 <%= render TagListComponent.new(tag_list: project.usecase_tags) %>
-              </div>
-              <div class="mt-1 text-sm flex gap-1 flex-wrap">
                 <% if project.proprietary? %>
                   <span class="inline-flex items-center text-white px-1.5 py-0.5 rounded text-xs uppercase bg-blue-500 ">
                     Proprietary
