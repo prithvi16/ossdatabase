@@ -1,7 +1,7 @@
 <% title @article.title %>
 <% description render_markdown_text(@article.content).truncate(100) %>
-<% set_meta_tags og: { title: @article.title, 
-    description: render_markdown_text(@article.content).truncate(100), 
+<% set_meta_tags og: { title: @article.title,
+    description: render_markdown_text(@article.content).truncate(100),
     image: BANNER_IMAGE_URL,
     type: "website",
     url: article_url(@article)},
@@ -35,5 +35,8 @@
     <div class="max-w-prose pt-10 mx-auto text-center text-lg">
       <%= link_to " ← All Posts", blog_path %>
     </div>
+  </div>
+  <div class="py-20">
+    <%= render NewsLetterComponent.new %>
   </div>
 </div>
