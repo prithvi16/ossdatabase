@@ -101,7 +101,7 @@ group :development, :test do
   # debugging
   gem "pry-rails"
   # linitng
-  gem "rubocop", "~> 1.33.0", require: false
+  gem "rubocop", "~> 1.35.0", require: false
   gem "rubocop-rails"
 
   # Factories
