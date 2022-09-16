@@ -29,6 +29,10 @@ gem "redis", "~> 4.7"
 # HTML sanitizer
 gem "sanitize"
 
+# TODO https://stackoverflow.com/questions/72242024/synchronysing-dependencies-between-system-and-application
+gem "strscan", "3.0.1"
+
+
 # s3 adapter
 gem "aws-sdk-s3", require: false
 

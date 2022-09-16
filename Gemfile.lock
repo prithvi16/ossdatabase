@@ -500,7 +500,7 @@ GEM
     standard (1.15.0)
       rubocop (= 1.33.0)
       rubocop-performance (= 1.14.3)
-    strscan (3.0.4)
+    strscan (3.0.1)
     syntax_tree (2.3.1)
     temple (0.8.2)
     thin (1.8.1)
@@ -615,6 +615,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   stackprof
   standard
+  strscan (= 3.0.1)
   timecop
   turbo-rails
   tzinfo-data
