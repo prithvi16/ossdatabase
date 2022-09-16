@@ -20,7 +20,7 @@ describe "Users" do
     fill_in "Password", with: "222222"
     find("#submit_sign_in_button").click
     expect(page).to have_content("Signed in successfully.")
-    click_button "", {id: "user-menu"}
+    find('#user-menu').click
     click_link "Account settings"
     fill_in "Username", with: "mam"
     fill_in "Current password", with: "222222"

@@ -50,5 +50,5 @@ install_plugin Capistrano::Sidekiq # Default sidekiq tasks
 install_plugin Capistrano::Sidekiq::Systemd
 
 set :rbenv_type, :user
-set :rbenv_ruby, "2.7.1"
+set :rbenv_ruby, "3.1.2"
 require "capistrano/honeybadger"

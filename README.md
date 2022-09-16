@@ -17,7 +17,7 @@ This is the source for ossdatabase.com 🚀. OssDatabse is a database of open so
 Install the dependencies for local development
 
 ```
-Ruby 2.7.1
+Ruby 3.1.2
 Node 16.15.0
 Yarn 1.21.1
 Redis
