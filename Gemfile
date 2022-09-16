@@ -111,7 +111,7 @@ group :development, :test do
   gem "debug", ">= 1.0.0"
 
   # linitng
-  gem "rubocop", "~> 1.33.0", require: false
+  gem "rubocop", "~> 1.35.1", require: false
   gem "rubocop-rails"
 
   # Factories
@@ -177,4 +177,4 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Linting
 gem "standard", group: [:development, :test]
 
-gem "ruby-lsp", "~> 0.0.4", :group => :development
+gem "ruby-lsp", "~> 0.3.2", :group => :development
