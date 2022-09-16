@@ -100,12 +100,12 @@ gem 'net-imap', require: false
 gem 'net-pop', require: false
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   # Rspec
   gem "rspec-rails"
   # debugging
-  gem "pry-rails"
+
+  gem "debug", ">= 1.0.0"
+
   # linitng
   gem "rubocop", "~> 1.33.0", require: false
   gem "rubocop-rails"
