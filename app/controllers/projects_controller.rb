@@ -67,9 +67,9 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      if @project.logo_url.present?
-        FetchProjectLogoWorker.perform_async(@project.id)
-      end
+      # if @project.logo_url.present?
+      #   FetchProjectLogoWorker.perform_async(@project.id)
+      # end
       redirect_to @project
     else
       render :new
