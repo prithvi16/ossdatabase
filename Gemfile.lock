@@ -225,7 +225,7 @@ GEM
     has_scope (0.8.0)
       actionpack (>= 5.2)
       activesupport (>= 5.2)
-    honeybadger (4.12.1)
+    honeybadger (5.0.1)
     htmlbeautifier (1.4.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
@@ -578,7 +578,7 @@ DEPENDENCIES
   faker!
   flamegraph
   friendly_id (~> 5.4.2)
-  honeybadger (~> 4.12)
+  honeybadger (~> 5.0)
   htmlbeautifier
   image_processing (~> 1.12)
   jbuilder (~> 2.11)

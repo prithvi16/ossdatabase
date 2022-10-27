@@ -40,7 +40,7 @@ gem "aws-sdk-s3", require: false
 gem "image_processing", "~> 1.12"
 
 # Error tracking
-gem "honeybadger", "~> 4.12"
+gem "honeybadger", "~> 5.0"
 
 # Annotations
 gem "annotate"
