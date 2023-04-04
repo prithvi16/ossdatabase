@@ -30,7 +30,7 @@ gem "redis", "~> 5.0"
 gem "sanitize"
 
 # TODO https://stackoverflow.com/questions/72242024/synchronysing-dependencies-between-system-and-application
-gem "strscan", "3.0.1"
+gem "strscan", "3.0.6"
 
 
 # s3 adapter
