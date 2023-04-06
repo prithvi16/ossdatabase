@@ -78,7 +78,7 @@ gem 'redcarpet', '~> 3.5', '>= 3.5.1' # A fast, safe and extensible Markdown to 
 gem "kaminari"
 
 # File downloads
-gem "down", "~> 5.3"
+gem "down", "~> 5.4"
 
 # Charts
 gem "chartkick"
