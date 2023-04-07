@@ -13,7 +13,7 @@
 class Tag < ApplicationRecord
   has_many :taggings
   has_many :projects, through: :taggings
-  validates_uniqueness_of :name, case_sensitive: false
+  validates_uniqueness_of :name, case_sensitive: false, scope: :tag_type
   validates_presence_of :name
   include PgSearch::Model
 

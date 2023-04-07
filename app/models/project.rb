@@ -47,12 +47,21 @@ class Project < ApplicationRecord
   include PgSearch::Model
   friendly_id :name, use: :slugged
 
-  pg_search_scope :pg_search_by_name, against: {name: "A"}, using: {tsearch: {dictionary: "english", prefix: true}}
-  scope :filter_by_tag_ids, ->(tag_ids) { preload(:tags, :taggings).joins(:taggings).group(:id).having("array_agg(taggings.tag_id ORDER BY taggings.tag_id) @> ARRAY[?]::bigint[]", tag_ids.reject { |element| element.empty? }.sort) }
-  scope :filter_by_any_of_tag_ids, ->(tag_ids) { preload(:tags, :taggings).joins(:taggings).group(:id).having("array_agg(taggings.tag_id ORDER BY taggings.tag_id) && ARRAY[?]::bigint[]", tag_ids.reject { |element| element.empty? }.sort) }
+  pg_search_scope :pg_search_by_name, against: {name: "A"},
+    using: {tsearch: {dictionary: "english", prefix: true}}
+  scope :filter_by_tag_ids, lambda { |tag_ids|
+                              preload(:tags, :taggings).joins(:taggings).group(:id).having("array_agg(taggings.tag_id ORDER BY taggings.tag_id) @> ARRAY[?]::bigint[]", tag_ids.reject do |element|
+                                                                                                                                                                          element.empty?
+                                                                                                                                                                        end.sort)
+                            }
+  scope :filter_by_any_of_tag_ids, lambda { |tag_ids|
+                                     preload(:tags, :taggings).joins(:taggings).group(:id).having("array_agg(taggings.tag_id ORDER BY taggings.tag_id) && ARRAY[?]::bigint[]", tag_ids.reject do |element|
+                                                                                                                                                                                 element.empty?
+                                                                                                                                                                               end.sort)
+                                   }
 
   def self.tagged_with(name)
-    Tag.find_by!(name: name).projects
+    Tag.find_by!(name:).projects
   end
 
   def self.tag_counts
@@ -67,6 +76,10 @@ class Project < ApplicationRecord
     tags.map(&:name).join(", ")
   end
 
+  def any_tags_with?(tag_type)
+    tags.where(tag_type:).any?
+  end
+
   def self.tagged_with_top_categories
     Project.joins(:tags).where(tags: {top_category: true}).group("projects.id")
   end
@@ -75,13 +88,16 @@ class Project < ApplicationRecord
     Project.pg_search_by_name(query).limit(5).select(:id, :name, :tag_line)
   end
 
+  def tag_with(tag_name, tag_type)
+    tag = Tag.find_or_create_by!(name: tag_name, tag_type:)
+    tags << tag unless tags.include?(tag)
+  end
+
   def self.search(params)
     tag_filters = []
     tag_list = %w[license_tag_ids tech_tag_ids usecase_tag_ids platform_tag_ids]
     tag_list.each do |tag_type|
-      if params[tag_type].present?
-        tag_filters += params[tag_type]
-      end
+      tag_filters += params[tag_type] if params[tag_type].present?
     end
     tag_filters = tag_filters.reject(&:empty?).uniq
     projects = Project.all
@@ -89,11 +105,11 @@ class Project < ApplicationRecord
       projects = projects.pg_search_by_name(params[:pg_search_by_name]).reorder(nil)
     end
     sidebar_tag_ids = JSON.parse(params[:sidebar_tag_ids]) if params[:sidebar_tag_ids].present?
-    if !sidebar_tag_ids.nil? && sidebar_tag_ids.any?
-      projects = projects.filter_by_any_of_tag_ids(sidebar_tag_ids)
-    end
+    projects = projects.filter_by_any_of_tag_ids(sidebar_tag_ids) if !sidebar_tag_ids.nil? && sidebar_tag_ids.any?
     projects = projects.filter_by_tag_ids(tag_filters) if tag_filters.length >= 1
-    projects = projects.where(proprietary: false) if params[:proprietary].present? && ActiveRecord::Type::Boolean.new.cast(params[:proprietary])
+    if params[:proprietary].present? && ActiveRecord::Type::Boolean.new.cast(params[:proprietary])
+      projects = projects.where(proprietary: false)
+    end
     if !params.key?(:pg_search_by_name) && !params.key?(:sidebar_tag_ids) && !params.key?(:proprietary) && tag_filters.length == 0
       projects = projects.order("updated_at DESC")
     end
@@ -102,7 +118,7 @@ class Project < ApplicationRecord
 
   TOP_TAG_TYPES.each do |tag_type|
     define_method "#{tag_type}_tags" do
-      tags.where(tag_type: tag_type)
+      tags.where(tag_type:)
     end
   end
 

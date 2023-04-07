@@ -9,6 +9,8 @@ class GithubSyncWorker
     update_with_graphql_data(parsed_github_data)
     update_readme
     attach_logo unless @project.avatar.attached?
+    attach_github_license(github_repo_data) unless @project.any_tags_with?("license")
+    update_project_technologies unless @project.any_tags_with?("tech")
   end
 
   def attach_logo
@@ -20,6 +22,19 @@ class GithubSyncWorker
       GithubApi.client.repo @project.github_id
     else
       GithubApi.client.repo @project.source_id
+    end
+  end
+
+  def attach_github_license(github_repo_data)
+    return unless github_repo_data.license?
+
+    @project.tag_with(github_repo_data.license.key, "license")
+  end
+
+  def update_project_technologies
+    tech_data = GithubApi.client.languages @project.source_id
+    tech_data.each do |tech, _|
+      @project.tag_with(tech, "tech")
     end
   end
 
