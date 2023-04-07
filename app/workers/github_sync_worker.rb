@@ -24,14 +24,16 @@ class GithubSyncWorker
   end
 
   def update_with_repo_data(github_repo_data)
-    @project.update!(github_open_issues_count: github_repo_data.open_issues_count,
+    @project.update!(
+      github_open_issues_count: github_repo_data.open_issues_count,
       github_stars: github_repo_data.stargazers_count,
       github_id: github_repo_data.id,
       source_id: github_repo_data.full_name,
       repo_url: github_repo_data.html_url,
       github_forks_count: github_repo_data.forks_count,
       github_watchers_count: github_repo_data.watchers_count,
-      last_updated_from_source: DateTime.now)
+      last_updated_from_source: DateTime.now
+    )
   end
 
   def fetch_graphql_data
