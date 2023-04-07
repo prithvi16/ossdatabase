@@ -89,8 +89,9 @@ class Project < ApplicationRecord
   end
 
   def tag_with(tag_name, tag_type)
-    tag = Tag.find_or_create_by!(name: tag_name, tag_type:)
-    tags << tag unless tags.include?(tag)
+    tag = Tag.where(name: tag_name, tag_type:).first_or_create
+    puts tag.name
+    tags << tag unless Tagging.where(project_id: id, tag_id: tag.id).any?
   end
 
   def self.search(params)
