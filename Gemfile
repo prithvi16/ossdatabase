@@ -72,7 +72,7 @@ gem "pg_search"
 gem "friendly_id", "~> 5.4.2"
 
 # markdown
-gem 'redcarpet', '~> 3.5', '>= 3.5.1' # A fast, safe and extensible Markdown to (X)HTML parser
+gem 'redcarpet', '~> 3.6' # A fast, safe and extensible Markdown to (X)HTML parser
 
 # pagination
 gem "kaminari"
