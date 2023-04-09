@@ -89,7 +89,8 @@ class Project < ApplicationRecord
   end
 
   def tag_with(tag_name, tag_type)
-    tag = Tag.where(name: tag_name, tag_type:).first_or_create
+    tag = Tag.where("name ilike ? and tag_type = ?", "%#{tag_name}%", tag_type).first
+    tag = Tag.create(name: tag_name, tag_type:) unless tag&.persisted?
     puts tag.name
     tags << tag unless Tagging.where(project_id: id, tag_id: tag.id).any?
   end
