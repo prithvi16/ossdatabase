@@ -1,7 +1,7 @@
 <% title "Browse projects" %>
 <% description 'Browse open source projects by tags on ossdatabase' %>
-<% set_meta_tags og: { title: "Browse projects", 
-                       description: 'Browse open source projects by tags on ossdatabase', 
+<% set_meta_tags og: { title: "Browse projects",
+                       description: 'Browse open source projects by tags on ossdatabase',
                        image: BANNER_IMAGE_URL,
                        type: "website",
                        url: projects_browse_url},
@@ -13,7 +13,7 @@
         <h1 class="my-4 font-medium tracking-wide text-gray-800 uppercase text-md"> <%= tag_type %> tags </h1>
         <ul class="grid grid-cols-1 gap-5 mt-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <% Tag.where(tag_type: tag_type).each do |tag| %>
-            <%= link_to(tag_show_path(tag.slug)) do %>
+            <%= link_to(custom_tag_path(tag)) do %>
               <li class="flex col-span-1 border border-gray-400 rounded-md shadow-lg">
                 <div class="shrink-0 flex items-center justify-center w-16 <%= TAG_COLORS[tag.tag_type] %> text-white text-sm leading-5 font-medium rounded-l-md">
                   <%= tag.name[0,2].upcase %>

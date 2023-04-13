@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-class ModalComponent < ViewComponent::Base
+class ModalComponent < BaseComponent
 end

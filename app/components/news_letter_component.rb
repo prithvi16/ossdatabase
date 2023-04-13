@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-class NewsLetterComponent < ViewComponent::Base
+class NewsLetterComponent < BaseComponent
 end

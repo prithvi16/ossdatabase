@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TagListComponent < ViewComponent::Base
+class TagListComponent < BaseComponent
   def initialize(tag_list:)
     @tag_list = tag_list
   end

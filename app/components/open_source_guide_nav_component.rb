@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class OpenSourceGuideNavComponent < ViewComponent::Base
+class OpenSourceGuideNavComponent < BaseComponent
   def active_class(current_page)
     if request.path == current_page
       "bg-gray-300 text-gray-900"

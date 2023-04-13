@@ -1,4 +1,4 @@
-class ProjectComponent < ViewComponent::Base
+class ProjectComponent < BaseComponent
   include ApplicationHelper
 
   def initialize(project:, current_user:)

@@ -25,4 +25,10 @@ class Tag < ApplicationRecord
   def self.search_suggestions(query)
     pg_search_by_name(query).select(:name, :id).limit(3)
   end
+
+  def license
+    return unless tag_type == "license"
+
+    License.find_by(key: name)
+  end
 end

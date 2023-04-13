@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class NavSearchResultComponent < ViewComponent::Base
+class NavSearchResultComponent < BaseComponent
   def initialize(results:)
     @results = results
   end
