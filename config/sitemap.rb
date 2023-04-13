@@ -1,7 +1,7 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "https://ossdatabase.com"
+SitemapGenerator::Sitemap.default_host = 'https://ossdatabase.com'
 
-SitemapGenerator::Sitemap.sitemaps_path = "shared/"
+SitemapGenerator::Sitemap.sitemaps_path = 'shared/'
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
@@ -40,8 +40,8 @@ SitemapGenerator::Sitemap.create do
     add article_path(article), lastmod: article.updated_at
   end
 
-  add projects_browse_path, changefreq: "daily"
-  add search_path, changefreq: "daily"
+  add projects_browse_path, changefreq: 'daily'
+  add search_path, changefreq: 'daily'
   add new_submission_path
   add open_source_path
   add open_source_license_picker_path
@@ -50,6 +50,7 @@ SitemapGenerator::Sitemap.create do
 
   License.find_each do |license|
     add license_path(license)
+    add projects_with_license_path(license.key)
   end
 
   StaticPage.find_each do |page|
@@ -57,7 +58,7 @@ SitemapGenerator::Sitemap.create do
   end
 
   add open_source_alternatives_path
-  Tag.where(tag_type: "usecase").find_each do |tag|
+  Tag.where(tag_type: 'usecase').find_each do |tag|
     add open_source_usecase_path("open-source-#{tag.slug}-software")
   end
 end
