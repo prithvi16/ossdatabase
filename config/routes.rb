@@ -37,6 +37,10 @@ Rails.application.routes.draw do
   post '/blog', to: 'articles#create'
   post '/blog/:id', to: 'articles#update', as: 'update_article'
 
+  # Projects by license
+  get '/open-source-projects-with-:key-license', to: 'open_source#projects_with_license',
+                                                 as: 'projects_with_license'
+
   # Open Source guides
   get '/open-source', to: 'open_source#index', as: 'open_source'
   get '/open-source-licenses', to: 'open_source#licenses_index', as: 'licenses_index'

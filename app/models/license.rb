@@ -17,4 +17,12 @@ class License < ApplicationRecord
   def name_and_key
     "#{name} #{key}"
   end
+
+  def tag
+    Tag.find_by(name: key)
+  end
+
+  def projects
+    tag.projects
+  end
 end

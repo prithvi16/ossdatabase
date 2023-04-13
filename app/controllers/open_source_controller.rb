@@ -16,6 +16,11 @@ class OpenSourceController < ApplicationController
   def license_picker
   end
 
+  def projects_with_license
+    @license = License.find_by(key: params[:key])
+    @projects = @license.projects.includes(:taggings, :avatar_attachment, :tags).page params[:page]
+  end
+
   def alternatives
     @usecase_tags = Tag.where(tag_type: "usecase").order(:name)
   end
