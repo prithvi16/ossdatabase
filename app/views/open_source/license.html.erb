@@ -1,6 +1,6 @@
 <% title  @license.name %>
-<% set_meta_tags og: { title: @license.name, 
-                       description: "Information and legal text about #{@license.name} #{@license.key}", 
+<% set_meta_tags og: { title: @license.name,
+                       description: "Information and legal text about #{@license.name} #{@license.key}",
                        image: BANNER_IMAGE_URL,
                        type: "website",
                        url: license_url(@license)},
@@ -12,8 +12,11 @@
     <%= render OpenSourceGuideNavComponent.new %>
     <div class="prose md:prose-lg lg:prose-xl mt-10">
       <h1 class=""><%= @license.name %></h1>
+      <%= link_to "View projects with this license", projects_with_license_url(key: @license.key), class: "text-blue-500" %>
+      <h4>license summary</h4>
+      <p class="text-gray-500 prose"><%= @license.description.html_safe %></p>
       <h4>license text</h4>
-      <pre class=" whitespace-pre-wrap">
+      <pre class=" whitespace-pre-wrap  h-80">
         <%= @license.content %>
       </pre>
     </div>

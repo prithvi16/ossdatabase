@@ -6,13 +6,15 @@
                        type: "website",
                        url: projects_with_license_url(key: @license.key)},
                  canonical: projects_with_license_url(key: @license.key) %>
-<div class="max-w-6xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
+<div class="max-w-5xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
   <div class="pb-5 border-b border-gray-200">
-    <div class="-ml-2 -mt-2 flex flex-wrap items-baseline">
-      <h1 class="ml-2 mt-2 text-lg leading-6 font-medium text-gray-900">
-        Open source projects with <%= @license.name %> license
-      </h1>
-    </div>
+    <h1>
+      <span class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate text-center">
+        Open source projects with <%= @license.name %>
+      </span>
+    </h1>
+    <h4 class="mt-10"> License summary </h4>
+    <div class="text-gray-600 prose"><%= @license.description.html_safe %></div>
   </div>
   <%= render(ProjectListComponent.new(project_list: @projects)) %>
 </div>
