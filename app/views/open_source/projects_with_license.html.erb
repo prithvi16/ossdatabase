@@ -13,8 +13,12 @@
         Open source projects with <%= @license.name %>
       </span>
     </h1>
-    <h4 class="mt-10"> License summary </h4>
-    <div class="text-gray-600 prose"><%= @license.description.html_safe %></div>
+    <h4 class="mt-10 text-xl font-bold leading-7"> License summary </h4>
+    <div class="text-gray-600 prose"><%= @license&.description&.html_safe %></div>
+    <div class="mt-10">
+      <a href="<%= license_path(@license) %>" class="text-blue-600 hover:text-blue-800" target="_blank">
+        <%= @license.url %>
+      </a>
+    </div>
+    <%= render(ProjectListComponent.new(project_list: @projects)) %>
   </div>
-  <%= render(ProjectListComponent.new(project_list: @projects)) %>
-</div>
