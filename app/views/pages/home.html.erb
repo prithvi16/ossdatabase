@@ -69,23 +69,18 @@
         Open Source projects by licenses
       </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-5">
-      <div class="col-span-1 flex items-center flex-col justify-center">
-        <%= pie_chart @license_data  %>
-      </div>
-      <div class="col-span-1">
-        <!-- This example requires Tailwind CSS v2.0+ -->
-        <div>
-          <dl class="mt-5 grid grid-cols-3 gap-2 sm:grid-cols-5">
-            <% @license_data.each do |license, count| %>
-              <div class="px-2 py-2 bg-white shadow rounded-lg sm:p-3 text-center">
-                <dt class="text-xs font-medium text-gray-500 text-wrap"><%= license.upcase %></dt>
-                <dd class="mt-1 text-md font-semibold text-gray-900"><%= count %></dd>
-              </div>
-            <% end %>
-          </dl>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <% @top_licenses.each do |license| %>
+        <div class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400">
+          <div class="min-w-0 flex-1">
+            <a href="<%= projects_with_license_path(key: license.key) %>" class="focus:outline-none">
+              <span class="absolute inset-0" aria-hidden="true"></span>
+              <p class="text-sm font-medium text-gray-900"><%= license.name %></p>
+              <p class="truncate text-sm text-gray-500"><%= license.projects.count %> projects</p>
+            </a>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -17,7 +17,7 @@
     <div class="text-gray-600 prose"><%= @license&.description&.html_safe %></div>
     <div class="mt-10">
       <a href="<%= license_path(@license) %>" class="text-blue-600 hover:text-blue-800" target="_blank">
-        <%= @license.url %>
+        More about <%= @license.name %> license &rarr;
       </a>
     </div>
     <%= render(ProjectListComponent.new(project_list: @projects)) %>

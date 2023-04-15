@@ -13,6 +13,8 @@
 class License < ApplicationRecord
   extend FriendlyId
   friendly_id :name_and_key, use: :slugged
+  belongs_to :tag, optional: true, foreign_key: :key
+  has_many :projects, through: :tag
 
   def name_and_key
     "#{name} #{key}"
