@@ -9,7 +9,6 @@ export default class extends Controller {
   }
 
   clickOutside(event) {
-    // example to close a modal
     event.preventDefault();
     this.resultParentTarget.classList.add("opacity-0", "-z-10");
     this.resultParentTarget.classList.remove("opacity-100", "z-10");
@@ -24,11 +23,40 @@ export default class extends Controller {
         method: "POST",
         success: function (data) {
           morphdom(this.resultParentTarget, data);
-          this.resultParentTarget.children[0].focus();
+          this.resultParentTarget.children[0].children[0].focus();
           this.resultParentTarget.classList.remove("opacity-0", "-z-10");
           this.resultParentTarget.classList.add("opacity-100", "z-10");
+
+          // Add event listener for keyboard navigation
+          this.resultParentTarget.addEventListener("keydown", (event) => {
+            this.handleKeyNavigation(event);
+          });
         }.bind(this),
       });
+    }
+  }
+
+  handleKeyNavigation(event) {
+    const { key } = event;
+    const activeElement = document.activeElement;
+    const isLink = activeElement.tagName === "A";
+
+    if (key === "ArrowDown") {
+      event.preventDefault();
+      if (isLink && activeElement.parentElement.nextElementSibling) {
+        activeElement.parentElement.nextElementSibling.children[0].focus();
+      } else {
+        this.resultParentTarget.children[0].children[0].focus();
+      }
+    } else if (key === "ArrowUp") {
+      event.preventDefault();
+      if (isLink && activeElement.parentElement.previousElementSibling) {
+        activeElement.parentElement.previousElementSibling.children[0].focus();
+      } else {
+        this.resultParentTarget.lastElementChild.children[0].focus();
+      }
+    } else if (key === "Enter" && isLink) {
+      window.location.href = activeElement.href;
     }
   }
 }
