@@ -32,6 +32,7 @@ gem "sanitize"
 # TODO https://stackoverflow.com/questions/72242024/synchronysing-dependencies-between-system-and-application
 gem "strscan", "3.0.1"
 
+gem "httparty"
 
 
 # s3 adapter

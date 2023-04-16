@@ -227,6 +227,9 @@ GEM
       activesupport (>= 5.2)
     honeybadger (5.2.1)
     htmlbeautifier (1.4.2)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -295,6 +298,7 @@ GEM
     mini_portile2 (2.8.1)
     minitest (5.18.0)
     msgpack (1.5.4)
+    multi_xml (0.6.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
     net-imap (0.3.4)
@@ -582,6 +586,7 @@ DEPENDENCIES
   friendly_id (~> 5.4.2)
   honeybadger (~> 5.2)
   htmlbeautifier
+  httparty
   image_processing (~> 1.12)
   jbuilder (~> 2.11)
   kaminari
