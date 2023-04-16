@@ -34,6 +34,8 @@ gem "strscan", "3.0.1"
 
 gem "httparty"
 
+gem "capistrano-db-tasks", require: false
+
 
 # s3 adapter
 gem "aws-sdk-s3", require: false

@@ -1,8 +1,10 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.17.0"
+lock '~> 3.17.0'
 
-set :application, "ossdatabase"
-set :repo_url, "git@github.com:prithvi16/ossdatabase.git"
+require 'capistrano-db-tasks'
+
+set :application, 'ossdatabase'
+set :repo_url, 'git@github.com:prithvi16/ossdatabase.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -40,7 +42,8 @@ set :repo_url, "git@github.com:prithvi16/ossdatabase.git"
 # Deploy to the user's home directory
 set :deploy_to, "/home/ubuntu/#{fetch :application}"
 
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", ".bundle", "public/system", "public/uploads"
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system',
+       'public/uploads'
 
 # Only keep the last 5 releases to save disk space
 set :keep_releases, 5
@@ -53,6 +56,29 @@ set :ssh_options, {
 
   auth_methods: %w[publickey],
 
-  keys: [ENV["SERVER_KEY_NAME"], ENV["LOCAL_KEY_NAME"]]
+  keys: [ENV['SERVER_KEY_NAME'], ENV['LOCAL_KEY_NAME']]
 
 }
+
+# if you haven't already specified
+set :rails_env, 'production'
+
+# if you want to remove the local dump file after loading
+set :db_local_clean, true
+
+# if you want to remove the dump file from the server after downloading
+set :db_remote_clean, true
+
+# if you want to exclude table from dump
+set :db_ignore_tables, []
+
+# if you want to exclude table data (but not table schema) from dump
+set :db_ignore_data_tables, []
+
+# If you want to import assets, you can change default asset dir (default = system)
+# This directory must be in your shared directory on the server
+set :assets_dir, %w[public/assets public/att]
+set :local_assets_dir, %w[public/assets public/att]
+
+# if you are highly paranoid and want to prevent any push operation to the server
+set :disallow_pushing, true
