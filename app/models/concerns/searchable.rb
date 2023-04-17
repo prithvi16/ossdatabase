@@ -6,13 +6,12 @@ module Searchable
     def search(params)
       tag_filters = extract_tag_filters(params)
       projects = base_search_scope
-
       projects = apply_name_search(params, projects)
       projects = apply_sidebar_tags(params, projects)
       projects = apply_tag_filters(tag_filters, projects)
       projects = apply_open_source_filter(params, projects)
       projects = apply_default_ordering(params, tag_filters, projects)
-
+      projects = Project.all if projects.blank?
       projects.includes([:avatar_attachment]).page params[:page]
     end
 
@@ -28,7 +27,7 @@ module Searchable
     end
 
     def base_search_scope
-      all
+      Project.all
     end
 
     def apply_name_search(params, projects)
