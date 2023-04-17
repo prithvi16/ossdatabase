@@ -54,10 +54,10 @@
           </div>
           <%= f.hidden_field :sidebar_tag_ids, {class: "hidden", "data-search-target": "selectSidebarFilter"} %>
           <div class="mt-3" id="search_results_parent">
-            <%= f.label :proprietary, "Open Source only?", class: "block  font-medium leading-5" %>
+            <%= f.label :open_source, "Open Source only?", class: "block  font-medium leading-5" %>
             <div class="">
-              <%= f.label :proprietary, "Yes", class: "inline-block font-medium leading-5" %>
-              <%= f.check_box :proprietary, {"data-action": "change->search#triggerSearch"}%>
+              <%= f.label :open_source, "Yes", class: "inline-block font-medium leading-5" %>
+              <%= f.check_box :open_source, {"data-action": "change->search#triggerSearch"}%>
             </div>
           </div>
         <% end %>

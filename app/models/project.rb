@@ -60,6 +60,14 @@ class Project < ApplicationRecord
                                                                                                                                                                                end.sort)
                                    }
 
+  scope :filter_by_tag_type, lambda { |tag_type|
+                               preload(:tags, :taggings).joins(:taggings).where(tags: {tag_type:})
+                             }
+
+  scope :without_tag_type, lambda { |tag_type|
+                             where.not(id: Tagging.joins(:tag).where(tags: {tag_type:}).select(:project_id))
+                           }
+
   def self.tagged_with(name)
     Tag.find_by!(name:).projects
   end
@@ -99,7 +107,7 @@ class Project < ApplicationRecord
     tag_filters = []
     tag_list = %w[license_tag_ids tech_tag_ids usecase_tag_ids platform_tag_ids]
     tag_list.each do |tag_type|
-      tag_filters += params[tag_type] if params[tag_type].present?
+      tag_filters += params[tag_type.to_s] if params[tag_type.to_s].present?
     end
     tag_filters = tag_filters.reject(&:empty?).uniq
     projects = Project.all
@@ -109,7 +117,7 @@ class Project < ApplicationRecord
     sidebar_tag_ids = JSON.parse(params[:sidebar_tag_ids]) if params[:sidebar_tag_ids].present?
     projects = projects.filter_by_any_of_tag_ids(sidebar_tag_ids) if !sidebar_tag_ids.nil? && sidebar_tag_ids.any?
     projects = projects.filter_by_tag_ids(tag_filters) if tag_filters.length >= 1
-    if params[:proprietary].present? && ActiveRecord::Type::Boolean.new.cast(params[:proprietary])
+    if params[:open_source].present? && ActiveRecord::Type::Boolean.new.cast(params[:open_source])
       projects = projects.where(proprietary: false)
     end
     if !params.key?(:pg_search_by_name) && !params.key?(:sidebar_tag_ids) && !params.key?(:proprietary) && tag_filters.length == 0
