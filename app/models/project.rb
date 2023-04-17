@@ -45,6 +45,7 @@ class Project < ApplicationRecord
 
   extend FriendlyId
   include PgSearch::Model
+  include Searchable
   friendly_id :name, use: :slugged
 
   pg_search_scope :pg_search_by_name, against: {name: "A"},
@@ -101,29 +102,6 @@ class Project < ApplicationRecord
     tag = Tag.create(name: tag_name, tag_type:) unless tag&.persisted?
     puts tag.name
     tags << tag unless Tagging.where(project_id: id, tag_id: tag.id).any?
-  end
-
-  def self.search(params)
-    tag_filters = []
-    tag_list = %w[license_tag_ids tech_tag_ids usecase_tag_ids platform_tag_ids]
-    tag_list.each do |tag_type|
-      tag_filters += params[tag_type.to_s] if params[tag_type.to_s].present?
-    end
-    tag_filters = tag_filters.reject(&:empty?).uniq
-    projects = Project.all
-    if params[:pg_search_by_name].present?
-      projects = projects.pg_search_by_name(params[:pg_search_by_name]).reorder(nil)
-    end
-    sidebar_tag_ids = JSON.parse(params[:sidebar_tag_ids]) if params[:sidebar_tag_ids].present?
-    projects = projects.filter_by_any_of_tag_ids(sidebar_tag_ids) if !sidebar_tag_ids.nil? && sidebar_tag_ids.any?
-    projects = projects.filter_by_tag_ids(tag_filters) if tag_filters.length >= 1
-    if params[:open_source].present? && ActiveRecord::Type::Boolean.new.cast(params[:open_source])
-      projects = projects.where(proprietary: false)
-    end
-    if !params.key?(:pg_search_by_name) && !params.key?(:sidebar_tag_ids) && !params.key?(:proprietary) && tag_filters.length == 0
-      projects = projects.order("updated_at DESC")
-    end
-    projects.includes([:avatar_attachment]).page params[:page]
   end
 
   TOP_TAG_TYPES.each do |tag_type|
