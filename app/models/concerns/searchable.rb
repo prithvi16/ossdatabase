@@ -4,8 +4,8 @@ module Searchable
 
   class_methods do
     def search(params)
-      tag_filters = extract_tag_filters(params)
       projects = base_search_scope
+      tag_filters = extract_tag_filters(params)
       projects = apply_name_search(params, projects)
       projects = apply_sidebar_tags(params, projects)
       projects = apply_tag_filters(tag_filters, projects)
@@ -37,7 +37,7 @@ module Searchable
     end
 
     def apply_sidebar_tags(params, projects)
-      if params[:sidebar_tag_ids].present?
+      if params[:sidebar_tag_ids].present? && JSON.parse(params[:sidebar_tag_ids]).any?
         sidebar_tag_ids = JSON.parse(params[:sidebar_tag_ids])
         projects.filter_by_any_of_tag_ids(sidebar_tag_ids) if sidebar_tag_ids.any?
       else
