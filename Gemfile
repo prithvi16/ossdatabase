@@ -6,7 +6,7 @@ ruby "3.1.2"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 6.1.4"
 # Use Puma as the app server
-gem "puma", "~> 5.6"
+gem "puma", "~> 6.3"
 # Best database int the world
 gem "pg"
 # Use SCSS for stylesheets
