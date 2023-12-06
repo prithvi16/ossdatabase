@@ -35,7 +35,7 @@
     "lodash": "^4.17.21",
     "morphdom": "^2.6.1",
     "notyf": "^3.10.0",
-    "postcss": "8.2.13",
+    "postcss": "8.4.31",
     "postcss-loader": "^4.2.0",
     "scroll-into-view-if-needed": "^2.2.29",
     "slim-select": "^1.26.0",
