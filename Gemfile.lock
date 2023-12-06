@@ -507,7 +507,7 @@ GEM
       language_server-protocol (~> 3.17.0.2)
       rubocop (= 1.42.0)
       rubocop-performance (= 1.15.2)
-    strscan (3.0.1)
+    strscan (3.0.6)
     syntax_tree (2.3.1)
     temple (0.8.2)
     thin (1.8.1)
@@ -625,7 +625,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.1.0)
   stackprof
   standard
-  strscan (= 3.0.1)
+  strscan (= 3.0.6)
   timecop
   turbo-rails
   tzinfo-data
