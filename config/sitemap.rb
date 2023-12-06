@@ -29,6 +29,7 @@ SitemapGenerator::Sitemap.create do
 
   Project.find_each do |project|
     add project_path(project), lastmod: project.updated_at
+    add alternatives_to_path(project.slug), lastmod: project.updated_at
   end
 
   Tag.find_each do |tag|

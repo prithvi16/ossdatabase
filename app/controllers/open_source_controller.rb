@@ -16,6 +16,11 @@ class OpenSourceController < ApplicationController
   def license_picker
   end
 
+  def alternatives_to
+    @project = Project.friendly.find(params[:slug])
+    @alternative_projects = Project.filter_by_any_of_tag_ids(@project.usecase_tags.map { |tag| tag.id.to_s }).where.not(id: @project.id).where(proprietary: false)
+  end
+
   def projects_with_license
     @license = License.find_by(key: params[:key])
     @projects = @license.projects.includes(:taggings, :avatar_attachment, :tags).page params[:page]

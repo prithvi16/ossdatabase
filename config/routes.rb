@@ -52,4 +52,6 @@ Rails.application.routes.draw do
   get '/open-source-alternatives', to: 'open_source#alternatives', as: 'open_source_alternatives'
   get '/usecase/:id', to: 'open_source#alternative_usecase', as: 'open_source_usecase',
                       constraints: { id: /open-source-[a-z0-9]+(?:-[a-z0-9]+)*-software/ }
+
+  get '/open-source-alternatives-to-:slug', to: 'open_source#alternatives_to', as: 'alternatives_to'
 end

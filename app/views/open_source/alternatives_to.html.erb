@@ -1,0 +1,22 @@
+<% title "Open source alternatives to #{@project.name}" %>
+<% description @project.description  %>
+<% set_meta_tags og: { title: "Open source alternatives to #{@project.name}",
+                       description: Sanitize.fragment(@project.description),
+                       image: BANNER_IMAGE_URL,
+                       type: "website",
+                       url: alternatives_to_url(@project.slug)},
+                 canonical: alternatives_to_url(@project.slug) %>
+<div class="bg-gray-100">
+  <div class="max-w-5xl px-4 py-8 mx-auto sm:px-6 lg:px-8 ">
+    <%= render(ProjectComponent.new(project: @project, current_user: current_user))%>
+    <div class="flex items-center justify-center">
+      <div class="text-3xl font-semibold leading-10 text-center my-10 text-white tracking-tight border-blue-500 rounded shadow-lg p-2 bg bg-blue-600 inline-block">
+        Open source alternatives to <%= @project.name %>
+      </div>
+    </div>
+    <%= render(ProjectListComponent.new(project_list: @alternative_projects)) %>
+  </div>
+  <div class="py-20">
+    <%= render NewsLetterComponent.new %>
+  </div>
+</div>
