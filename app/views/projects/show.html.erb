@@ -1,7 +1,7 @@
 <% title "Open source alternatives to #{@project.name}" %>
 <% description @project.description  %>
 <% set_meta_tags og: { title: "Open source alternatives to #{@project.name}",
-                       description: @project.description,
+                       description: Sanitize.fragment(@project.description),
                        image: BANNER_IMAGE_URL,
                        type: "website",
                        url: project_url(@project)},
