@@ -165,7 +165,7 @@ GEM
     childprocess (4.1.0)
     coderay (1.1.3)
     concurrent-ruby (1.2.2)
-    connection_pool (2.2.5)
+    connection_pool (2.4.1)
     crass (1.0.6)
     cuprite (0.14.3)
       capybara (~> 3.0)
@@ -384,9 +384,9 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redcarpet (3.6.0)
-    redis (5.0.6)
-      redis-client (>= 0.9.0)
-    redis-client (0.12.1)
+    redis (5.1.0)
+      redis-client (>= 0.17.0)
+    redis-client (0.19.1)
       connection_pool
     regexp_parser (2.7.0)
     reline (0.3.3)
@@ -612,7 +612,7 @@ DEPENDENCIES
   rails (~> 6.1.4)
   ransack
   redcarpet (~> 3.6)
-  redis (~> 5.0)
+  redis (~> 5.1)
   rspec-rails
   rubocop (~> 1.42.0)
   rubocop-rails
