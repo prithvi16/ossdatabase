@@ -11,8 +11,8 @@ default: &default
   encoding: unicode
   host: <%= ENV.fetch("DATABASE_POSTGRES_HOST") {"localhost"} %>
   port: <%= ENV.fetch("DATABASE_POSTGRES_PORT") { 5432 } %>
-  username: <%= ENV.fetch("DATABASE_POSTGRES_USERNAME") %>
-  password: <%= ENV.fetch("DATABASE_POSTGRES_PASSWORD") %>
+  username: <%= ENV["DATABASE_POSTGRES_USERNAME"] %>
+  password: <%= ENV["DATABASE_POSTGRES_PASSWORD"] %>
 
 development:
   <<: *default
@@ -28,5 +28,3 @@ test:
 production:
   <<: *default
   database: ossdatabase_production
-
-
